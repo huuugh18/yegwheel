@@ -39,9 +39,11 @@
     align-items: center;
     color: var(--logo-text-color);
 }
-.nav-link{
+a.nav-link{
     min-width: 100px;
     font-size: 22px;
+    text-decoration: none;
+    color: var(--logo-text-color);
 }
 
 

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link } from "react-router-dom";
+
 
 import './Navbar.css'
 import logo from '../graphics/yegwheel_logo.svg'
@@ -15,15 +17,15 @@ export class Navbar extends Component {
                     yegwheel
                 </div>
                 <div id="nav-link-container">
-                    <div className="nav-link">
-                        About
-                    </div>
-                    <div className="nav-link">
+                    <Link to='/' className="nav-link">
+                        Home
+                    </Link>
+                    <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank">
                         Forum
-                    </div>
-                    <div className="nav-link">
+                    </a>
+                    <Link to='/learntowheel' className="nav-link">
                         How To
-                    </div>
+                    </Link>
                 </div>
             </div>
         )
