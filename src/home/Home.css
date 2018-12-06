@@ -18,9 +18,9 @@
 #banner-title{
     grid-area: titleImage;
     justify-self: center;
-    align-self:end;
+    align-self:center;
     width: 100%;
-    background-color: rgba(194, 231, 218, 0.35);
+    background-color: rgba(229, 235, 232, 0.44);
     height: 20%;
     display: grid;
 }
@@ -31,7 +31,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 4em;
     font-weight: 900;
-    color: var(--logo-text-color);
+    color: var(--theme-three);
 }
 
 #content-container{
@@ -61,7 +61,7 @@
     text-align: center;
     padding: 15px;
     text-transform: uppercase;
-    color: #1A1B41;
+    color: var(--logo-text-color);
     font-weight: 700;
     padding: 5px;
     font-family: var(--video-font-family);
@@ -71,7 +71,7 @@
     font-size: 1.0em;
     font-weight: 600;
     justify-self: center;
-    color: var(--nav-bg-color);
+    color: var(--theme-three);
     padding: 15px;
     font-family: var(--video-font-family);
     line-height: 1.5em;  

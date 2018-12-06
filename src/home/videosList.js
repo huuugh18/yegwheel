@@ -13,7 +13,7 @@ const videos = [
     },
     {
         title: 'Mill Creek Lower Trail',
-        description: 'Our 20 km ride yesterday took us through Mill Creek Ravine yesterday -- for the first time we took on some of the unpaved lower path, a popular off leash area near downtown Edmonton.',
+        description: 'Our 20 km ride took us through Mill Creek Ravine -- for the first time we took on some of the unpaved lower path, a popular off leash area near downtown Edmonton.',
         source: 'https://www.youtube.com/embed/BfSP7cKuDdw',
         id: 'BfSP7cKuDdw'
     },
