@@ -20,7 +20,7 @@ export class Navbar extends Component {
                     <Link to='/' className="nav-link">
                         Home
                     </Link>
-                    <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank">
+                    <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">
                         Forum
                     </a>
                     <Link to='/learntowheel' className="nav-link">

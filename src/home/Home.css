@@ -41,43 +41,7 @@
     justify-content: space-around;
     margin-top: 50px;
 }
-.video-container{
-    width: 300px;
-    padding: 25px;
-    margin: 20px 30px;
-    background-color: var(--video-bg-color);
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px black;
-}
-.video-container-player{
-    width: 300px;
-    height: 200px;
-    border-radius: 5px;
-    justify-self: center;
-    align-self: center;
-}
-.video-container-header{
-    font-size: 1.5em;
-    text-align: center;
-    padding: 15px;
-    text-transform: uppercase;
-    color: var(--logo-text-color);
-    font-weight: 700;
-    padding: 5px;
-    font-family: var(--video-font-family);
-    height: 10%;
-}
-.video-container-description{
-    font-size: 1.0em;
-    font-weight: 600;
-    justify-self: center;
-    color: var(--theme-three);
-    padding: 15px;
-    font-family: var(--video-font-family);
-    line-height: 1.5em;  
-    margin-bottom: 5px;
-    height: 40%;
-}
+
 
 @media(min-width: 975px){
     .home-container{

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Home.css'
 import banner from '../graphics/home_banner.png'
 import videos from './videosList'
-import {VideoTile} from './VideoTile'
+import {VideoTile} from '../components/VideoTile'
 
 
 export class Home extends Component{
