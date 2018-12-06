@@ -4,6 +4,7 @@ import './LearnTo.css'
 import learningPic from '../graphics/learning_net_crop.jpg'
 import videos from './learnToVideoList'
 import {VideoTile} from '../components/VideoTile'
+import {MUIVideoTile} from './MUIVideoTile'
 
 export class LearnHowTo extends Component{
     render(){
@@ -16,7 +17,17 @@ export class LearnHowTo extends Component{
                     </div>
                 </div>
                 <div id="ltw-content-container">
-                    {
+                {
+                    videos.map(vid => <MUIVideoTile
+                                    key={vid.id} 
+                                    source={vid.source} 
+                                    title={vid.title} 
+                                    description={vid.description}
+                        />
+                    )
+
+                }
+                    {/* {
                          videos.map(vid => <VideoTile 
                                 key={vid.id} 
                                 source={vid.source} 
@@ -24,7 +35,7 @@ export class LearnHowTo extends Component{
                                 description={vid.description}
                             />     
                         )
-                    }
+                    } */}
                 </div>
             </div>
         )
