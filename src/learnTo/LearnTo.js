@@ -13,7 +13,7 @@ export class LearnHowTo extends Component{
                 <img id="ltw-header-image" src={learningPic} alt="two people learning to use a wheel"/>
                 <div id="ltw-header-title">
                     <div id="ltw-header-title-text">
-                        Learning to Ride
+                        Learn to Ride
                     </div>
                 </div>
                 <div id="ltw-content-container">

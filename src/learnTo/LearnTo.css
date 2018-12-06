@@ -1,22 +1,21 @@
 .learn-to-container{
     grid-area: body;
     width: 100%;
-    /* height: 100vh; */
     display: grid;
     grid-template-areas:
-        ". header ."
+        "header header header"
         ". main .";
     background-color: var(--main-bg-color);
 }
 
 @media(min-width: 975px){
-    .home-container{
+    .learn-to-container{
         grid-template-columns: 10% auto 10%;
     }
 }
 
 @media(max-width: 974px){
-    .home-container{
+    .learn-to-container{
         grid-template-columns: 0px auto 0px;
     }
 }
@@ -26,6 +25,7 @@
     grid-area: header;
     width: 100%;
     height: auto;
+    max-height: 700px;
     top: 0;
     bottom: 0;
 }
@@ -34,7 +34,7 @@
     justify-self: center;
     align-self:center;
     width: 100%;
-    background-color: rgba(229, 235, 232, 0.44);
+    background-color: rgba(229, 235, 232, 0.64);
     height: 20%;
     display: grid;
 }

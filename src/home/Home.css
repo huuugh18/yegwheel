@@ -20,7 +20,7 @@
     justify-self: center;
     align-self:center;
     width: 100%;
-    background-color: rgba(229, 235, 232, 0.44);
+    background-color: rgba(229, 235, 232, 0.64);
     height: 20%;
     display: grid;
 }
