@@ -2,7 +2,7 @@
     width: 300px;
     padding: 25px;
     margin: 20px 30px;
-    background-color: var(--video-bg-color);
+    background-color: var(--video-bg-color) !important;
     border-radius: 5px;
     box-shadow: 3px 3px 3px black;
 }
@@ -12,6 +12,9 @@
     border-radius: 5px;
     justify-self: center;
     align-self: center;
+}
+.video-container-text{
+    background-color: var(--video-bg-color);
 }
 .video-container-header{
     font-size: 1.5em;

@@ -11,7 +11,7 @@ export const MUIVideoTile = (props) => {
         <Card className='video-container'>
             <CardActionArea>
                 <VideoComponent className="video-container-player" source={props.source} title={props.title}/> 
-                <CardContent>
+                <CardContent className="video-container-text">
                     <Typography gutterBottom variant='h5' component='h2'>
                         {props.title}
                     </Typography>

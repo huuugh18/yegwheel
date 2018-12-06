@@ -18,11 +18,12 @@ export class LearnHowTo extends Component{
                 </div>
                 <div id="ltw-content-container">
                 {
-                    videos.map(vid => <MUIVideoTile
-                                    key={vid.id} 
-                                    source={vid.source} 
-                                    title={vid.title} 
-                                    description={vid.description}
+                    videos.map(vid => 
+                        <MUIVideoTile
+                            key={vid.id} 
+                            source={vid.source} 
+                            title={vid.title} 
+                            description={vid.description}
                         />
                     )
 
