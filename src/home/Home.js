@@ -10,6 +10,11 @@ export class Home extends Component{
         return (
             <div className="home-container">
                 <img id="home-title-image" src={banner} alt="two people riding electric wheel in front of bridge"/>
+                <div id="banner-title" >
+                    <div id="banner-title-text">
+                        yegwheel
+                    </div>
+                </div>
                 <div id="content-container">
                     {
                         videos.map(vid => <VideoTile 

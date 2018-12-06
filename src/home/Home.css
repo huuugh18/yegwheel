@@ -15,6 +15,24 @@
     top: 0;
     bottom: 0;
 }
+#banner-title{
+    grid-area: titleImage;
+    justify-self: center;
+    align-self:end;
+    width: 100%;
+    background-color: rgba(194, 231, 218, 0.35);
+    height: 20%;
+    display: grid;
+}
+
+#banner-title-text{
+    justify-self: center;
+    align-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4em;
+    font-weight: 900;
+    color: var(--logo-text-color);
+}
 
 #content-container{
     grid-area: main;
