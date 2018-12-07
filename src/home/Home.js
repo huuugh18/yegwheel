@@ -15,7 +15,24 @@ export class Home extends Component{
                         yegwheel
                     </div>
                 </div>
-                <div id="content-container">
+                <div id="home-about">
+                    <div id="home-about-header">
+                        About Us
+                    </div>
+                    <div id="home-about-main">
+                        We're all about Electric Unicyling in Edmonton. We meet once a week or two to chat about things and work on skills.
+                        We do demos for anyone new who is interested in learning and usually finish up with a short trip somewhere around the city on our wheels.
+                        You can check out some videos below
+                    </div>
+                    <div id="home-about-schedule">
+                        Sunday Morning Meetup at Ritchie Arena.
+                        Introduction for new users.
+                        Practice and skill development for current users.
+                        10:45 Departure for road trip around city
+                        7727 98 St NW, Edmonton, AB T6E 5C9
+                    </div>
+                </div>
+                <div id="home-video-container">
                     {
                         videos.map(vid => <VideoTile 
                                 key={vid.id} 

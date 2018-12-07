@@ -4,7 +4,8 @@
     display:grid;
     grid-template-areas:
         ". titleImage ."
-        ". main .";
+        ". about ."
+        ". videos .";
     background-color: var(--main-bg-color);
 }
 
@@ -33,9 +34,33 @@
     font-weight: 900;
     color: var(--theme-three);
 }
+#home-about{
+    grid-area: about;
+    background-color: var(--theme-two);
+    justify-self: center;
+    align-self: center;   
+    display: grid;
+    grid-template-areas: 
+        "aboutHeader aboutHeader"
+        "aboutMain aboutSchedule";
+    grid-template-rows: auto auto;
+    grid-template-columns: 50% 50%;
+}
+#home-about-header{
+    grid-area: aboutHeader;
+    justify-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4em;
+}
+#home-about-main{
+    grid-area: aboutMain;
+}
+#home-about-schedule{
+    grid-area: aboutSchedule;
+}
 
-#content-container{
-    grid-area: main;
+#home-video-container{
+    grid-area: videos;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
