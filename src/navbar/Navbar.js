@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 
 import './Navbar.css'
@@ -17,15 +17,15 @@ export class Navbar extends Component {
                     yegwheel
                 </div>
                 <div id="nav-link-container">
-                    <Link to='/' className="nav-link">
+                    <NavLink to='/' exact className="nav-link" activeClassName="nav-link-active">
                         Home
-                    </Link>
+                    </NavLink>
                     <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">
                         Forum
                     </a>
-                    <Link to='/learntowheel' className="nav-link">
+                    <NavLink to='/learntowheel' className="nav-link" activeClassName="nav-link-active">
                         How To
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         )
