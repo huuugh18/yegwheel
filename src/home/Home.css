@@ -42,7 +42,7 @@
     display: grid;
     grid-template-areas: 
         ". aboutMain . aboutSchedule .";
-    grid-template-rows: minmax(500px, auto);
+    grid-template-rows: minmax(400px, auto);
     align-items: center;
     /* grid-template-columns: 50% 50%; */
 }
