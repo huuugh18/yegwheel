@@ -4,8 +4,7 @@
     "navbar"
     "body"
     "footer";
-  /* grid-template-columns: 130px 1fr 100px; */
-  grid-template-rows: 80px auto 100px;
+  grid-template-rows: 80px auto auto;
   margin: 0px;
 }
 :root{

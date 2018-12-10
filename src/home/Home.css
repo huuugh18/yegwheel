@@ -73,7 +73,6 @@
     margin-top: 50px;
 }
 
-
 @media(min-width: 975px){
     .home-container{
         grid-template-columns: 10% auto 10%;
