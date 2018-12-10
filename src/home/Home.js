@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
 import banner from '../graphics/home_banner.png'
+import banner2 from '../graphics/IntoTheLight02.jpg'
 import videos from './videosList'
 import {VideoTile} from '../components/VideoTile'
 
@@ -11,7 +12,7 @@ export class Home extends Component{
     render(){
         return (
             <div className="home-container">
-                <img id="home-title-image" src={banner} alt="two people riding electric wheel in front of bridge"/>
+                <img id="home-title-image" src={banner2} alt="two people riding electric wheel in front of bridge"/>
                 <div id="banner-title" >
                     <div id="banner-title-text">
                         yegwheel
