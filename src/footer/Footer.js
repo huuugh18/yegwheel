@@ -10,7 +10,7 @@ export class Footer extends Component {
     render(){
         return (
             <div id="home-footer">
-                <Typography variant='h6' id="home-footer-links" color="textSecondary">
+                <Typography variant='h5' id="home-footer-links" color="textSecondary">
                     <a className="footer-link" href="https://www.facebook.com/yegwheel/" target="_blank" rel="noopener noresponsive">
                          Facebook
                     </a>
