@@ -21,7 +21,7 @@
     justify-self: center;
     align-self:center;
     width: 100%;
-    background-color: rgba(229, 235, 232, 0.64);
+    /* background-color: rgba(229, 235, 232, 0.64); */
     height: 20%;
     display: grid;
 }
@@ -30,9 +30,9 @@
     justify-self: center;
     align-self: center;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 4em;
+    font-size: 5.5em;
     font-weight: 900;
-    color: var(--theme-three);
+    color: white;
 }
 #home-about{
     grid-area: about;
