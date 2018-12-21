@@ -4,8 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import './Home.css'
 import banner3 from '../graphics/IntoTheLightBanner.svg'
 import videos from './videosList'
-import {VideoTile} from '../components/VideoTile'
-import {MUIVideoTile} from '../learnTo/MUIVideoTile'
+import {MUIVideoTile} from '../components/MUIVideoTile'
 
 
 export class Home extends Component{

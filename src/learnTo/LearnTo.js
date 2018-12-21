@@ -3,7 +3,7 @@ import './LearnTo.css'
 
 import learningPic3 from '../graphics/LearnToRideBannerLCitalics.svg'
 import videos from './learnToVideoList'
-import {MUIVideoTile} from './MUIVideoTile'
+import {MUIVideoTile} from '../components/MUIVideoTile'
 
 export class LearnHowTo extends Component{
     render(){
