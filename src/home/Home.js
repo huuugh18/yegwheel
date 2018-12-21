@@ -55,25 +55,13 @@ export class Home extends Component{
                         >
                             Upcoming Events
                         </Typography>
-                        {this.state.pictures}
-                        {/* <Typography variant="h6" align="left" color="textSecondary" paragraph>
+                        <Typography variant="h6" align="left" color="textSecondary" paragraph>
                             Sunday Morning Meetup at Ritchie Arena.<br/>
                             Introduction for new users.<br/>
                             Practice and skill development for current users.<br/>
                             10:45 Departure for road trip around city<br/>
                             <a href="https://goo.gl/maps/4xBd2gERt8P2" target="_blank">7727 98 St NW, Edmonton, AB T6E 5C9</a>
-                        </Typography> */}
-                        {/* <iframe 
-                            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fyegwheel%2Fposts%2F333188630742991&width=400&show_text=true&height=168&appId" 
-                            className='facebook-post'
-                            scrolling="no" frameBorder="0" allowTransparency="true" allow="encrypted-media"
-                        />
-                        <iframe 
-                            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fyegwheel%2Fposts%2F333187807409740&width=500" 
-                            className='facebook-post'
-                            scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"
-                        /> */}
-
+                        </Typography>
                     </div>
                 </div>
                 <div id="home-video-container">
