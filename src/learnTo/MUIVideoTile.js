@@ -27,14 +27,14 @@ export const MUIVideoTile = (props) => {
 const VideoComponent = (props) => {
     return (
         <iframe 
-                title={props.title}
-                className="video-container-player"
-                controls="0"
-                src={props.source}
-                frameBorder="0" 
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                >
+            title={props.title}
+            className="video-container-player"
+            controls="0"
+            src={props.source}
+            frameBorder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+        >
         </iframe>
     )
 }
