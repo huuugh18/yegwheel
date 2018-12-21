@@ -5,7 +5,7 @@
     grid-template-areas:
         "header header header"
         ". main .";
-    background-color: var(--main-bg-color);
+    background-color: var(--theme-two);
 }
 
 @media(min-width: 975px){
@@ -28,6 +28,7 @@
     max-height: 700px;
     top: 0;
     bottom: 0;
+    background-color: var(--main-bg-color);
 }
 #ltw-header-title{
     grid-area:header;
@@ -53,4 +54,5 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 50px;
+    background-color: var(--theme-two);
 }
