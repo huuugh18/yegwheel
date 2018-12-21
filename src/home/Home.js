@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
-import banner from '../graphics/home_banner.png'
-import banner2 from '../graphics/IntoTheLight02.jpg'
 import banner3 from '../graphics/IntoTheLightBanner.svg'
 import videos from './videosList'
 import {VideoTile} from '../components/VideoTile'
+import {MUIVideoTile} from '../learnTo/MUIVideoTile'
 
 
 export class Home extends Component{
@@ -14,11 +13,6 @@ export class Home extends Component{
         return (
             <div className="home-container">
                 <img id="home-title-image" src={banner3} alt="two people riding electric wheel in front of bridge"/>
-                <div id="banner-title" >
-                    {/* <div id="banner-title-text">
-                        yegwheel
-                    </div> */}
-                </div>
                 <div id="home-about">
                     <div className="home-about-container" id="home-about-main">
                         <Typography 
@@ -66,7 +60,7 @@ export class Home extends Component{
                 </div>
                 <div id="home-video-container">
                     {
-                        videos.map(vid => <VideoTile 
+                        videos.map(vid => <MUIVideoTile 
                                 key={vid.id} 
                                 source={vid.source} 
                                 title={vid.title} 
