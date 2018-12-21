@@ -10,39 +10,6 @@ import {VideoTile} from '../components/VideoTile'
 
 
 export class Home extends Component{
-    constructor(){
-        super()
-        this.state={
-            posts:[],
-            pictures:[]
-            
-        }
-    }
-    componentDidMount(){
-        console.log('compononte mounted')
-        let pictures
-        fetch('https://randomuser.me/api?results=3')
-        .then(results => {
-            console.log('RESULTS:',results)
-            return results.json();
-        }).then(data => {
-            console.log('DATA',data.results)
-            let genders = data.results.map( user => {
-                return user.gender
-            })
-            return this.setState({pictures:genders})
-            // pictures = data.results.map( pic => {
-            //     return(
-            //         <div key={pic.results}>
-            //             <img src={pic.picture.thumbnail} alt="person"/>
-            //         </div>
-            //     )
-            // })
-        })
-        // this.setState({pictures:pictures});
-        // console.log("state", this.state.pictures)
-    }
-
     render(){
         return (
             <div className="home-container">
