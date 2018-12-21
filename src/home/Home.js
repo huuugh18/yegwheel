@@ -10,6 +10,39 @@ import {VideoTile} from '../components/VideoTile'
 
 
 export class Home extends Component{
+    constructor(){
+        super()
+        this.state={
+            posts:[],
+            pictures:[]
+            
+        }
+    }
+    componentDidMount(){
+        console.log('compononte mounted')
+        let pictures
+        fetch('https://randomuser.me/api?results=3')
+        .then(results => {
+            console.log('RESULTS:',results)
+            return results.json();
+        }).then(data => {
+            console.log('DATA',data.results)
+            let genders = data.results.map( user => {
+                return user.gender
+            })
+            return this.setState({pictures:genders})
+            // pictures = data.results.map( pic => {
+            //     return(
+            //         <div key={pic.results}>
+            //             <img src={pic.picture.thumbnail} alt="person"/>
+            //         </div>
+            //     )
+            // })
+        })
+        // this.setState({pictures:pictures});
+        // console.log("state", this.state.pictures)
+    }
+
     render(){
         return (
             <div className="home-container">
@@ -55,13 +88,24 @@ export class Home extends Component{
                         >
                             Upcoming Events
                         </Typography>
-                        <Typography variant="h6" align="left" color="textSecondary" paragraph>
+                        {this.state.pictures}
+                        {/* <Typography variant="h6" align="left" color="textSecondary" paragraph>
                             Sunday Morning Meetup at Ritchie Arena.<br/>
                             Introduction for new users.<br/>
                             Practice and skill development for current users.<br/>
                             10:45 Departure for road trip around city<br/>
                             <a href="https://goo.gl/maps/4xBd2gERt8P2" target="_blank">7727 98 St NW, Edmonton, AB T6E 5C9</a>
-                        </Typography>
+                        </Typography> */}
+                        {/* <iframe 
+                            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fyegwheel%2Fposts%2F333188630742991&width=400&show_text=true&height=168&appId" 
+                            className='facebook-post'
+                            scrolling="no" frameBorder="0" allowTransparency="true" allow="encrypted-media"
+                        />
+                        <iframe 
+                            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fyegwheel%2Fposts%2F333187807409740&width=500" 
+                            className='facebook-post'
+                            scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"
+                        /> */}
 
                     </div>
                 </div>

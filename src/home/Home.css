@@ -52,6 +52,12 @@
 #home-about-schedule{
     grid-area: aboutSchedule;
 }
+.facebook-post{
+    border: none;
+    overflow: hidden;
+    width: 400px;
+    height: auto;
+}
 .home-about-container{
     padding: 25px;
 
