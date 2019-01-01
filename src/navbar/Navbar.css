@@ -30,8 +30,6 @@
     font-family: 'Righteous', cursive;
     font-size: 50px;
     color: var(--logo-text-color);
-    /* font-weight: 500; */
-    /* font-style: italic; */
 }
 #nav-link-container{
     grid-area: links;

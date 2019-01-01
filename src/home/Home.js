@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
-import banner3 from '../graphics/IntoTheLightBanner.svg'
+import banner3 from '../graphics/IntoTheLightBannerNoText.svg'
 import videos from './videosList'
 import {MUIVideoTile} from '../components/MUIVideoTile'
 
