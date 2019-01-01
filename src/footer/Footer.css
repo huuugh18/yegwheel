@@ -4,11 +4,7 @@
     /* background-color: var(--nav-bg-color); */
     background-color: var(--theme-one);
     width: 100%;
-    height: 80px;
     display: grid;
-    grid-template-areas:
-    ". links .";
-    grid-template-columns: 1fr 3fr 1fr;
 }
 #home-footer-links{
     grid-area: links;
@@ -21,4 +17,31 @@
     /* color: var(--logo-text-color); */
     color: rgba(0, 0, 0, 0.54);
 
+}
+/* laptop and greater */
+@media(min-width: 1024px){
+    #home-footer{
+        grid-template-areas:
+        ". links .";
+        grid-template-columns: 1fr 3fr 1fr;
+        height: 60px;
+    }
+}
+/* tablet */
+@media(max-width: 1023px) and (min-width: 768px){
+    #home-footer{
+        grid-template-areas:
+        ". links .";
+        grid-template-columns: 1fr 3fr 1fr;
+        height: 60px;
+    }
+}
+
+/* phone  */
+@media(max-width: 767px){
+    #home-footer{
+        grid-template-areas:
+        "links";
+        height: 60px;
+    }
 }
