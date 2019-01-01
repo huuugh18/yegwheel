@@ -61,32 +61,28 @@
      id="image4528"
      x="0"
      y="0" />
-  <g
-     id="g1967"
-     transform="matrix(1.0834594,0,0,1,-155.48157,71.706604)">
-    <text
-       transform="scale(0.82455857,1.2127701)"
-       id="text4550"
-       y="1517.438"
-       x="897.2453"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:266.97332764px;line-height:1.25;font-family:Ethnocentric;-inkscape-font-specification:'Ethnocentric, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#21232b;fill-opacity:1;stroke:none;stroke-width:1.41082191"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:266.97332764px;font-family:Ethnocentric;-inkscape-font-specification:'Ethnocentric, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.41082191"
-         id="tspan5683"
-         sodipodi:role="line"
-         x="897.2453"
-         y="1517.438">learn to ride</tspan></text>
-    <text
-       transform="scale(0.83654616,1.1953913)"
-       id="text4550-1"
-       y="1520.2736"
-       x="857.82294"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:263.82901001px;line-height:1.25;font-family:Ethnocentric;-inkscape-font-specification:'Ethnocentric, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:0.98999999;fill:#eff1f1;fill-opacity:1;stroke:none;stroke-width:1.37411177"
-       xml:space="preserve"><tspan
-         style="stroke-width:1.37411177"
-         y="1520.2736"
-         x="857.82294"
-         id="tspan5681"
-         sodipodi:role="line">learn to ride</tspan></text>
-  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:277.89080811px;line-height:1.25;font-family:Ethnocentric;-inkscape-font-specification:'Ethnocentric, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#21232b;fill-opacity:1;stroke:none;stroke-width:1.4685154"
+     x="752.78156"
+     y="1641.0356"
+     id="text4550"
+     transform="scale(0.85827771,1.165124)"><tspan
+       y="1641.0356"
+       x="752.78156"
+       sodipodi:role="line"
+       id="tspan5683"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:277.89080811px;font-family:Ethnocentric;-inkscape-font-specification:'Ethnocentric, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.4685154">learn to ride</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:274.61791992px;line-height:1.25;font-family:Ethnocentric;-inkscape-font-specification:'Ethnocentric, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:0.98999999;fill:#eff1f1;fill-opacity:1;stroke:none;stroke-width:1.43030405"
+     x="725.32294"
+     y="1651.8477"
+     id="text4550-1"
+     transform="scale(0.87075551,1.148428)"><tspan
+       sodipodi:role="line"
+       id="tspan5681"
+       x="725.32294"
+       y="1651.8477"
+       style="stroke-width:1.43030405">learn to ride</tspan></text>
 </svg>
