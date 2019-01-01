@@ -3,13 +3,12 @@ import './LearnTo.css'
 
 import learningPic3 from '../graphics/LearnToRideBannerLCitalics.svg'
 import videos from './learnToVideoList'
-import {VideoTile} from '../components/VideoTile'
-import {MUIVideoTile} from './MUIVideoTile'
+import {MUIVideoTile} from '../components/MUIVideoTile'
 
 export class LearnHowTo extends Component{
     render(){
         return(
-            <div class="learn-to-container">
+            <div className="learn-to-container">
                 <img id="ltw-header-image" src={learningPic3} alt="two people learning to use a wheel"/>
                 <div id="ltw-content-container">
                 {
@@ -21,17 +20,7 @@ export class LearnHowTo extends Component{
                             description={vid.description}
                         />
                     )
-
                 }
-                    {/* {
-                         videos.map(vid => <VideoTile 
-                                key={vid.id} 
-                                source={vid.source} 
-                                title={vid.title} 
-                                description={vid.description}
-                            />     
-                        )
-                    } */}
                 </div>
             </div>
         )
