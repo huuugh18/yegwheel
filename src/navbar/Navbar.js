@@ -20,12 +20,12 @@ export class Navbar extends Component {
                     <NavLink to='/' exact className="nav-link" activeClassName="nav-link-active">
                         Home
                     </NavLink>
-                    <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">
-                        Forum
-                    </a>
                     <NavLink to='/learntowheel' className="nav-link" activeClassName="nav-link-active">
                         How To
                     </NavLink>
+                    <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">
+                        Forum
+                    </a>
                 </div>
             </div>
         )
