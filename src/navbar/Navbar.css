@@ -27,11 +27,11 @@
     display: flex;
     align-self: center;
     align-items: center;
-    font-family: var(--theme-font);
-    font-size: 55px;
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
     color: var(--logo-text-color);
-    font-weight: 700;
-    font-style: italic;
+    /* font-weight: 500; */
+    /* font-style: italic; */
 }
 #nav-link-container{
     grid-area: links;
