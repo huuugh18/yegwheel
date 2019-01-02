@@ -10,7 +10,7 @@ export class Footer extends Component {
     render(){
         return (
             <div id="home-footer">
-                <Typography variant='h5' id="home-footer-links" color="textSecondary">
+                <Typography variant='h5' id="footer-links" color="textSecondary">
                     <a className="footer-link" href="https://www.facebook.com/yegwheel/" target="_blank" rel="noopener noreferrer">
                          Facebook
                     </a>
@@ -22,6 +22,10 @@ export class Footer extends Component {
                     <a className="footer-link" href="https://www.youtube.com/channel/UCySSb8xYrmCFEY9yfe9cF6g" target="_blank" rel="noopener noreferrer">
                          Youtube
                     </a>
+
+                </Typography>
+                <Typography variant='p' color="textSecondary" id="footer-copyright">
+                    &copy; 2018 yegwheel.com
                 </Typography>
             </div>
         )

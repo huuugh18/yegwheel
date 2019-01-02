@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Righteous');
+
 .App {
   display: grid;
   grid-template-areas:
@@ -19,4 +21,5 @@
   --theme-three: #1A1B41 ;
   --theme-four: #6290C3;
   --theme-five: #BAFF29;  
+  --theme-font: "Roboto", "Helvetica", "Arial", sans-serif;
 }

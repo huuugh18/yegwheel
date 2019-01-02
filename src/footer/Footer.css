@@ -6,8 +6,13 @@
     width: 100%;
     display: grid;
 }
-#home-footer-links{
+#footer-links{
     grid-area: links;
+    align-self: center;
+    justify-self: center;
+}
+#footer-copyright{
+    grid-area: copyright;
     align-self: center;
     justify-self: center;
 }
@@ -22,7 +27,8 @@
 @media(min-width: 1024px){
     #home-footer{
         grid-template-areas:
-        ". links .";
+        ". links ."
+        ". copyright .";
         grid-template-columns: 1fr 3fr 1fr;
         height: 60px;
     }
@@ -31,7 +37,8 @@
 @media(max-width: 1023px) and (min-width: 768px){
     #home-footer{
         grid-template-areas:
-        ". links .";
+        ". links ."
+        ". copyright .";
         grid-template-columns: 1fr 3fr 1fr;
         height: 60px;
     }
@@ -41,7 +48,8 @@
 @media(max-width: 767px){
     #home-footer{
         grid-template-areas:
-        "links";
+        ". links ."
+        ". copyright .";
         height: 60px;
     }
 }
