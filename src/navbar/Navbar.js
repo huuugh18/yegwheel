@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link"
 
 
 import './Navbar.css'
@@ -23,9 +24,9 @@ export class Navbar extends Component {
                     <NavLink to='/learntowheel' className="nav-link" activeClassName="nav-link-active">
                         Learn
                     </NavLink>
-                    <NavLink to='/#purchase' className="nav-link" activeClassName="nav-link-active">
+                    <NavHashLink to='/#home-purchase-container' className="nav-link" activeClassName="nav-link-active">
                         Purchase
-                    </NavLink>
+                    </NavHashLink>
                     <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">
                         Forum
                     </a>
