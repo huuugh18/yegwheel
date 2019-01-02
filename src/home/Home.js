@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
 import banner3 from '../graphics/IntoTheLightBannerNoText.svg'
+import wheel from '../graphics/glide3.png'
 import videos from './videosList'
 import {MUIVideoTile} from '../components/MUIVideoTile'
 
@@ -13,13 +14,13 @@ export class Home extends Component{
             <div className="home-container">
                 <img id="home-title-image" src={banner3} alt="two people riding electric wheel in front of bridge"/>
                 <div id="home-about">
-                    <div className="home-about-container" id="home-about-main">
+                    <div className="home-about-container" id="home-about-us">
                         <Typography 
                             component="h1" 
                             variant="h3" 
                             gutterBottom
                             color="textPrimary" 
-                            className="home-about-header" 
+                            className="home-header" 
                             id="home-about-main-header"
                         >
                             About Us
@@ -43,7 +44,7 @@ export class Home extends Component{
                             variant="h3" 
                             gutterBottom
                             color="textPrimary" 
-                            className="home-about-header" 
+                            className="home-header" 
                             id="home-about-schedule-header"
                         >
                             Upcoming Events
@@ -67,6 +68,33 @@ export class Home extends Component{
                             />     
                         )
                     }
+                </div>
+                <div id="home-purchase-container">
+                    <div id="purchase-title">
+                        <Typography
+                            component="h1" 
+                            variant="h3" 
+                            gutterBottom
+                            color="textPrimary" 
+                            className="home-header" 
+                            id="home-about-schedule-header"
+                        >
+                            Purchase a Wheel
+                        </Typography>
+                    </div>
+                    <div id="purchase-info">
+                        <Typography variant="h6" align="left" color="textSecondary" paragraph>
+                                The model available for sale is the inmotion glide 3.<br/>
+                                Wheel size is 16" making it a great wheel to get started. <br/>
+                                Battery Range is 28-31 miles reaching a top speed of 19 mph.<br/>
+                                Has a built in retractable handle, front and rear lights, and side LED lights <br/>
+                                For additional info email <a href = "mailto:terry@yegwheel.com"> terry@yegwheel.com</a> <br/>
+                        </Typography>
+                    </div>
+                    <div id="purchase-img">
+                        <img id="glide3" className="wheel-img" src={wheel} alt="glide wheel 3 product"/>
+                    </div>
+
                 </div>
                 
             </div>
