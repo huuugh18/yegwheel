@@ -5,7 +5,8 @@
     grid-template-areas:
         ". titleImage ."
         "about about about"
-        ". videos .";
+        ". videos ."
+        "purchase purchase purchase";
     background-color: var(--main-bg-color);
 }
 
@@ -43,7 +44,7 @@
     /* justify-items: center */
     /* grid-template-columns: 50% 50%; */
 }
-#home-about-main{
+#home-about-us{
     grid-area: aboutMain;
     justify-self: center;
 
@@ -56,13 +57,10 @@
     padding: 25px;
 
 }
-.home-about-header{
+.home-header{
     justify-self: center;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-}
-.home-about-content{
-
 }
 
 #home-video-container{
@@ -71,6 +69,32 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 25px;
+}
+
+#home-purchase-container{
+    grid-area: purchase;
+    padding: 25px;
+    background-color: var(--theme-two);
+    display: grid;
+    
+    /* grid-template-rows: 500px; */
+    /* display: flex;
+    flex-wrap: wrap; */
+}
+#purchase-title{
+    grid-area: purchaseTitle;
+}
+#purchase-info{
+    grid-area: info;
+    align-self: center;
+}
+#purchase-img{
+    grid-area: glide3;
+    justify-self: center;
+}
+.wheel-img{
+    height: 250px;
+    width: 250px;
 }
 /* laptop and greater */
 @media(min-width: 1024px){
@@ -83,8 +107,14 @@
         grid-template-rows: minmax(400px, auto);
         grid-template-columns: 10% 1fr 5% 1fr 10%;
     }
-    .home-about-header{
+    .home-header{
         font-size: 3em;
+    }
+    #home-purchase-container{
+        grid-template-areas: 
+        ". . purchaseTitle . ."
+        ". glide3 info info .";
+        grid-template-columns: 10% 1fr auto 1fr 10%;
     }
 }
 /* tablet */
@@ -98,8 +128,14 @@
         grid-template-rows: minmax(400px, auto);        
         grid-template-columns: 0px auto 0px
     }
-    .home-about-header{
+    .home-header{
         font-size: 3em;
+    }
+    #home-purchase-container{
+        grid-template-areas: 
+        ". . purchaseTitle . ."
+        ". glide3 info info .";
+        grid-template-columns: 10% 1fr auto 1fr 10%;
     }
 }
 
@@ -114,7 +150,14 @@
         "aboutSchedule";
         grid-template-rows: minmax(400px, auto);        
     }
-    .home-about-header{
+    .home-header{
         font-size: 2.5em !important;
+    }
+    #home-purchase-container{
+        grid-template-areas: 
+            " purchaseTitle "
+            " info "
+            " glide3 ";
+        grid-column-gap: 10px;
     }
 }
