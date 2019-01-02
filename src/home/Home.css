@@ -155,8 +155,9 @@
     }
     #home-purchase-container{
         grid-template-areas: 
-        " purchaseTitle "
-        " info "
-        " glide3 ";
+            " purchaseTitle "
+            " info "
+            " glide3 ";
+        grid-column-gap: 10px;
     }
 }
