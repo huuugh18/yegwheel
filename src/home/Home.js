@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
-import banner3 from '../graphics/IntoTheLightBannerNoText.svg'
 import wheel from '../graphics/glide3.png'
 import trythis from '../graphics/Montage.png'
 import videos from './videosList'
