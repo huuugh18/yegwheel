@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import './Home.css'
 import banner3 from '../graphics/IntoTheLightBannerNoText.svg'
 import wheel from '../graphics/glide3.png'
+import trythis from '../graphics/Montage.png'
 import videos from './videosList'
 import {MUIVideoTile} from '../components/MUIVideoTile'
 
@@ -12,7 +13,7 @@ export class Home extends Component{
     render(){
         return (
             <div className="home-container">
-                <img id="home-title-image" src={banner3} alt="two people riding electric wheel in front of bridge"/>
+                <img id="home-title-image" src={trythis} alt="two people riding electric wheel in front of bridge" style={{width:1366,height:768}}/>
                 <div id="home-about">
                     <div className="home-about-container" id="home-about-us">
                         <Typography 
