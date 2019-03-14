@@ -4,10 +4,10 @@
     display:grid;
     grid-template-areas:
         ". titleImage ."
-        "about about about"
-        ". videos ."
-        "purchase purchase purchase";
-    background-color: var(--main-bg-color);
+        "learn learn learn"
+        "purchase purchase purchase"
+        "about about about";
+    background-color: var(--theme-bg-color);
 }
 
 #home-title-image{
@@ -37,7 +37,7 @@
 }
 #home-about{
     grid-area: about;
-    background-color: var(--theme-two);
+    background-color: var(--theme-bg-color);
     justify-self: center;
     align-self: center;   
     display: grid;
@@ -64,7 +64,7 @@
 }
 
 #home-video-container{
-    grid-area: videos;
+    grid-area: learn;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -74,7 +74,7 @@
 #home-purchase-container{
     grid-area: purchase;
     padding: 25px;
-    background-color: var(--theme-two);
+    background-color: var(--theme-bg-color);
     display: grid;
     
     /* grid-template-rows: 500px; */
