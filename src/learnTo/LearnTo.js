@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './LearnTo.css'
 
 import learningPic3 from '../graphics/LearnToRideBannerEthno.svg'
-import videos from './learnToVideoList'
+import videos from '../home/videosList'
 import {MUIVideoTile} from '../components/MUIVideoTile'
 
 export class LearnHowTo extends Component{
