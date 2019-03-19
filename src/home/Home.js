@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
-import wheel from '../graphics/glide3.png'
+import wheel14 from '../graphics/ks14d.jpg'
+import wheel16 from '../graphics/ks16s.jpg'
+import wheel18 from '../graphics/ks18xl.jpg'
 import trythis from '../graphics/Montage.png'
-import { Paper, Card, CardContent, CardActions, Button } from '@material-ui/core';
 import LearnCard from './LearnCard'
 import PurchaseCard from './PurchaseCard'
 import { introDescription, beginnerDescription, advancedDescription } from './learnDescriptions';
-
+import {ks14dDescription, ks16sDescription, ks18xlDescription} from './purchaseDescriptions'
 
 export class Home extends Component{
     render(){
@@ -17,27 +18,15 @@ export class Home extends Component{
                 <img id="home-title-image" src={trythis} alt="two people riding electric wheel in front of bridge" style={{width:1366,height:768}}/>
                 <div id='home-learn-title' className='home-section-header'> Yegwheel Courses </div>
                 <div id="home-learn-container">
-                    <LearnCard header='Intro to E-Wheeling' price='50' description={introDescription} />
-                    <LearnCard header='Beginner Skills' price='50' description={beginnerDescription} />
-                    <LearnCard header='Advanced Skills' price='50' description={advancedDescription} />
+                    <LearnCard header='Discover E-Wheeling' price='50' description={introDescription} />
+                    <LearnCard header='Beginner Skills' price='150' description={beginnerDescription} />
+                    <LearnCard header='Advanced Skills' price='300' description={advancedDescription} />
                 </div>
                 <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
                 <div id="home-purchase-container">
-                    <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1000'} description={introDescription} img={wheel} />
-                    <PurchaseCard header='16" Electric Unicycle KS-16S' price='1000' description={introDescription} img={wheel} />
-                    <PurchaseCard header='18" Electric Unicycle KS-18XL' price='1000' description={introDescription} img={wheel} />
-                    {/* <div id="purchase-info">
-                        <Typography variant="h6" align="left" color="textSecondary" paragraph>
-                                The model available for sale is the inmotion glide 3.<br/>
-                                Wheel size is 16" making it a great wheel to get started. <br/>
-                                Battery Range is 28-31 miles reaching a top speed of 19 mph.<br/>
-                                Has a built in retractable handle, front and rear lights, and side LED lights <br/>
-                                For additional info email <a href = "mailto:terry@yegwheel.com"> terry@yegwheel.com</a> <br/>
-                        </Typography>
-                    </div>
-                    <div id="purchase-img">
-                        <img id="glide3" className="wheel-img" src={wheel} alt="glide wheel 3 product"/>
-                    </div> */}
+                    <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1000'} description={ks14dDescription} img={wheel14} />
+                    <PurchaseCard header={'16" Electric Unicycle KS-16S'} price={'1300'} description={ks16sDescription} img={wheel16} />
+                    <PurchaseCard header={'18" Electric Unicycle KS-18XL'} price={'1800'} description={ks18xlDescription} img={wheel18} />
                 </div>
                 <div id="home-about">
                     <div className="home-about-container" id="home-about-us">

@@ -87,33 +87,32 @@
     border-radius: 5px;
     box-shadow: 3px 3px 3px black;
 }
-.learn-paper-header{
-    font-size: 1.5em;
+.home-container-header{
+    font-family: var(--theme-font-family);
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: 1.17;
     text-align: center;
     padding: 15px;
-    text-transform: uppercase;
-    color: black;
-    font-weight: 700;
-    padding: 5px;
-    font-family: var(--theme-font-family);
-    height: 10%;
 }
-.learn-paper-price{
+.home-container-descrip{
+    font-family: var(--theme-font-family);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.54);
+}
+.home-container-price{
     font-size: 1.7em;
     text-align: center;
     padding: 10px;
-    font-weight: 900;
+    font-weight: 700;
+}
+.learn-paper-header{
 }
 .learn-paper-descrip{
-    font-size: 1.0em;
-    font-weight: 400;
-    justify-self: center;
-    color: black;
-    padding: 15px;
-    font-family: var(--theme-font-family);
-    line-height: 1.5em;  
-    margin-bottom: 5px;
-    height: 40%;
+}
+.learn-paper-price{
 }
 #home-purchase-title{
     grid-area: purchaseTitle;
@@ -135,11 +134,6 @@
     align-self: center;
 }
 .purchase-card-header{
-    font-family: var(--theme-font-family);
-    font-size: 2.125rem;
-    font-weight: 400;
-    line-height: 1.17;
-    text-align: center;
 
 }
 .purchase-card-img{

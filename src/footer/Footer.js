@@ -24,7 +24,7 @@ export class Footer extends Component {
                     </a>
 
                 </Typography>
-                <Typography variant='p' color="textSecondary" id="footer-copyright">
+                <Typography variant='h6' color="textSecondary" id="footer-copyright">
                     &copy; 2018 yegwheel.com
                 </Typography>
             </div>
