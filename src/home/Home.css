@@ -4,7 +4,9 @@
     display:grid;
     grid-template-areas:
         ". titleImage ."
+        ". learnTitle ."
         "learn learn learn"
+        ". purchaseTitle ."
         "purchase purchase purchase"
         "about about about";
     background-color: var(--theme-bg-color);
@@ -62,24 +64,68 @@
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
-
-#home-video-container{
+.home-section-header{
+    margin-top: 85px;
+    font-family: var(--theme-font-family);
+    font-size: 4em;
+    justify-self: center;
+}
+#home-learn-title{
+    grid-area: learnTitle;
+}
+#home-learn-container{
     grid-area: learn;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 25px;
 }
-
+.home-display-card{
+    width: 300px;
+    padding: 25px;
+    background-color: var(--video-bg-color) !important;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+}
+.learn-paper-header{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 15px;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 700;
+    padding: 5px;
+    font-family: var(--theme-font-family);
+    height: 10%;
+}
+.learn-paper-price{
+    font-size: 1.7em;
+    text-align: center;
+    padding: 10px;
+    font-weight: 900;
+}
+.learn-paper-descrip{
+    font-size: 1.0em;
+    font-weight: 400;
+    justify-self: center;
+    color: black;
+    padding: 15px;
+    font-family: var(--theme-font-family);
+    line-height: 1.5em;  
+    margin-bottom: 5px;
+    height: 40%;
+}
+#home-purchase-title{
+    grid-area: purchaseTitle;
+}
 #home-purchase-container{
     grid-area: purchase;
     padding: 25px;
     background-color: var(--theme-bg-color);
-    display: grid;
-    
-    /* grid-template-rows: 500px; */
-    /* display: flex;
-    flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 25px;
 }
 #purchase-title{
     grid-area: purchaseTitle;
@@ -88,10 +134,10 @@
     grid-area: info;
     align-self: center;
 }
-#purchase-img{
-    grid-area: glide3;
-    justify-self: center;
+.purchase-card-img{
+    height: 300px;
 }
+
 .wheel-img{
     height: 250px;
     width: 250px;

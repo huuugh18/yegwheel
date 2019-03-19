@@ -1,0 +1,3 @@
+export const introDescription = 'This is a class we offer where you can sign up and learn a bunch of stuff about riding a wheel. We will go through the basics and get you riding using the patented 5 step method.'
+export const beginnerDescription = 'This is a class we offer where you can sign up and learn a bunch of stuff about riding a wheel. We will go through the basics and get you riding using the patented 5 step method.'
+export const advancedDescription = 'This is a class we offer where you can sign up and learn a bunch of stuff about riding a wheel. We will go through the basics and get you riding using the patented 5 step method.'

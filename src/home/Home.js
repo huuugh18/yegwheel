@@ -4,8 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import './Home.css'
 import wheel from '../graphics/glide3.png'
 import trythis from '../graphics/Montage.png'
-import videos from './videosList'
-import {MUIVideoTile} from '../components/MUIVideoTile'
+import { Paper, Card, CardContent, CardActions, Button } from '@material-ui/core';
+import LearnCard from './LearnCard'
+import PurchaseCard from './PurchaseCard'
+import { introDescription, beginnerDescription, advancedDescription } from './learnDescriptions';
 
 
 export class Home extends Component{
@@ -13,32 +15,18 @@ export class Home extends Component{
         return (
             <div className="home-container">
                 <img id="home-title-image" src={trythis} alt="two people riding electric wheel in front of bridge" style={{width:1366,height:768}}/>
-
-                <div id="home-video-container">
-                    {
-                        videos.map(vid => <MUIVideoTile 
-                                key={vid.id} 
-                                source={vid.source} 
-                                title={vid.title} 
-                                description={vid.description}
-                            />     
-                        )
-                    }
+                <div id='home-learn-title' className='home-section-header'> Yegwheel Courses </div>
+                <div id="home-learn-container">
+                    <LearnCard header='Intro to E-Wheeling' price='50' description={introDescription} />
+                    <LearnCard header='Beginner Skills' price='50' description={beginnerDescription} />
+                    <LearnCard header='Advanced Skills' price='50' description={advancedDescription} />
                 </div>
+                <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
                 <div id="home-purchase-container">
-                    <div id="purchase-title">
-                        <Typography
-                            component="h1" 
-                            variant="h3" 
-                            gutterBottom
-                            color="textPrimary" 
-                            className="home-header" 
-                            id="home-about-schedule-header"
-                        >
-                            Purchase a Wheel
-                        </Typography>
-                    </div>
-                    <div id="purchase-info">
+                    <PurchaseCard header='Header' price='1000' description={introDescription} img={wheel} />
+                    <PurchaseCard header='Header' price='1000' description={introDescription} img={wheel} />
+                    <PurchaseCard header='Header' price='1000' description={introDescription} img={wheel} />
+                    {/* <div id="purchase-info">
                         <Typography variant="h6" align="left" color="textSecondary" paragraph>
                                 The model available for sale is the inmotion glide 3.<br/>
                                 Wheel size is 16" making it a great wheel to get started. <br/>
@@ -49,8 +37,7 @@ export class Home extends Component{
                     </div>
                     <div id="purchase-img">
                         <img id="glide3" className="wheel-img" src={wheel} alt="glide wheel 3 product"/>
-                    </div>
-
+                    </div> */}
                 </div>
                 <div id="home-about">
                     <div className="home-about-container" id="home-about-us">

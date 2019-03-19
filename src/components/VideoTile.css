@@ -24,7 +24,7 @@
     color: var(--logo-text-color);
     font-weight: 700;
     padding: 5px;
-    font-family: var(--video-font-family);
+    font-family: var(--theme-font-family);
     height: 10%;
 }
 .video-container-description{
@@ -33,7 +33,7 @@
     justify-self: center;
     color: var(--theme-three);
     padding: 15px;
-    font-family: var(--video-font-family);
+    font-family: var(--theme-font-family);
     line-height: 1.5em;  
     margin-bottom: 5px;
     height: 40%;
