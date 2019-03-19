@@ -20,18 +20,18 @@ export class Home extends Component{
                 <img id="home-title-image-large" className={'home-title-image'} src={largeBanner} alt="four images of people riding electric unicycles in various locations" />
                 <img id="home-title-image-mobile" className={'home-title-image'} src={mobileBanner} alt="two people riding electric wheel in front of bridge" />
                 <div id='home-learn-title' className='home-section-header'> Yegwheel Courses </div>
-                <div id="home-learn-container">
+                <div id="home-learn-container" className={'home-section-content'}>
                     <LearnCard header='Discover E-Unicycling' price='50' description={introDescription} />
                     <LearnCard header='Beginner Skills' price='150' description={beginnerDescription} />
                     <LearnCard header='Advanced Skills' price='300' description={advancedDescription} />
                 </div>
                 <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
-                <div id="home-purchase-container">
+                <div id="home-purchase-container" className={'home-section-content'}>
                     <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1000'} description={ks14dDescription} img={wheel14} />
                     <PurchaseCard header={'16" Electric Unicycle KS-16S'} price={'1300'} description={ks16sDescription} img={wheel16} />
                     <PurchaseCard header={'18" Electric Unicycle KS-18XL'} price={'1800'} description={ks18xlDescription} img={wheel18} />
                 </div>
-                <div id="home-about">
+                <div id="home-about-container">
                     <div className="home-about-container" id="home-about-us">
                         <Typography 
                             component="h1" 
@@ -44,19 +44,20 @@ export class Home extends Component{
                             About Us
                         </Typography>
                         <Typography 
-                            className="home-about-content" 
-                            id="home-about-main-content" 
-                            variant="h6" 
-                            color="textSecondary" 
+                            id='home-about-us-content'
+                            className='home-about-content' 
+                            variant='h6' 
+                            color='textSecondary'
                             paragraph
                         >
                             We're all about Electric Unicyling in Edmonton. <br/>
                             We meet once a week or two to chat about things and work on skills.<br/>
                             We do demos for anyone new who is interested in learning and usually finish up with a short trip somewhere around the city on our wheels.<br/>
                             Check out some of our trips below.
+                            
                         </Typography>
                     </div>
-                    <div className="home-about-container" id="home-about-schedule">
+                    <div className="home-about-container" id="home-schedule">
                         <Typography 
                             component="h1" 
                             variant="h3" 
@@ -67,7 +68,13 @@ export class Home extends Component{
                         >
                             Upcoming Events
                         </Typography>
-                        <Typography variant="h6" align="left" color="textSecondary" paragraph>
+                        <Typography
+                            id='home-schedule-content' 
+                            className='home-about-content'
+                            variant='h6'
+                            color="textSecondary" 
+                            paragraph
+                        >
                             Sunday Morning Meetup at Ritchie Arena.<br/>
                             Introduction for new users.<br/>
                             Practice and skill development for current users.<br/>
