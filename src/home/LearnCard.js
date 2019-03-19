@@ -5,11 +5,11 @@ import { Card, CardContent, CardActions, Button } from '@material-ui/core';
 
 export const CourseCard = ({header,price,description}) => {
     return (
-        <Card className='learn-paper home-display-card'>
+        <Card className='learn-card home-display-card'>
             <CardContent>
-                <div className='learn-paper-header home-container-header'> {header}</div>
-                <div className='learn-paper-price home-container-price'> ${price}</div>
-                <div className='learn-paper-descrip home-container-descrip'>
+                <div className='learn-card-header home-container-header'> {header}</div>
+                <div className='learn-card-price home-container-price'> ${price}</div>
+                <div className='learn-card-descrip home-container-descrip'>
                     {description}
                 </div>
             </CardContent>

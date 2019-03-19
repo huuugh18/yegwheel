@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
+import './DisplayCard.css'
 import wheel14 from '../graphics/ks14d.jpg'
 import wheel16 from '../graphics/ks16s.jpg'
 import wheel18 from '../graphics/ks18xl.jpg'
-import trythis from '../graphics/Montage.png'
+import largeBanner from '../graphics/Montage.png'
+import mobileBanner from '../graphics/IntoTheLight01.jpg'
 import LearnCard from './LearnCard'
 import PurchaseCard from './PurchaseCard'
 import { introDescription, beginnerDescription, advancedDescription } from './learnDescriptions';
@@ -15,7 +17,8 @@ export class Home extends Component{
     render(){
         return (
             <div className="home-container">
-                <img id="home-title-image" src={trythis} alt="two people riding electric wheel in front of bridge" style={{width:1366,height:768}}/>
+                <img id="home-title-image-large" className={'home-title-image'} src={largeBanner} alt="four images of people riding electric unicycles in various locations" />
+                <img id="home-title-image-mobile" className={'home-title-image'} src={mobileBanner} alt="two people riding electric wheel in front of bridge" />
                 <div id='home-learn-title' className='home-section-header'> Yegwheel Courses </div>
                 <div id="home-learn-container">
                     <LearnCard header='Discover E-Unicycling' price='50' description={introDescription} />
