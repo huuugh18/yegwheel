@@ -18,7 +18,7 @@ export class Home extends Component{
                 <img id="home-title-image" src={trythis} alt="two people riding electric wheel in front of bridge" style={{width:1366,height:768}}/>
                 <div id='home-learn-title' className='home-section-header'> Yegwheel Courses </div>
                 <div id="home-learn-container">
-                    <LearnCard header='Discover E-Wheeling' price='50' description={introDescription} />
+                    <LearnCard header='Discover E-Unicycling' price='50' description={introDescription} />
                     <LearnCard header='Beginner Skills' price='150' description={beginnerDescription} />
                     <LearnCard header='Advanced Skills' price='300' description={advancedDescription} />
                 </div>

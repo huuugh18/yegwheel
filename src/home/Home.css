@@ -81,7 +81,7 @@
     margin-top: 25px;
 }
 .home-display-card{
-    width: 300px;
+    width: 350px;
     padding: 25px;
     background-color: var(--video-bg-color) !important;
     border-radius: 5px;
@@ -137,7 +137,7 @@
 
 }
 .purchase-card-img{
-    height: 300px;
+    height: 350px;
 }
 
 .wheel-img{
