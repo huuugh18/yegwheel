@@ -8,13 +8,13 @@ export const PurchaseCard = ({header,price,description,img}) => {
             <div className='purchase-card-header home-container-header'> {header} </div>
             <CardContent>
                 <div className='purchase-card-price home-container-price'> ${price}</div>
+                <CardMedia  image={img} title='Glide 3' className='purchase-card-img' />
                 <div className='purchase-card-descrip home-container-descrip'>
                     <ol>
                         {description.map(x => <li key={x}>{x}</li>)}
                     </ol>
                 </div>
             </CardContent>
-            <CardMedia  image={img} title='Glide 3' className='purchase-card-img' />
             <CardActions>
                 <Button size='medium'>Buy</Button>
             </CardActions>
