@@ -134,6 +134,14 @@
     grid-area: info;
     align-self: center;
 }
+.purchase-card-header{
+    font-family: var(--theme-font-family);
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: 1.17;
+    text-align: center;
+
+}
 .purchase-card-img{
     height: 300px;
 }

@@ -23,9 +23,9 @@ export class Home extends Component{
                 </div>
                 <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
                 <div id="home-purchase-container">
-                    <PurchaseCard header='Header' price='1000' description={introDescription} img={wheel} />
-                    <PurchaseCard header='Header' price='1000' description={introDescription} img={wheel} />
-                    <PurchaseCard header='Header' price='1000' description={introDescription} img={wheel} />
+                    <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1000'} description={introDescription} img={wheel} />
+                    <PurchaseCard header='16" Electric Unicycle KS-16S' price='1000' description={introDescription} img={wheel} />
+                    <PurchaseCard header='18" Electric Unicycle KS-18XL' price='1000' description={introDescription} img={wheel} />
                     {/* <div id="purchase-info">
                         <Typography variant="h6" align="left" color="textSecondary" paragraph>
                                 The model available for sale is the inmotion glide 3.<br/>
