@@ -14,7 +14,9 @@ export const CourseCard = ({header,price,description}) => {
                 </div>
             </CardContent>
             <CardActions>
-                <Button size='medium'>Sign Up</Button>
+                <Button size='medium' variant='contained' color='primary' fullWidth>
+                    Sign Up
+                </Button>
             </CardActions>
         </Card>
     )
