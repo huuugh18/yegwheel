@@ -43,7 +43,7 @@ export const PurchaseCard = ({header,price,description,img}) => {
                         type='text'
                         onChange={e => setName(e.target.value)}
                         value={name}
-                        />
+                    />
                     <br/>
                     <TextField
                         id='purchase-email'
@@ -52,7 +52,7 @@ export const PurchaseCard = ({header,price,description,img}) => {
                         type='email'
                         onChange={e => setEmail(e.target.value)}
                         value={email}
-                        />
+                    />
                     <br/>
                     <TextField
                         id='purchase-phone'

@@ -25,7 +25,7 @@ export class Home extends Component{
                     <LearnCard header='Beginner Skills' price='150' description={beginnerDescription} />
                     <LearnCard header='Advanced Skills' price='300' description={advancedDescription} />
                 </div>
-                <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
+                <div id='home-purchase-title' className='home-section-header'> Shop </div>
                 <div id="home-purchase-container" className={'home-section-content'}>
                     <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1000'} description={ks14dDescription} img={wheel14} />
                     <PurchaseCard header={'16" Electric Unicycle KS-16S'} price={'1300'} description={ks16sDescription} img={wheel16} />
