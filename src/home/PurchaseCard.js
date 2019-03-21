@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 
-import { Card, CardContent, CardActions, Button, CardMedia, TextField } from '@material-ui/core';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core'
+import { Card, CardContent, CardActions, Button, CardMedia } from '@material-ui/core';
 
 import PurchaseForm from './PurchaseForm'
 
 export const PurchaseCard = ({header,price,description,img}) => {
     const [dialogOpen, setDialog] = useState(false)
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [comment, setComment] = useState('')
     return (
         <Card className='purchase-card home-display-card'>
             <div className='purchase-card-header home-container-header'> {header} </div>
