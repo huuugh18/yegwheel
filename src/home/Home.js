@@ -3,9 +3,9 @@ import Typography from '@material-ui/core/Typography';
 
 import './Home.css'
 import './DisplayCard.css'
-import wheel14 from '../graphics/ks14d.jpg'
-import wheel16 from '../graphics/ks16s.jpg'
-import wheel18 from '../graphics/ks18xl.jpg'
+import wheel14 from '../graphics/ks14d.png'
+import wheel16 from '../graphics/ks16s.png'
+import wheel18 from '../graphics/ks18xl.png'
 import largeBanner from '../graphics/Montage.png'
 import mobileBanner from '../graphics/IntoTheLight01.jpg'
 import LearnCard from './LearnCard'
@@ -21,15 +21,15 @@ export class Home extends Component{
                 <img id="home-title-image-mobile" className={'home-title-image'} src={mobileBanner} alt="two people riding electric wheel in front of bridge" />
                 <div id='home-learn-title' className='home-section-header'> Yegwheel Courses </div>
                 <div id="home-learn-container" className={'home-section-content'}>
-                    <LearnCard header='Discover E-Unicycling' price='50' description={introDescription} />
-                    <LearnCard header='Beginner Skills' price='150' description={beginnerDescription} />
-                    <LearnCard header='Advanced Skills' price='300' description={advancedDescription} />
+                    <LearnCard header='Discover E-Unicycling' price='10' description={introDescription} />
+                    <LearnCard header='Beginner Skills' price='50' description={beginnerDescription} />
+                    <LearnCard header='Advanced Skills' price='50' description={advancedDescription} />
                 </div>
                 <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
                 <div id="home-purchase-container" className={'home-section-content'}>
-                    <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1000'} description={ks14dDescription} img={wheel14} />
-                    <PurchaseCard header={'16" Electric Unicycle KS-16S'} price={'1300'} description={ks16sDescription} img={wheel16} />
-                    <PurchaseCard header={'18" Electric Unicycle KS-18XL'} price={'1800'} description={ks18xlDescription} img={wheel18} />
+                    <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1345'} description={ks14dDescription} img={wheel14} />
+                    <PurchaseCard header={'16" Electric Unicycle KS-16S'} price={'1745'} description={ks16sDescription} img={wheel16} />
+                    <PurchaseCard header={'18" Electric Unicycle KS-18XL'} price={'2645'} description={ks18xlDescription} img={wheel18} />
                 </div>
                 <div id="home-about-container">
                     <div className="home-about-container" id="home-about-us">
