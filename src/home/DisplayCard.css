@@ -1,0 +1,41 @@
+.home-display-card{
+    width: 350px;
+    padding: 25px;
+    background-color: var(--video-bg-color) !important;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    /* margin-bottom: 40px;
+    margin-left: 10px; */
+    margin: 0 10px 40px 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.home-container-header{
+    font-family: var(--theme-font-family);
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: 1.17;
+    text-align: center;
+    padding: 15px;
+}
+
+.home-container-descrip{
+    font-family: var(--theme-font-family);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.home-container-price{
+    font-size: 1.7em;
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.purchase-card-img{
+    height: 350px;
+}

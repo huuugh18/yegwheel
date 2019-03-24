@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import './LearnTo.css'
 
 import learningPic3 from '../graphics/LearnToRideBannerEthno.svg'
+<<<<<<< HEAD
 import videos from '../data/videosList'
 import {MUIVideoTile} from '../components/videocards/MUIVideoTile'
+=======
+import videos from '../home/videosList'
+import {MUIVideoTile} from '../components/MUIVideoTile'
+>>>>>>> purchaseDivChange
 
 export class LearnHowTo extends Component{
   render(){
