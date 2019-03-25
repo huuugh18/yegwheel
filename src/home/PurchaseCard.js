@@ -24,7 +24,7 @@ export const PurchaseCard = ({header,price,description,img}) => {
                     Buy
                 </Button>
             </CardActions>
-            <PurchaseForm  description={description} dialogOpen={dialogOpen} />
+            <PurchaseForm  description={description} dialogOpen={dialogOpen} setDialog={setDialog} />
         </Card>
     )
 }

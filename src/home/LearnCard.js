@@ -1,9 +1,11 @@
-import React, { } from 'react';
+import React, { useState } from 'react';
 
 import { Card, CardContent, CardActions, Button } from '@material-ui/core';
 
+import CourseForm from './CourseForm'
 
 export const CourseCard = ({header,price,description}) => {
+    const [dialogOpen, setDialog] = useState(false)
     return (
         <Card className='learn-card home-display-card'>
             <CardContent>
@@ -14,10 +16,11 @@ export const CourseCard = ({header,price,description}) => {
                 </div>
             </CardContent>
             <CardActions>
-                <Button size='medium' variant='contained' color='primary' fullWidth>
+                <Button size='medium' variant='contained' color='primary' fullWidth onClick={() => setDialog(true)}>
                     Sign Up
                 </Button>
             </CardActions>
+            <CourseForm description={description} dialogOpen={dialogOpen} setDialog={setDialog} />
         </Card>
     )
 }
