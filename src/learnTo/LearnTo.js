@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './LearnTo.css'
 
 import learningPic3 from '../graphics/LearnToRideBannerEthno.svg'
-import videos from '../home/videosList'
-import {MUIVideoTile} from '../components/MUIVideoTile'
+import videos from '../data/videosList'
+import {MUIVideoTile} from '../components/videocards/MUIVideoTile'
 
 export class LearnHowTo extends Component{
   render(){
