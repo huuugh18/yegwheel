@@ -7,7 +7,7 @@ const Component = () => <ProductCard title='Purchase a Wheel!' id="glide3" class
   Wheel size is 16" making it a great wheel to get started. <br/>
   Battery Range is 28-31 miles reaching a top speed of 19 mph.<br/>
   Has a built in retractable handle, front and rear lights, and side LED lights <br/>
-  For additional info email <a href = "mailto:terry@yegwheel.com"> terry@yegwheel.com</a> <br/>
+  For additional info email <a href = "mailto:terry@yegwheel.net"> terry@yegwheel.net</a> <br/>
 </ProductCard>
 
 export default Component
