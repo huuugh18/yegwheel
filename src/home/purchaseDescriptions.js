@@ -18,7 +18,7 @@ export const ks16sDescription = [
     'Completely new system'
 ]
 export const ks18xlDescription = [
-    'Model No. KS-18L ( Available color: white, rubber black)',
+    'Model No. KS-18XL ( Available color: white, rubber black)',
     'Advanced Lift-Stop sensor with Telescoping Trolley Handle',
     '1554wh battery, up to 150km',
     '2000w motor, up to 50km/h',
