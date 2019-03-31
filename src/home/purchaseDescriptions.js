@@ -28,3 +28,24 @@ export const ks18xlDescription = [
     'Front illuminating and rear braking LED lights',
     'BT for music'
 ]
+
+export const catalog = [
+  {
+    productCode: "blgmp",
+    name: '14" Electric Unicycle KS-14D',
+    description: ks14dDescription,
+    price: 1345
+  },
+  {
+    productCode: "blgmt",
+    name: '16" Electric Unicycle KS-16S',
+    description: ks16sDescription,
+    price: 1745
+  },
+  {
+    productCode: "blgmu",
+    name: '18" Electric Unicycle KS-18XL',
+    description: ks18xlDescription,
+    price: 2645
+  }
+]

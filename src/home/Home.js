@@ -11,7 +11,17 @@ import mobileBanner from '../graphics/IntoTheLight01.jpg'
 import LearnCard from './LearnCard'
 import PurchaseCard from './PurchaseCard'
 import { introDescription, beginnerDescription, advancedDescription } from './learnDescriptions';
-import {ks14dDescription, ks16sDescription, ks18xlDescription} from './purchaseDescriptions'
+import {catalog} from './purchaseDescriptions'
+
+
+const toItem = (productCode, catalog) => catalog.find(item => item.productCode === productCode)
+
+const ItemCard = ({productCode, img}) => {
+  const item = toItem(productCode, catalog)
+  const {name, description, price} = item
+  return <PurchaseCard {...{name, productCode, price, description}} img={img} />
+}
+
 
 export const Home = () => {
     return (
@@ -26,9 +36,9 @@ export const Home = () => {
             </div>
             <div id='home-purchase-title' className='home-section-header'> Purchase a Wheel </div>
             <div id="home-purchase-container" className={'home-section-content'}>
-                <PurchaseCard header={'14" Electric Unicycle KS-14D'} price={'1345'} description={ks14dDescription} img={wheel14} />
-                <PurchaseCard header={'16" Electric Unicycle KS-16S'} price={'1745'} description={ks16sDescription} img={wheel16} />
-                <PurchaseCard header={'18" Electric Unicycle KS-18XL'} price={'2645'} description={ks18xlDescription} img={wheel18} />
+              <ItemCard productCode='blgmp' img={wheel14} />
+              <ItemCard productCode='blgmt' img={wheel16} />
+              <ItemCard productCode='blgmu' img={wheel18} />
             </div>
             <div id="home-about-container">
                 <div className="home-about-container" id="home-about-us">
