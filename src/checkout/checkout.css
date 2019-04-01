@@ -1,4 +1,4 @@
-.store-container{
+.checkout-container{
   grid-area: body;
   width: 100%;
   display: grid;
@@ -24,6 +24,30 @@
   padding: 10px;
   margin: 20px;
   grid-area: main;
+  border: black 1px solid;
+}
+
+.place-order-line {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart button {
+  margin:10px;
+}
+
+.items-table {
+  border: lightgray 1px solid;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-item {
+  background-color: bisque
+}
+.cart-item td {
+  padding: 10px;
 }
 
 .customer {

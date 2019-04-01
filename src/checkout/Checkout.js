@@ -1,6 +1,9 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './checkout.css'
+import {catalog} from '../data/catalog'
+import {toCatalogItem, withCommas} from '../functions'
 
 const Simple = ({name, value}) => <div className='simple'><div>{name}:</div><div>{value}</div></div>
 
@@ -9,20 +12,56 @@ const Email = ({value}) => <Simple name="Email" value={value} />
 const Phone = ({value}) => <Simple name="Phone" value={value} />
 const Comments = ({value}) => <Simple name="Comments" value={value} />
 
-const Items = ({count}) => <div className='items'> There are {count} items in your cart!</div>
 const Customer = ({children}) => <div className='customer'>{children}</div>
 
 const Cart = ({children}) => <div className='cart'>{children}</div>
-const Container = ({children}) => <div className='store-container'>{children}</div>
+const Container = ({children}) => <div className='checkout-container'>{children}</div>
 
-const canCheckout = (items, email, phone) => {
+const canCheckout = (items, email, phone, name) => {
   if(!items || !items.length) return false
-  if(email || phone) return  false
+  if(!email && !phone) return false;
+  if(!name) return false;
   return true
 }
 
+const CommaCell = ({value}) => <td align='right'>{withCommas(value)}</td>
+
+const CartItem = ({productCode, quantity}) => {
+  const catalogItem = toCatalogItem(productCode, catalog)
+  const {name, price} = catalogItem
+  return <tr className='cart-item'>
+    <td>{name}</td>
+    <td>{quantity}</td>
+    <CommaCell value={price} />
+    <CommaCell value={price*quantity} />
+  </tr>
+}
+const TotalItem = ({amount}) => {
+  return <tr className='cart-item'>
+    <td colSpan={3}>Total</td>
+    <CommaCell value={amount} />
+  </tr>
+}
+
+const Items = ({items}) => {
+  const total = items.reduce((accum, item) => accum + toCatalogItem(item.productCode, catalog).price, 0)
+  return (<div className='items-table'>
+    <table>
+      <tbody>
+        {items.map((item, i) => <CartItem key={'k'+i} {...item}/>)}
+        <TotalItem amount={total}/>
+      </tbody>
+    </table>
+  </div>)
+}
+
+
 const Component = props => {
-  const {name, email, phone, comments, itemCount, placeOrder, items} = props
+  const {name, email, phone, comments, placeOrder, items, history} = props
+
+  const yesCanCheckout = canCheckout(items)
+  console.log('canCheckout', yesCanCheckout)
+
    return (
       <Container>
         <Cart>
@@ -30,10 +69,13 @@ const Component = props => {
             <CustName value={name} />
             <Email value={email} />
             <Phone value={phone} />
-            <Comments value={comments} />
+            {/* <Comments value={comments} /> */}
           </Customer>
-          <Items count={itemCount}  />
-          <button disabled={!canCheckout(items)} onClick={() => placeOrder(name, email, phone, comments, items)}>Place Order</button>
+          <Items items={items}  />
+          <div className='place-order-line'>
+            <button onClick={()=>history.push('/cart')}>Back to cart</button>
+            <button disabled={!canCheckout(items, email, phone, name)} onClick={() => placeOrder(name, email, phone, comments, items)}>Place Order</button>
+          </div>
         </Cart>
       </Container>
     )
@@ -50,11 +92,8 @@ const mapState = state => {
   }
 }
 
-const addItemsToComment = (comment, items) => {
-  const itemList = items.join(",")
-  return `${comment}
-Ordered Items: ${itemList}`
-}
+const addItemsToComment = (comment, items) => `${comment}
+Ordered Items: ${items.map(({productCode, quantity}) => `${productCode}:${quantity}`).join(",")}`
 
 const mapDispatch = dispatch => ({
   placeOrder: async function(name, email, phone, comments, items) {
@@ -78,4 +117,4 @@ const mapDispatch = dispatch => ({
   }
 })
 
-export default connect(mapState, mapDispatch)(Component);
+export default withRouter(connect(mapState, mapDispatch)(Component));

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {connect} from 'react-redux'
 import { Card, CardContent, CardActions, Button, CardMedia} from '@material-ui/core';
-import PurchaseForm from './PurchaseForm'
 
 const MyCard = ({children})=> <Card className='purchase-card home-display-card'>{children}</Card>
 const MyHeader = ({header}) => <div className='purchase-card-header home-container-header'> {header} </div>
@@ -13,11 +13,11 @@ const Description = ({description}) => <div className='purchase-card-descrip hom
 
 const AddButton = ({onClick}) => <Button size='medium' variant='contained' color='primary' fullWidth onClick={onClick}>Add To Cart</Button>
 
-export const PurchaseCard = ({productCode, name, price, description, img}) => {
-  const [dialogOpen, setDialog] = useState(false)
-  const onAddClick = () => {
-    setDialog(true) 
-  }
+export const PurchaseCard = ({productCode, name, price, description, img, addItem}) => {
+  // const [dialogOpen, setDialog] = useState(false)
+  // const onAddClick = () => {
+  //   setDialog(true) 
+  // }
   return (
     <MyCard>
       <MyHeader header={name} />
@@ -27,11 +27,19 @@ export const PurchaseCard = ({productCode, name, price, description, img}) => {
         <Description description={description}/>
       </CardContent>
       <CardActions>
-        <AddButton onClick={onAddClick}/>
+        <AddButton onClick={addItem}/>
       </CardActions>
-      <PurchaseForm  productCode={productCode} dialogOpen={dialogOpen} setDialog={setDialog} />
+      {/* <PurchaseForm  productCode={productCode} dialogOpen={dialogOpen} setDialog={setDialog} /> */}
     </MyCard>
   )
 }
 
-export default PurchaseCard; 
+const mapState = () => ({})
+const mapDispatch = (dispatch, props) => {
+  const {productCode} = props
+  return ({
+    addItem: () => dispatch({type:'ADD_ITEM', payload:{productCode, quantity: 1}})
+  })
+}
+
+export default connect(mapState, mapDispatch)(PurchaseCard); 
