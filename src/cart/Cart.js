@@ -6,11 +6,12 @@ import {catalog} from '../data/catalog'
 import {toCatalogItem, withCommas} from '../functions'
 import CartItem from './CartItem'
 //import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@material-ui/core'
-import {  TextField } from '@material-ui/core'
+import {  TextField, Paper, Button } from '@material-ui/core'
+
 
 const Customer = ({children}) => <div className='customer'>{children}</div>
 
-const Cart = ({children}) => <div className='cart'>{children}</div>
+const Cart = ({children}) => <Paper elevation={2} className='cart'>{children}</Paper>
 const Container = ({children}) => <div className='cart-container'>{children}</div>
 
 const canCheckout = (items, email, phone) => {
@@ -61,7 +62,7 @@ const Component = props => {
           </Customer>
           <Items items={items}  />
           <div className='place-order-line'>
-            <button disabled={!canCheckout(items)} onClick={() => history.push('/checkout')}>Proceed to Checkout!</button>
+            <Button variant='contained' disabled={!canCheckout(items)} onClick={() => history.push('/checkout')}>Proceed to Checkout!</Button>
           </div>
         </Cart>
       </Container>
