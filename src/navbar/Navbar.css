@@ -6,7 +6,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: var(--theme-bg-color);
+    background-color: var(--nav-bg-color);
     height: 80px;
     z-index: 999;
 }
@@ -47,8 +47,6 @@
         grid-template-areas:
         ". logo brand . links .";
         grid-template-columns: 10% 125px auto 1fr 3fr 10%;
-        background-color: black;
-        color:white;
     }
     .nav-link{
         font-size: 16px;
