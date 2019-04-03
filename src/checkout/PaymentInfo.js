@@ -9,7 +9,7 @@ const PaymentInfo = ({getNextPage,getPrevPage}) => {
     return <div>
                 <div className='checkout-subheader'>Payment Information</div>
                 <div id='shipping-form-container'>
-                    some payment information form
+
                 </div>
                 <div className='checkout-button-container'>
                     <Button variant='contained' disabled={false} onClick={getPrevPage}>

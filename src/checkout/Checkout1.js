@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {withRouter, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './checkout.css'
-import {catalog} from '../data/catalog'
-import {toCatalogItem, withCommas} from '../functions'
 
 import {Paper, Stepper, Step, StepLabel} from '@material-ui/core'
 import ShippingInfo from './ShippingInfo'
@@ -34,8 +32,4 @@ const mapState = state => {
     return {activeStep}
 } 
 
-const mapDispatch = dispatch => ({
-    setActiveStep: (step) => { dispatch({type:'SET_CHECKOUT_STEP',payload:{step}}) }
-})
-
-export default withRouter(connect(mapState, mapDispatch)(Checkout))
+export default withRouter(connect(mapState)(Checkout))

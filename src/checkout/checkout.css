@@ -3,8 +3,10 @@
   display: grid;
   grid-template-areas:
       ". main .";
+  grid-template-columns: 1fr 800px 1fr;
   background-color: var(--theme-bg-color);
   margin-top: 48px;
+
 }
 
 @media(min-width: 975px){
