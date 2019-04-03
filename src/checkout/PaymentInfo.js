@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './checkout.css'
+import {CardElement, injectStripe} from 'react-stripe-elements';
 
-import { TextField, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
-const PaymentInfo = ({getNextPage,getPrevPage}) => {
+const PaymentInfo = ({getNextPage,getPrevPage,submitStripe}) => {
     return <div>
                 <div className='checkout-subheader'>Payment Information</div>
                 <div id='shipping-form-container'>
-
+                    <CardElement />
+                    <Button onClick={submitStripe} variant='contained'>Submit</Button>
                 </div>
                 <div className='checkout-button-container'>
                     <Button variant='contained' disabled={false} onClick={getPrevPage}>
@@ -32,8 +34,11 @@ const mapDispatch = (dispatch,{history}) => {
         getPrevPage: () => {
             history.push('/checkout/shipping')
             dispatch({type:'SET_CHECKOUT_STEP',payload:{step:0}})
+        },
+        submitStripe: () => {
+
         }
     }
 }
 
-export default withRouter(connect(null,mapDispatch)(PaymentInfo))
+export default withRouter(connect(null,mapDispatch)(injectStripe(PaymentInfo)))
