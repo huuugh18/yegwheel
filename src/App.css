@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Righteous');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+html,body{
+  height: 100%;
+}
 .App {
   display: grid;
   grid-template-areas:
     "navbar"
     "body"
     "footer";
-  grid-template-rows: 80px auto auto;
+  grid-template-rows: 80px minmax(100vh,1fr) auto;
   margin: 0px;
+}
+.bodyContainer{
+  grid-area: body;
 }
 :root{
   --logo-text-color:#6B79B8;

@@ -6,7 +6,7 @@ import {Navbar} from './navbar/Navbar'
 import {Footer} from './footer/Footer'
 import {Home} from './home/Home'
 import Cart from './cart/Cart'
-import Checkout from './checkout/Checkout'
+import Checkout from './checkout/Checkout1'
 import {LearnHowTo} from './learnTo/LearnTo'
 
 class App extends Component {
@@ -15,10 +15,12 @@ class App extends Component {
       <Router>
         <div className="App" onClick={this.props.addItem}>
           <Navbar />
-          <Route path='/' exact component={Home} />
-          <Route path='/cart' exact component={Cart} />
-          <Route path='/checkout' exact component={Checkout} />
-          <Route path='/learntowheel' component={LearnHowTo} />
+          <div className='bodyContainer'>
+            <Route path='/' exact component={Home} />
+            <Route path='/cart' exact component={Cart} />
+            <Route path='/checkout' exact component={Checkout} />
+            <Route path='/learntowheel' component={LearnHowTo} />
+          </div>
           <Footer />
         </div>
       </Router>

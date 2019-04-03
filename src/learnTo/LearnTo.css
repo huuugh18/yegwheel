@@ -1,5 +1,4 @@
 .learn-to-container{
-    grid-area: body;
     width: 100%;
     display: grid;
     grid-template-areas:
