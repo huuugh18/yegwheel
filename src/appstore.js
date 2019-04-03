@@ -4,11 +4,16 @@ import {addDelta} from './functions'
 
 let defaultState = {
   cart: {
-    name: '',
-    email: '',
-    phone: '',
-    comments: '',
-    items: []
+    name: 'Yegwheel',
+    email: 'something@yegwheel.com',
+    phone: '1234567891',
+    comments: 'Hi there',
+    items: [
+      {productCode:'blgmu',quantity:2}
+    ]
+  },
+  checkout:{
+    activeStep:0
   }
 }
 
@@ -19,6 +24,12 @@ const ADJUST_QUANTITY = 'ADJUST_QUANTITY'
 const SET_NAME = 'SET_NAME'
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PHONE = 'SET_PHONE'
+export const SET_CHECKOUT_STEP ='SET_CHECKOUT_STEP'
+
+const setCheckoutStep = (draft, payload) => {
+  console.log(draft,payload)
+  draft.checkout.activeStep = payload.step
+}
 
 const addItem = (draft, payload) => {
   const {productCode, quantity} = payload
@@ -63,6 +74,7 @@ const reducer = (state=defaultState, action) =>  {
       case SET_NAME: setName(draft, payload); break;
       case SET_EMAIL: setEmail(draft, payload); break;
       case SET_PHONE: setPhone(draft, payload); break;
+      case SET_CHECKOUT_STEP: setCheckoutStep(draft, payload); break;
       default: break;
     }
   })

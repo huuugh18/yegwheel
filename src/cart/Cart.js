@@ -62,7 +62,7 @@ const Component = props => {
           </Customer>
           <Items items={items}  />
           <div className='place-order-line'>
-            <Button variant='contained' disabled={!canCheckout(items)} onClick={() => history.push('/checkout')}>Proceed to Checkout!</Button>
+            <Button variant='contained' disabled={!canCheckout(items)} onClick={() => history.push('/checkout/shipping')}>Proceed to Checkout!</Button>
           </div>
         </Cart>
       </Container>

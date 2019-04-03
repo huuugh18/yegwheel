@@ -18,7 +18,7 @@ class App extends Component {
           <div className='bodyContainer'>
             <Route path='/' exact component={Home} />
             <Route path='/cart' exact component={Cart} />
-            <Route path='/checkout' exact component={Checkout} />
+            <Route path='/checkout' component={Checkout} />
             <Route path='/learntowheel' component={LearnHowTo} />
           </div>
           <Footer />
