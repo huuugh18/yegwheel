@@ -1,15 +1,14 @@
-/*global Stripe*/
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './checkout.css'
-import { injectStripe, Elements } from 'react-stripe-elements';
+import { Elements } from 'react-stripe-elements';
 import StripeForm from './StripeForm'
 import { Button } from '@material-ui/core';
 
 
 
-const PaymentInfo = ({getNextPage,getPrevPage,submitStripe,stripe}) => {
+const PaymentInfo = ({getNextPage,getPrevPage,stripe}) => {
     return <div>
                 <div className='checkout-subheader'>Payment Information</div>
                 <div id='shipping-form-container'>
@@ -44,4 +43,4 @@ const mapDispatch = (dispatch,{history}) => {
 }
 
 
-export default withRouter(connect(null,mapDispatch)(injectStripe(PaymentInfo)))
+export default withRouter(connect(null,mapDispatch)(PaymentInfo))

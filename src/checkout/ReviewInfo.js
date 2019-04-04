@@ -2,11 +2,12 @@ import React, { } from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './checkout.css'
-import {toCatalogItem, withCommas} from '../functions'
-
-import {Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core'
-import { Button, List, ListItem, ListItemText } from '@material-ui/core';
+import { toCatalogItem } from '../functions'
+import { Elements} from 'react-stripe-elements'
+import {Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core'
 import { catalog } from '../data/catalog';
+
+import StripeSubmitOrder from './StripeSubmitOrderButton'
 
 const CartItem = ({productCode, quantity}) => {
     const catalogItem = toCatalogItem(productCode, catalog)
@@ -19,7 +20,7 @@ const CartItem = ({productCode, quantity}) => {
     </TableRow>
 }
 
-const ReviewOrder = ({submitOrder,getPrevPage,items,total,token}) => {
+const ReviewOrder = ({getPrevPage,items,total,token}) => {
     return <div>
                 <div className='checkout-subheader'>Review Order</div>
                 <div id='shipping-form-container'>
@@ -50,9 +51,10 @@ const ReviewOrder = ({submitOrder,getPrevPage,items,total,token}) => {
                     <Button variant='contained' disabled={false} onClick={getPrevPage}>
                         Back
                     </Button>
-                    <Button variant='contained' disabled={false} onClick={submitOrder(token)}>
-                        Order
-                    </Button>
+                    <Elements>
+                        <StripeSubmitOrder token={token} total={total}/>
+                    </Elements>
+
                 </div>
                 
         </div>
@@ -70,19 +72,7 @@ const mapDispatch = (dispatch,{history}) => {
             dispatch({type:'SET_CHECKOUT_STEP',payload:{step:1}})
             history.push('/checkout/payment')
         },
-        submitOrder: (token) => async function () {
-            // must set fetch url 
-            //https://stripe.com/docs/recipes/elements-react - handle server charge call
-            let response = await fetch("/someapiurl", {
-                method: "POST",
-                headers: {"Content-Type": "text/plain"},
-                body: token.id
-            });
-            if (response.ok) {
-                dispatch({type:'SET_ORDER_COMPLETE'})
-            }
-
-        }
+        
     }
 }
 

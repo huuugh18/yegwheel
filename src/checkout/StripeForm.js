@@ -1,8 +1,7 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './checkout.css'
-import {CardElement, injectStripe, CardNumberElement, CardExpiryElement, CardCVCElement,} from 'react-stripe-elements';
+import {CardElement, injectStripe } from 'react-stripe-elements';
 
 import { Button } from '@material-ui/core';
 
@@ -42,8 +41,7 @@ const mapDispatch = (dispatch,{stripe}) => {
         submitStripe: async function (ev) {
             ev.preventDefault();
             stripe.createToken({name: "Doug"}).then(result => {
-                console.log('TOKEN:',result.token.id)
-                dispatch({type:'SET_STRIPE_TOKEN',payload:{token:result.token.id}})
+                dispatch({type:'SET_STRIPE_TOKEN',payload:{token:result.token}})
             });
         }
     }

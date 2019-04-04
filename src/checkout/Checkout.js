@@ -1,8 +1,6 @@
 import React from 'react'
 import {withRouter, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {Elements} from 'react-stripe-elements';
-
 import './checkout.css'
 
 import {Paper, Stepper, Step, StepLabel} from '@material-ui/core'
@@ -20,9 +18,7 @@ const Checkout = ({activeStep}) => {
                 <Step><StepLabel>Review Order</StepLabel></Step>
             </Stepper>
             <Route path={'/checkout/shipping'} exact component={ShippingInfo}/>
-            <Elements>
-                <Route path={'/checkout/payment'} exact component={PaymentInfo}/>
-            </Elements>
+            <Route path={'/checkout/payment'} exact component={PaymentInfo}/>
             <Route path={'/checkout/review'} exact component={ReviewInfo}/>
         </Paper>
     </div>

@@ -29,6 +29,11 @@ const SET_PHONE = 'SET_PHONE'
 const SET_CHECKOUT_STEP ='SET_CHECKOUT_STEP'
 const SET_STRIPE_TOKEN = 'SET_STRIPE_TOKEN'
 const SET_ORDER_COMPLETE = 'SET_ORDER_COMPLETE'
+const SET_ORDER_ERROR = 'SET_ORDER_ERROR'
+
+const setOrderError = (draft,payload) => {
+  draft.checkout.orderError = payload.error
+}
 
 const setOrderComplete = (draft) => {
   draft.checkout.orderComplete = true
@@ -87,7 +92,8 @@ const reducer = (state=defaultState, action) =>  {
       case SET_PHONE: setPhone(draft, payload); break;
       case SET_CHECKOUT_STEP: setCheckoutStep(draft, payload); break;
       case SET_STRIPE_TOKEN: setStripeToken(draft, payload); break;
-      case SET_ORDER_COMPLETE: setOrderComplete(draft); break
+      case SET_ORDER_COMPLETE: setOrderComplete(draft); break;
+      case SET_ORDER_ERROR: setOrderError(draft,payload); break;
       default: break;
     }
   })

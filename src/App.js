@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import {Elements, StripeProvider} from 'react-stripe-elements';
+import { StripeProvider} from 'react-stripe-elements';
 
 import './App.css';
 import {Navbar} from './navbar/Navbar'
