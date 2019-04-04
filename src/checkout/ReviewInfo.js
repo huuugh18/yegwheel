@@ -72,6 +72,7 @@ const mapDispatch = (dispatch,{history}) => {
         },
         submitOrder: (token) => async function () {
             // must set fetch url 
+            //https://stripe.com/docs/recipes/elements-react - handle server charge call
             let response = await fetch("/someapiurl", {
                 method: "POST",
                 headers: {"Content-Type": "text/plain"},

@@ -35,7 +35,7 @@ const setOrderComplete = (draft) => {
 }
 
 const setStripeToken = (draft,payload) => {
-  draft.checkeout.token = payload.token
+  draft.checkout.token = payload.token
 }
 
 const setCheckoutStep = (draft, payload) => {

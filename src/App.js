@@ -13,7 +13,7 @@ import {LearnHowTo} from './learnTo/LearnTo'
 class App extends Component {
   render() {
     return (
-      <StripeProvider apiKey='something'>
+      <StripeProvider apiKey='pk_test_upQ7P9IIf73Ucyo2zFwxluAM000mJP2HB6'>
       <Router>
         <div className="App" onClick={this.props.addItem}>
           <Navbar />
