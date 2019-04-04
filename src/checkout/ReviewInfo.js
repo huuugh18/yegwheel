@@ -19,7 +19,7 @@ const CartItem = ({productCode, quantity}) => {
     </TableRow>
 }
 
-const ReviewOrder = ({submitOrder,getPrevPage,items,total}) => {
+const ReviewOrder = ({submitOrder,getPrevPage,items,total,token}) => {
     return <div>
                 <div className='checkout-subheader'>Review Order</div>
                 <div id='shipping-form-container'>
@@ -50,7 +50,7 @@ const ReviewOrder = ({submitOrder,getPrevPage,items,total}) => {
                     <Button variant='contained' disabled={false} onClick={getPrevPage}>
                         Back
                     </Button>
-                    <Button variant='contained' disabled={false} onClick={submitOrder}>
+                    <Button variant='contained' disabled={false} onClick={submitOrder(token)}>
                         Order
                     </Button>
                 </div>
@@ -59,9 +59,9 @@ const ReviewOrder = ({submitOrder,getPrevPage,items,total}) => {
 }
 
 const mapState = state => {
-    const {cart:{items}} = state
+    const {cart:{items},checkout:{token}} = state
     const total = items.reduce((accum, item) => accum + toCatalogItem(item.productCode, catalog).price, 0)
-    return {items,total}
+    return {items,total,token}
 }
 
 const mapDispatch = (dispatch,{history}) => {
@@ -70,8 +70,17 @@ const mapDispatch = (dispatch,{history}) => {
             dispatch({type:'SET_CHECKOUT_STEP',payload:{step:1}})
             history.push('/checkout/payment')
         },
-        submitOrder: () => {
-            console.log('ORDER SUBMITTED')
+        submitOrder: (token) => async function () {
+            // must set fetch url 
+            let response = await fetch("/someapiurl", {
+                method: "POST",
+                headers: {"Content-Type": "text/plain"},
+                body: token.id
+            });
+            if (response.ok) {
+                dispatch({type:'SET_ORDER_COMPLETE'})
+            }
+
         }
     }
 }

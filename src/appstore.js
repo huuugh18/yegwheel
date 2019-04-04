@@ -13,7 +13,9 @@ let defaultState = {
     ]
   },
   checkout:{
-    activeStep:0
+    activeStep:0,
+    token: null,
+    orderComplete: false,
   }
 }
 
@@ -24,10 +26,19 @@ const ADJUST_QUANTITY = 'ADJUST_QUANTITY'
 const SET_NAME = 'SET_NAME'
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PHONE = 'SET_PHONE'
-export const SET_CHECKOUT_STEP ='SET_CHECKOUT_STEP'
+const SET_CHECKOUT_STEP ='SET_CHECKOUT_STEP'
+const SET_STRIPE_TOKEN = 'SET_STRIPE_TOKEN'
+const SET_ORDER_COMPLETE = 'SET_ORDER_COMPLETE'
+
+const setOrderComplete = (draft) => {
+  draft.checkout.orderComplete = true
+}
+
+const setStripeToken = (draft,payload) => {
+  draft.checkeout.token = payload.token
+}
 
 const setCheckoutStep = (draft, payload) => {
-  console.log(draft,payload)
   draft.checkout.activeStep = payload.step
 }
 
@@ -75,6 +86,8 @@ const reducer = (state=defaultState, action) =>  {
       case SET_EMAIL: setEmail(draft, payload); break;
       case SET_PHONE: setPhone(draft, payload); break;
       case SET_CHECKOUT_STEP: setCheckoutStep(draft, payload); break;
+      case SET_STRIPE_TOKEN: setStripeToken(draft, payload); break;
+      case SET_ORDER_COMPLETE: setOrderComplete(draft); break
       default: break;
     }
   })

@@ -35,10 +35,19 @@ const mapDispatch = (dispatch,{history}) => {
             history.push('/checkout/shipping')
             dispatch({type:'SET_CHECKOUT_STEP',payload:{step:0}})
         },
-        submitStripe: () => {
-
+        submitStripe: async function (ev) {
+            let {token} = await this.props.stripe.createToken({name: "Name"});
+            dispatch({type:'SET_STRIPE_TOKEN',payload:{token}})
+            // USED IF ACTUALLY SUBMITTING THE CHARGE, RATHER SAVE TOKEN AND SUBMIT CHARGE ON REVIEW ORDER
+            // let response = await fetch("/charge", {
+            //   method: "POST",
+            //   headers: {"Content-Type": "text/plain"},
+            //   body: token.id
+            // });
+            // if (response.ok) console.log("Purchase Complete!")
         }
     }
 }
+
 
 export default withRouter(connect(null,mapDispatch)(injectStripe(PaymentInfo)))
