@@ -45,6 +45,10 @@
 .checkout-field{
   margin: 10px !important;
 }
+.checkout-button-container{
+  float:right;
+}
+
 .cart {
   padding: 10px;
   margin: 20px;

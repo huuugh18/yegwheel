@@ -1,14 +1,22 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
+
 import './checkout.css'
 import { Elements } from 'react-stripe-elements';
 import StripeForm from './StripeForm'
 import { Button } from '@material-ui/core';
 
+const styles = theme => ({
+    button: {
+      marginTop: '24px',
+      marginLeft: '8px',
+    },
+});
+  
 
-
-const PaymentInfo = ({getNextPage,getPrevPage,stripe}) => {
+const PaymentInfo = ({getNextPage,getPrevPage,stripe,classes}) => {
     return <div>
                 <div className='checkout-subheader'>Payment Information</div>
                 <div id='shipping-form-container'>
@@ -17,10 +25,10 @@ const PaymentInfo = ({getNextPage,getPrevPage,stripe}) => {
                     </Elements>
                 </div>
                 <div className='checkout-button-container'>
-                    <Button variant='contained' disabled={false} onClick={getPrevPage}>
+                    <Button className={classes.button} disabled={false} onClick={getPrevPage}>
                         Back
                     </Button>
-                    <Button variant='contained' disabled={false} onClick={getNextPage}>
+                    <Button className={classes.button} color='primary' variant='contained' disabled={false} onClick={getNextPage}>
                         Next
                     </Button>
                 </div>
@@ -43,4 +51,4 @@ const mapDispatch = (dispatch,{history}) => {
 }
 
 
-export default withRouter(connect(null,mapDispatch)(PaymentInfo))
+export default withRouter(connect(null,mapDispatch)(withStyles(styles)(PaymentInfo)))

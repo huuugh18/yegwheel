@@ -1,11 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
+
 import {injectStripe} from 'react-stripe-elements'
 import {Button} from '@material-ui/core'
 
-const StripeSubmitButton = ({submitOrder}) => {
+
+const styles = theme => ({
+    button: {
+      marginTop: '24px',
+      marginLeft: '8px',
+    },
+});
+  
+
+const StripeSubmitButton = ({submitOrder,classes}) => {
     console.log(submitOrder)
-    return <Button variant='contained' disabled={false} onClick={submitOrder}> Order </Button>
+    return <Button className={classes.button} color='primary' variant='contained' disabled={false} onClick={submitOrder}> Order </Button>
 }
 
 const mapDispatch = (dispatch,{stripe,token,total}) => {
@@ -29,4 +40,4 @@ const mapDispatch = (dispatch,{stripe,token,total}) => {
     }
 }
 
-export default injectStripe(connect(null,mapDispatch)(StripeSubmitButton))
+export default injectStripe(connect(null,mapDispatch)(withStyles(styles)(StripeSubmitButton)))

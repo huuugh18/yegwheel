@@ -1,6 +1,8 @@
 import React, { } from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
+
 import './checkout.css'
 import { toCatalogItem } from '../functions'
 import { Elements} from 'react-stripe-elements'
@@ -8,6 +10,14 @@ import {Table, TableBody, TableCell, TableHead, TableRow, Button } from '@materi
 import { catalog } from '../data/catalog';
 
 import StripeSubmitOrder from './StripeSubmitOrderButton'
+
+const styles = theme => ({
+    button: {
+      marginTop: '24px',
+      marginLeft: '8px',
+    },
+});
+  
 
 const CartItem = ({productCode, quantity}) => {
     const catalogItem = toCatalogItem(productCode, catalog)
@@ -20,7 +30,7 @@ const CartItem = ({productCode, quantity}) => {
     </TableRow>
 }
 
-const ReviewOrder = ({getPrevPage,items,total,token}) => {
+const ReviewOrder = ({getPrevPage,items,total,token,classes}) => {
     return <div>
                 <div className='checkout-subheader'>Review Order</div>
                 <div id='shipping-form-container'>
@@ -48,7 +58,7 @@ const ReviewOrder = ({getPrevPage,items,total,token}) => {
                     </Table>
                 </div>
                 <div className='checkout-button-container'>
-                    <Button variant='contained' disabled={false} onClick={getPrevPage}>
+                    <Button className={classes.button}  disabled={false} onClick={getPrevPage}>
                         Back
                     </Button>
                     <Elements>
@@ -76,4 +86,4 @@ const mapDispatch = (dispatch,{history}) => {
     }
 }
 
-export default withRouter(connect(mapState,mapDispatch)(ReviewOrder))
+export default withRouter(connect(mapState,mapDispatch)(withStyles(styles)(ReviewOrder)))

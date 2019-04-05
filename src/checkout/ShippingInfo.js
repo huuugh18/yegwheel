@@ -27,7 +27,7 @@ const ShippingForm = ({getNextPage,setFirstName ,setLastName ,setAddress ,setPho
                     <TextField className='checkout-field' id='comments' name='comments' label='Comments' multiline={true} rows={5} onChange={setComments} value={comments}/>
                 </div>
                 <div className='checkout-button-container'>
-                    <Button variant='contained' disabled={false} onClick={getNextPage} style={{float:'right'}}>
+                    <Button className={'checkout-nav-btn'} variant='contained' disabled={false} onClick={getNextPage}>
                         Next
                     </Button>
                 </div>
@@ -59,4 +59,4 @@ const mapDispatch = (dispatch,{history}) => {
     }
 }
 
-export default withRouter(connect(null,mapDispatch)(ShippingForm))
+export default withRouter(connect(mapState,mapDispatch)(ShippingForm))
