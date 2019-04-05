@@ -4,10 +4,6 @@ import {addDelta} from './functions'
 
 let defaultState = {
   cart: {
-    name: 'Yegwheel',
-    email: 'something@yegwheel.com',
-    phone: '1234567891',
-    comments: 'Hi there',
     items: [
       {productCode:'blgmu',quantity:2}
     ]
@@ -16,6 +12,16 @@ let defaultState = {
     activeStep:0,
     token: null,
     orderComplete: false,
+    nameFirst: 'Yegwheel',
+    nameLast: '',
+    email: 'something@yegwheel.com',
+    phone: '1234567891',
+    address: '',
+    city: '',
+    province: '',
+    country:'',
+    postalCode: '',
+    comments: 'Hi there',
   }
 }
 
@@ -23,9 +29,15 @@ const ADD_ITEM = 'ADD_ITEM'
 const RESET_CART = 'RESET_CART'
 const DELETE_ITEM = 'DELETE_ITEM'
 const ADJUST_QUANTITY = 'ADJUST_QUANTITY'
-const SET_NAME = 'SET_NAME'
+const SET_FIRST_NAME = 'SET_FIRST_NAME'
+const SET_LAST_NAME = 'SET_LAST_NAME'
+const SET_ADDRESS = 'SET_ADDRESS'
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PHONE = 'SET_PHONE'
+const SET_CITY = 'SET_CITY'
+const SET_PROVINCE = 'SET_PROVINCE'
+const SET_COUNTRY = 'SET_COUNTRY'
+const SET_POSTAL_CODE = 'SET_POSTAL_CODE'
 const SET_CHECKOUT_STEP ='SET_CHECKOUT_STEP'
 const SET_STRIPE_TOKEN = 'SET_STRIPE_TOKEN'
 const SET_ORDER_COMPLETE = 'SET_ORDER_COMPLETE'
@@ -69,14 +81,32 @@ const adjustQuantity = (draft, payload) => {
   draft.cart.items[index].quantity = newQuantity
 }
 
-const setName = (draft, payload) => {
-  draft.cart.name = payload.value
+const setFirstName = (draft, payload) => {
+  draft.checkout.firstName = payload.value
+}
+const setLastName = (draft, payload) => {
+  draft.checkout.lastName = payload.value
 }
 const setEmail = (draft, payload) => {
-  draft.cart.email = payload.value
+  draft.checkout.email = payload.value
 }
 const setPhone = (draft, payload) => {
-  draft.cart.phone = payload.value
+  draft.checkout.phone = payload.value
+}
+const setAddress = (draft, payload) => {
+  draft.checkout.address = payload.value
+}
+const setCity = (draft, payload) => {
+  draft.checkout.city = payload.value
+}
+const setProvince = (draft, payload) => {
+  draft.checkout.province = payload.value
+}
+const setCountry = (draft, payload) => {
+  draft.checkout.country = payload.value
+}
+const setPostalCode = (draft, payload) => {
+  draft.checkout.postalCode = payload.value
 }
 
 const reducer = (state=defaultState, action) =>  {
@@ -87,9 +117,15 @@ const reducer = (state=defaultState, action) =>  {
       case RESET_CART: resetCart(draft); break;
       case DELETE_ITEM: deleteItem(draft, payload); break;
       case ADJUST_QUANTITY: adjustQuantity(draft, payload); break;
-      case SET_NAME: setName(draft, payload); break;
+      case SET_FIRST_NAME: setFirstName(draft, payload); break;
+      case SET_LAST_NAME: setLastName(draft,payload); break;
       case SET_EMAIL: setEmail(draft, payload); break;
       case SET_PHONE: setPhone(draft, payload); break;
+      case SET_ADDRESS: setAddress(draft,payload); break;
+      case SET_CITY: setCity(draft,payload); break;
+      case SET_PROVINCE: setProvince(draft,payload); break;
+      case SET_COUNTRY: setCountry(draft,payload); break;
+      case SET_POSTAL_CODE: setPostalCode(draft,payload); break;
       case SET_CHECKOUT_STEP: setCheckoutStep(draft, payload); break;
       case SET_STRIPE_TOKEN: setStripeToken(draft, payload); break;
       case SET_ORDER_COMPLETE: setOrderComplete(draft); break;
