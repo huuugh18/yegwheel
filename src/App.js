@@ -34,11 +34,11 @@ class App extends Component {
       <div className="App" onClick={this.props.addItem}>
         <Navbar auth={auth} connected={connected} />
         <div className='bodyContainer' auth={auth}>
-          <Route path='/'             render={props=><Home       auth={auth} {...props} exact/>}/>
-          <Route path='/cart'         render={props=><Cart       auth={auth} {...props}/>} />
-          <Route path='/checkout'     render={props=><Checkout   auth={auth} {...props}/>} />
-          <Route path='/learntowheel' render={props=><LearnHowTo auth={auth} {...props}/>} />
-          <Route path='/callback'     render={props => {
+          <Route exact path='/'             render={props=><Home       auth={auth} {...props} />}/>
+          <Route exact path='/cart'         render={props=><Cart       auth={auth} {...props}/>} />
+          <Route exact path='/checkout'     render={props=><Checkout   auth={auth} {...props}/>} />
+          <Route exact path='/learntowheel' render={props=><LearnHowTo auth={auth} {...props}/>} />
+          <Route exact path='/callback'     render={props => {
             handleAuthentication(props)
             return <Callback {...props} test="abc" />
           }}/>
