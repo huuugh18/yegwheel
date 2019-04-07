@@ -19,7 +19,8 @@ const ItemCard = ({productCode, img}) => {
   return <PurchaseCard {...{name, productCode, price, description}} img={img} />
 }
 
-export const Home = () => {
+export const Home = (props) => {
+  console.log('rendering home with isAuthenticated: ',props.auth.isAuthenticated())
   return (
     <div className="home-container">
       <img id="home-title-image-large" className={'home-title-image'} src={largeBanner} alt="four images of people riding electric unicycles in various locations" />

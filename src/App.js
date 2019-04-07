@@ -1,34 +1,52 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { StripeProvider} from 'react-stripe-elements';
+import { Route, withRouter } from "react-router-dom";
 
 import './App.css';
 import {Navbar} from './navbar/Navbar'
 import {Footer} from './footer/Footer'
 import {Home} from './home/Home'
 import Cart from './cart/Cart'
+import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
 
+
 class App extends Component {
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+  login() {
+    this.props.auth.login()
+  }
+  logout() {
+    this.props.auth.logout()
+  }
+  componentDidMount() {
+    const {renewSession} = this.props.auth
+    if(localStorage.getItem('isLoggedIn') === 'true') renewSession()
+  }
   render() {
+    const {auth, handleAuthentication} = this.props
+    const { isAuthenticated } = auth
+    const connected = isAuthenticated()
+    console.log('connected in app.js is ', connected)
     return (
-      <StripeProvider apiKey='pk_test_upQ7P9IIf73Ucyo2zFwxluAM000mJP2HB6'>
-      <Router>
-        <div className="App" onClick={this.props.addItem}>
-          <Navbar />
-          <div className='bodyContainer'>
-            <Route path='/' exact component={Home} />
-            <Route path='/cart' exact component={Cart} />
-            <Route path='/checkout' component={Checkout} />
-            <Route path='/learntowheel' component={LearnHowTo} />
-          </div>
-          <Footer />
+      <div className="App" onClick={this.props.addItem}>
+        <Navbar auth={auth} connected={connected} />
+        <div className='bodyContainer' auth={auth}>
+          <Route path='/'             render={props=><Home       auth={auth} {...props} exact/>}/>
+          <Route path='/cart'         render={props=><Cart       auth={auth} {...props}/>} />
+          <Route path='/checkout'     render={props=><Checkout   auth={auth} {...props}/>} />
+          <Route path='/learntowheel' render={props=><LearnHowTo auth={auth} {...props}/>} />
+          <Route path='/callback'     render={props => {
+            handleAuthentication(props)
+            return <Callback {...props} test="abc" />
+          }}/>
         </div>
-      </Router>
-      </StripeProvider>
+        <Footer />
+      </div>
     );
   }
 }
 
-export default App
+export default withRouter(App)
