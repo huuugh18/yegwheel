@@ -1,6 +1,5 @@
 import auth0 from 'auth0-js';
 import {clientID, domain, redirectUri}  from './authvars'
-import history  from '../history'
 
 class Auth {
   accessToken;
@@ -25,13 +24,11 @@ class Auth {
     this.setSession = this.setSession.bind(this)  // <==== this seems like it should be there, but is not in the example
   }
   setSession(authResult) {
-    console.log('setSession')
     localStorage.setItem('isLoggedIn', true)
     let expiresAt =(authResult.expiresIn * 1000) + new Date().getTime()
     this.accessToken = authResult.accessToken
     this.idToken = authResult.idToken
     this.expiresAt =expiresAt
-    history.replace('/')
   }
   login() {
     this.auth0.authorize();
@@ -43,8 +40,8 @@ class Auth {
     localStorage.removeItem('isLoggedIn')
     this.auth0.logout({return_to:window.location.origin})
   }
-  handleAuthentication() {
-    console.log('handling authentication')
+  handleAuthentication(store) {
+    console.log(`handleAuthentication(store)`, store)
     this.auth0.parseHash((err, authResult)=> {
       if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult)
       else if(err) {
@@ -64,7 +61,6 @@ class Auth {
     return this.idToken
   }
   renewSession() {
-    console.log('renewing session')
     this.auth0.checkSession({}, (err, authResult) => {
       if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult)
       else if(err){

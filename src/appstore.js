@@ -2,7 +2,11 @@ import {createStore} from 'redux'
 import produce from 'immer'
 import {addDelta} from './functions'
 
+
 let defaultState = {
+  auth: {
+    connected: false
+  },
   cart: {
     items: [
       {productCode:'blgmu',quantity:2}
@@ -42,6 +46,7 @@ const SET_CHECKOUT_STEP ='SET_CHECKOUT_STEP'
 const SET_STRIPE_TOKEN = 'SET_STRIPE_TOKEN'
 const SET_ORDER_COMPLETE = 'SET_ORDER_COMPLETE'
 const SET_ORDER_ERROR = 'SET_ORDER_ERROR'
+const SET_CONNECTED = 'SET_CONNECTED'
 
 const setOrderError = (draft,payload) => {
   draft.checkout.orderError = payload.error
@@ -109,6 +114,12 @@ const setPostalCode = (draft, payload) => {
   draft.checkout.postalCode = payload.value
 }
 
+const setConnected = (draft, payload)  => {
+  console.log('seting connected to ', payload.value)
+  draft.auth.connected = payload.value
+}
+
+
 const reducer = (state=defaultState, action) =>  {
   const {type, payload} = action
   const nextState = produce(state, draft => {
@@ -130,6 +141,7 @@ const reducer = (state=defaultState, action) =>  {
       case SET_STRIPE_TOKEN: setStripeToken(draft, payload); break;
       case SET_ORDER_COMPLETE: setOrderComplete(draft); break;
       case SET_ORDER_ERROR: setOrderError(draft,payload); break;
+      case SET_CONNECTED: setConnected(draft, payload); break;
       default: break;
     }
   })

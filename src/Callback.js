@@ -12,7 +12,8 @@ export default Callback
 // import auth0Client from './Auth/auth';
 
 // class Callback extends Component {
-//   async componentDidMount() {
+//   async componentDidMount() { //<=== here is a cluerigh right here.... 
+// where 
 //     await auth0Client.handleAuthentication();
 //     this.props.history.replace('/');
 //   }

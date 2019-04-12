@@ -4,31 +4,19 @@ import {NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link"
 import './Navbar.css'
 import logo from '../graphics/yegwheel_logo.svg'
-// import logoText from '../graphics/logo_text.svg'
 
-// import Auth from '../Auth/auth'
-// const auth = new Auth()
-// console.log(auth)
-// auth.login()
-
-
-const AuthStuff = ({auth, connected}) => {
-  console.log('connected = ', connected)
+const AuthStuff = (props) => {
+  const {auth, connected} = props
   const text = connected ? "Logout" : "Login"
   const clickHandler = () => {
-    console.log('aloha', auth)
     if(!connected) auth.login()
     else auth.logout()
-    //isAuthed ? auth.login() : auth.logout()
   }
-  return <div onClick={() => clickHandler()}>
-    Auth:{text}
-  </div>
+  return <div onClick={() => clickHandler()}>{text}</div>
 }
 
-export class Navbar extends Component {
+class Navbar extends Component {
   render(){
-    console.log('rendering the navbar')
     const {auth, connected} = this.props
     return (
       <div className="navbar-container">
@@ -48,7 +36,9 @@ export class Navbar extends Component {
   }
 }
 
-const mapState = () => ({})
-const mapDispatch = () => ({})
+const mapState = (state) => {
+  const connected = state.auth.connected
+  return ({connected})
+}
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState)(Navbar);
