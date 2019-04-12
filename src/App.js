@@ -10,6 +10,7 @@ import Cart from './cart/Cart'
 import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
+import auth from './Auth/auth';
 
 // <App auth={auth} handleAuthentication={handleAuthentication}/>
 
@@ -18,18 +19,17 @@ class App extends Component {
     this.props.history.replace(`/${route}`)
   }
   login() {
-    this.props.auth.login()
+    auth.login()
   }
   logout() {
     const {auth, dispatch} = this.props
     auth.logout(dispatch)
   }
   componentDidMount() {
-    const {renewSession} = this.props.auth
+    const {renewSession} = auth
     if(localStorage.getItem('isLoggedIn') === 'true') renewSession(this.props.dispatch)
   }
   render() {
-    const {auth} = this.props
     return (
       <div className="App" onClick={this.props.addItem}>
         <Navbar auth={auth} />

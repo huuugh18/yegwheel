@@ -13,8 +13,7 @@ class Auth {
     scope: 'openid'
   });
 
-  constructor(store) {
-    this.store = store
+  constructor() {
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
     this.handleAuthentication = this.handleAuthentication.bind(this)
@@ -84,4 +83,6 @@ class Auth {
   }
 }
 
-export default Auth
+const instance = new Auth()
+
+export default instance
