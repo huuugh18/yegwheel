@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { StripeProvider} from 'react-stripe-elements';
 
 import './App.css';
-import {Navbar} from './navbar/Navbar'
+import Navbar from './navbar/Navbar'
 import {Footer} from './footer/Footer'
 import {Home} from './home/Home'
 import Cart from './cart/Cart'

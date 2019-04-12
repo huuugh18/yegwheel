@@ -12,7 +12,6 @@ export const addDelta = (n, delta, lb=0, ub=10) =>
   n + delta
 
 export const getTotal = (items) => {
-  console.log(items)
   const total = items.reduce((accum,item) => {
     const {productCode, quantity} = item
     return accum + (toCatalogItem(productCode, catalog).price * quantity)

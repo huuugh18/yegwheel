@@ -2,10 +2,10 @@ import React, { } from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
+import { Elements} from 'react-stripe-elements'
 
 import './checkout.css'
 import { toCatalogItem } from '../functions'
-import { Elements} from 'react-stripe-elements'
 import {Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core'
 import { catalog } from '../data/catalog';
 
@@ -13,8 +13,8 @@ import StripeSubmitOrder from './StripeSubmitOrderButton'
 
 const styles = theme => ({
     button: {
-      marginTop: '24px',
-      marginLeft: '8px',
+        marginTop: '24px',
+        marginLeft: '8px',
     },
 });
   
