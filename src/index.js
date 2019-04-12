@@ -9,17 +9,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 //import { StripeProvider} from 'react-stripe-elements';
 import Auth from './Auth/auth';
 
-const auth = new Auth()
-const handleAuthentication = async function(nextState, history, store)  {
-  if(/access_token|id_token|error/.test(nextState.location.hash)) {
-    await auth.handleAuthentication(store)
-    history.replace('/')
-  }
-}
+const auth = new Auth(appstore)
 
 ReactDOM.render(<Provider store={appstore}>
   <Router>
-    <App auth={auth} handleAuthentication={handleAuthentication}/>
+    <App auth={auth}/>
   </Router>
 </Provider>, document.getElementById('root'));
       // <StripeProvider apiKey='pk_test_upQ7P9IIf73Ucyo2zFwxluAM000mJP2HB6'>

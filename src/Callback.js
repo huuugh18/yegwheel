@@ -1,12 +1,25 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+const handleAuthentication = async function(auth, hash, history, store)  {
+  if(/access_token|id_token|error/.test(hash)) {
+    await auth.handleAuthentication(store)
+    history.replace('/')
+  }
+}
+
 
 class Callback extends Component {
+  componentDidMount() {
+    const {auth, location, history, dispatch} = this.props
+    handleAuthentication(auth, location.hash, history, dispatch)
+  }
   render() {
-    console.log('rendering callback....', this.props.test)
     return <div>...loading...{this.props.test}</div>
   }
 }
-export default Callback
+export default withRouter(connect()(Callback))
 
 // import {withRouter} from 'react-router-dom';
 // import auth0Client from './Auth/auth';

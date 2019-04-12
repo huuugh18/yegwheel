@@ -11,6 +11,8 @@ import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
 
+// <App auth={auth} handleAuthentication={handleAuthentication}/>
+
 class App extends Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
@@ -19,14 +21,15 @@ class App extends Component {
     this.props.auth.login()
   }
   logout() {
-    this.props.auth.logout()
+    const {auth, dispatch} = this.props
+    auth.logout(dispatch)
   }
   componentDidMount() {
     const {renewSession} = this.props.auth
-    if(localStorage.getItem('isLoggedIn') === 'true') renewSession()
+    if(localStorage.getItem('isLoggedIn') === 'true') renewSession(this.props.dispatch)
   }
   render() {
-    const {auth, handleAuthentication, history, dispatch} = this.props
+    const {auth} = this.props
     return (
       <div className="App" onClick={this.props.addItem}>
         <Navbar auth={auth} />
@@ -35,10 +38,7 @@ class App extends Component {
           <Route exact path='/cart'         render={props=><Cart       auth={auth} {...props}/>} />
           <Route exact path='/checkout'     render={props=><Checkout   auth={auth} {...props}/>} />
           <Route exact path='/learntowheel' render={props=><LearnHowTo auth={auth} {...props}/>} />
-          <Route exact path='/callback'     render={props => {
-            handleAuthentication(props, history, dispatch)
-            return <Callback {...props} test="abc" />
-          }}/>
+          <Route exact path='/callback'     render={props=><Callback   auth={auth} />} />
         </div>
         <Footer />
       </div>

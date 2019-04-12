@@ -13,7 +13,8 @@ class Auth {
     scope: 'openid'
   });
 
-  constructor() {
+  constructor(store) {
+    this.store = store
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
     this.handleAuthentication = this.handleAuthentication.bind(this)
@@ -25,46 +26,57 @@ class Auth {
   }
   setSession(authResult, dispatch) {
     localStorage.setItem('isLoggedIn', true)
-    let expiresAt =(authResult.expiresIn * 1000) + new Date().getTime()
-    this.accessToken = authResult.accessToken
-    this.idToken = authResult.idToken
-    this.expiresAt =expiresAt
-    dispatch({type: 'SET_CONNECTED', payload: {value: true}})
+    const {expiresIn, accessToken, idToken} = authResult
+    let expiresAt = (expiresIn * 1000) + new Date().getTime()
+    this.accessToken = accessToken
+    this.idToken =  idToken
+    this.expiresAt = expiresAt
+    dispatch({type: 'SET_CONNECTED', payload: {
+        accessToken, idToken, expiresAt,
+        value: true
+    }})
   }
   login() {
     this.auth0.authorize();
   }
-  logout() {
+  logout(dispatch) {
     this.accessToken = null
     this.idToken = null
     this.expiresAt = 0
+    dispatch({type: 'SET_CONNECTED', payload: {
+      accessToken:null, idToken:null, expiresAt:0,
+      value: false
+    }})
     localStorage.removeItem('isLoggedIn')
     this.auth0.logout({return_to:window.location.origin})
   }
   handleAuthentication(dispatch) {
     this.auth0.parseHash((err, authResult)=> {
-      if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult, dispatch)
+      if(authResult && authResult.accessToken && authResult.idToken) 
+        this.setSession(authResult, dispatch)
       else if(err) {
         console.log(err)
         alert('check console for error details')
       }
     })
   }
-  isAuthenticated() {
-    let expiresAt = this.expiresAt;
-    return new Date().getTime() < expiresAt;
+  isAuthenticated(state) {
+    // let expiresAt = this.expiresAt;
+    return new Date().getTime() < state.auth.expiresAt;
   }
-  getAccessToken() {
-    return this.accessToken
+  getAccessToken(state) {
+    return state.auth.accessToken
+    //return this.accessToken
   }
-  getIdToken() {
-    return this.idToken
+  getIdToken(state) {
+    //return this.idToken
+    return state.auth.accessToken
   }
-  renewSession() {
+  renewSession(dispatch) {
     this.auth0.checkSession({}, (err, authResult) => {
-      if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult)
+      if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult, dispatch)
       else if(err){
-        this.logout()
+        this.logout(dispatch)
         console.log(err)
         alert(`Could not get a new token (${err.error}: ${err.error_description}).`)
       }

@@ -115,10 +115,12 @@ const setPostalCode = (draft, payload) => {
 }
 
 const setConnected = (draft, payload)  => {
-  console.log('seting connected to ', payload.value)
-  draft.auth.connected = payload.value
+  const {value, accessToken, idToken, expiresAt} = payload
+  draft.auth.connected = value
+  draft.auth.accessToken =   accessToken
+  draft.auth.idToken =   idToken
+  draft.auth.expiresAt =  expiresAt
 }
-
 
 const reducer = (state=defaultState, action) =>  {
   const {type, payload} = action
