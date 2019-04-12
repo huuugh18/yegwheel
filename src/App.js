@@ -1,5 +1,5 @@
-import React, { Component, useEffect } from 'react';
-import { Route, withRouter, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Route, withRouter } from "react-router-dom";
 import {connect } from 'react-redux'
 
 import './App.css';
@@ -10,20 +10,6 @@ import Cart from './cart/Cart'
 import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
-
-const GoodToGo = (props) => {
-  useEffect(()=>{
-    console.log('Props(in useEffect) are: ', props)
-    props.dispatch({type: 'SET_CONNECTED', payload: {value: true}})
-  })
-  console.log('Props are', props)
-  return <div>good to go!<Link to='/'>Home</Link></div>
-}
-
-const mapState = state=>state
-
-const GoodToGoConnected = connect(mapState)(GoodToGo)
-
 
 class App extends Component {
   goTo(route) {
@@ -40,18 +26,17 @@ class App extends Component {
     if(localStorage.getItem('isLoggedIn') === 'true') renewSession()
   }
   render() {
-    const {auth, handleAuthentication, history} = this.props
+    const {auth, handleAuthentication, history, dispatch} = this.props
     return (
       <div className="App" onClick={this.props.addItem}>
         <Navbar auth={auth} />
         <div className='bodyContainer' auth={auth}>
           <Route exact path='/'             render={props=><Home       auth={auth} {...props}/>} />
-          <Route exact path='/goodtogo'     render={props=><GoodToGoConnected   auth={auth} {...props}/>} />
           <Route exact path='/cart'         render={props=><Cart       auth={auth} {...props}/>} />
           <Route exact path='/checkout'     render={props=><Checkout   auth={auth} {...props}/>} />
           <Route exact path='/learntowheel' render={props=><LearnHowTo auth={auth} {...props}/>} />
           <Route exact path='/callback'     render={props => {
-            handleAuthentication(props, () => history.replace('/goodtogo'))
+            handleAuthentication(props, history, dispatch)
             return <Callback {...props} test="abc" />
           }}/>
         </div>

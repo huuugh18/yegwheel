@@ -23,12 +23,13 @@ class Auth {
     this.renewSession =this.renewSession.bind(this)
     this.setSession = this.setSession.bind(this)  // <==== this seems like it should be there, but is not in the example
   }
-  setSession(authResult) {
+  setSession(authResult, dispatch) {
     localStorage.setItem('isLoggedIn', true)
     let expiresAt =(authResult.expiresIn * 1000) + new Date().getTime()
     this.accessToken = authResult.accessToken
     this.idToken = authResult.idToken
     this.expiresAt =expiresAt
+    dispatch({type: 'SET_CONNECTED', payload: {value: true}})
   }
   login() {
     this.auth0.authorize();
@@ -40,10 +41,9 @@ class Auth {
     localStorage.removeItem('isLoggedIn')
     this.auth0.logout({return_to:window.location.origin})
   }
-  handleAuthentication(store) {
-    console.log(`handleAuthentication(store)`, store)
+  handleAuthentication(dispatch) {
     this.auth0.parseHash((err, authResult)=> {
-      if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult)
+      if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult, dispatch)
       else if(err) {
         console.log(err)
         alert('check console for error details')

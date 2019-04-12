@@ -10,14 +10,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Auth from './Auth/auth';
 
 const auth = new Auth()
-const handleAuthentication = async function(nextState, replace)  {
-  console.log('replace is',replace)
+const handleAuthentication = async function(nextState, history, store)  {
   if(/access_token|id_token|error/.test(nextState.location.hash)) {
-    await auth.handleAuthentication()
-    if(replace) {
-      console.log('replacing')
-      replace()
-    }
+    await auth.handleAuthentication(store)
+    history.replace('/')
   }
 }
 
