@@ -1,3 +1,6 @@
+import {catalog} from './data/catalog'
+
+
 export const toCatalogItem = (productCode, catalog) => catalog.find(item => item.productCode === productCode)
 
 
@@ -7,3 +10,13 @@ export const addDelta = (n, delta, lb=0, ub=10) =>
   n + delta < lb ? lb :
   n + delta > ub ? ub :
   n + delta
+
+export const getTotal = (items) => {
+  console.log(items)
+  const total = items.reduce((accum,item) => {
+    const {productCode, quantity} = item
+    return accum + (toCatalogItem(productCode, catalog).price * quantity)
+  },0)
+  return total
+}
+
