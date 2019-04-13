@@ -1,25 +1,23 @@
 import auth0 from 'auth0-js';
 import {clientID, domain, redirectUri}  from './authvars'
 
+export const authInstance = new auth0.WebAuth({
+  domain,
+  clientID,
+  redirectUri,
+  responseType: 'token id_token',
+  scope: 'openid'
+});
+
 class Auth {
   accessToken;
   idToken;
   expiresAt;
-  auth0 = new auth0.WebAuth({
-    domain,
-    clientID,
-    redirectUri,
-    responseType: 'token id_token',
-    scope: 'openid'
-  });
+  auth0 = authInstance
 
   constructor() {
-    this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
     this.handleAuthentication = this.handleAuthentication.bind(this)
-    this.isAuthenticated = this.isAuthenticated.bind(this)
-    this.getIdToken = this.getIdToken.bind(this)
-    this.getAccessToken = this.getAccessToken.bind(this)
     this.renewSession =this.renewSession.bind(this)
     this.setSession = this.setSession.bind(this)  // <==== this seems like it should be there, but is not in the example
   }
@@ -35,9 +33,6 @@ class Auth {
         value: true
     }})
   }
-  login() {
-    this.auth0.authorize();
-  }
   logout(dispatch) {
     this.accessToken = null
     this.idToken = null
@@ -51,25 +46,12 @@ class Auth {
   }
   handleAuthentication(dispatch) {
     this.auth0.parseHash((err, authResult)=> {
-      if(authResult && authResult.accessToken && authResult.idToken) 
-        this.setSession(authResult, dispatch)
+      if(authResult && authResult.accessToken && authResult.idToken) this.setSession(authResult, dispatch)
       else if(err) {
         console.log(err)
         alert('check console for error details')
       }
     })
-  }
-  isAuthenticated(state) {
-    // let expiresAt = this.expiresAt;
-    return new Date().getTime() < state.auth.expiresAt;
-  }
-  getAccessToken(state) {
-    return state.auth.accessToken
-    //return this.accessToken
-  }
-  getIdToken(state) {
-    //return this.idToken
-    return state.auth.accessToken
   }
   renewSession(dispatch) {
     this.auth0.checkSession({}, (err, authResult) => {

@@ -4,12 +4,14 @@ import {NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link"
 import './Navbar.css'
 import logo from '../graphics/yegwheel_logo.svg'
+import {authInstance} from '../Auth/auth'
 
 const AuthStuff = (props) => {
   const {auth, connected, dispatch} = props
   const text = connected ? "Logout" : "Login"
   const clickHandler = () => {
-    if(!connected) auth.login()
+    console.log('working from clickHandler')
+    if(!connected) authInstance.authorize()
     else auth.logout(dispatch)
   }
   return <div onClick={() => clickHandler()}>{text}</div>

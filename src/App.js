@@ -12,15 +12,7 @@ import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
 import auth from './Auth/auth';
 
-// <App auth={auth} handleAuthentication={handleAuthentication}/>
-
 class App extends Component {
-  goTo(route) {
-    this.props.history.replace(`/${route}`)
-  }
-  login() {
-    auth.login()
-  }
   logout() {
     const {auth, dispatch} = this.props
     auth.logout(dispatch)
