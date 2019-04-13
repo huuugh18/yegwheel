@@ -10,11 +10,12 @@ import Cart from './cart/Cart'
 import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
-import {renewSession} from './Auth/auth'
+import {renewSessionThunk} from './Auth/auth'
 
 class App extends Component {
   componentDidMount() {
-    if(localStorage.getItem('isLoggedIn') === 'true') renewSession(this.props.dispatch)
+    const {renewSession} = this.props
+    if(localStorage.getItem('isLoggedIn') === 'true') renewSession()
   }
   render() {
     return (
@@ -33,18 +34,10 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect()(App))
+const mapState = state => ({})
+const mapDispatch = dispatch => ({
+  renewSession: ()=>dispatch(renewSessionThunk())
+})
 
-/**
- So here is the problem....
- When the session connects everything hasbeen rendered already, and it doesn't signal 
- to anything that a re-render should occur.
- So the Navbar reflects the not-logged-in state.
- -- there seems to be a redirect that occurs at the end of the establish session....  itgoes to callback
- -- still a bit jumbled how the callbacks are occurring
- -- what makes the callback go away and be replaced with adifferent route
- -- redux has to know about connected state
- -- when we post welcome back, do we have all we need?
- -- can that component be manipulated from redux actions and thunks?
+export default withRouter(connect(mapState, mapDispatch)(App))
 
- */

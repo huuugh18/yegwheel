@@ -1,33 +1,11 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
 import produce from 'immer'
-import {addDelta} from './functions'
+import {addDelta} from '../functions'
+import {defaultState} from './teststate'
 
-
-let defaultState = {
-  auth: {
-    connected: false
-  },
-  cart: {
-    items: [
-      {productCode:'blgmu',quantity:2}
-    ]
-  },
-  checkout:{
-    activeStep:0,
-    token: null,
-    orderComplete: false,
-    nameFirst: 'Yegwheel',
-    nameLast: '',
-    email: 'something@yegwheel.com',
-    phone: '1234567891',
-    address: '',
-    city: '',
-    province: '',
-    country:'',
-    postalCode: '',
-    comments: 'Hi there',
-  }
-}
+//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() || compose
+//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose
 
 const ADD_ITEM = 'ADD_ITEM'
 const RESET_CART = 'RESET_CART'
@@ -150,6 +128,11 @@ const reducer = (state=defaultState, action) =>  {
   return nextState
 }
 
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({    }) : compose;
 
+const enhancer = composeEnhancers(applyMiddleware(thunk));
+const store = createStore(reducer, enhancer);
 
-export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+export default store

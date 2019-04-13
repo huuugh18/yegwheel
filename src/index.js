@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'
-import appstore from './appstore'
+import appstore from './rdxstore/appstore'
 import { BrowserRouter as Router } from "react-router-dom";
 //import { StripeProvider} from 'react-stripe-elements';
 

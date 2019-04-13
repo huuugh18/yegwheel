@@ -9,7 +9,8 @@ export const authInstance = new auth0.WebAuth({
   scope: 'openid'
 });
 
-export const setSession = (authResult, dispatch) => {
+export const setSessionThunk = authResult => dispatch => {
+  console.log('using setSessionThunk')
   localStorage.setItem('isLoggedIn', true)
   const {expiresIn, accessToken, idToken} = authResult
   let expiresAt = (expiresIn * 1000) + new Date().getTime()
@@ -19,17 +20,20 @@ export const setSession = (authResult, dispatch) => {
   }})
 }
 
-export const handleAuthentication = (dispatch) => {
+export const handleAuthenticationThunk = (hash, history) => dispatch => {
+  const hasToken = /access_token|id_token|error/.test(hash)
+  if(!hasToken) return
   authInstance.parseHash((err, authResult)=> {
-    if(authResult && authResult.accessToken && authResult.idToken) setSession(authResult, dispatch)
+    if(authResult && authResult.accessToken && authResult.idToken) dispatch(setSessionThunk(authResult))
     else if(err) {
       console.log(err)
       alert('check console for error details')
     }
   })
+  history.replace('/')
 }
 
-export const logout = (dispatch) => {
+export const logout = () => dispatch => {
   dispatch({type: 'SET_CONNECTED', payload: {
     accessToken:null, idToken:null, expiresAt:0,
     value: false
@@ -38,11 +42,11 @@ export const logout = (dispatch) => {
   authInstance.logout({return_to:window.location.origin})
 }
 
-export const renewSession = (dispatch) => {
+export const renewSessionThunk = () => dispatch => {
   authInstance.checkSession({}, (err, authResult) => {
-    if(authResult && authResult.accessToken && authResult.idToken) setSession(authResult, dispatch)
+    if(authResult && authResult.accessToken && authResult.idToken) dispatch(setSessionThunk(authResult))
     else if(err){
-      logout(dispatch)
+      dispatch(logout())
       console.log(err)
       alert(`Could not get a new token (${err.error}: ${err.error_description}).`)
     }

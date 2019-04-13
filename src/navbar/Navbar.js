@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
 import {NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link"
-import './Navbar.css'
 import logo from '../graphics/yegwheel_logo.svg'
-import {authInstance, logout} from '../Auth/auth'
-
-const AuthStuff = (props) => {
-  const {connected, dispatch} = props
-  const text = connected ? "Logout" : "Login"
-  const clickHandler = () => {
-    console.log('working from clickHandler')
-    if(!connected) authInstance.authorize()
-    else logout(dispatch)
-  }
-  return <div onClick={() => clickHandler()}>{text}</div>
-}
+import AuthButton from './AuthButton'
+import './Navbar.css'
 
 class Navbar extends Component {
   render(){
-    const {auth, connected, dispatch} = this.props
     return (
       <div className="navbar-container">
         <img src={logo} id="nav-logo" alt="logo" />
@@ -31,16 +18,11 @@ class Navbar extends Component {
           <NavHashLink to='/#home-purchase-container' className="nav-link" activeClassName="nav-link-active">Purchase</NavHashLink>
           <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">Forum</a>
           <NavLink to='/cart' className="nav-link" activeClassName="nav-link-active">Cart</NavLink>
-          <AuthStuff auth={auth} connected={connected} dispatch={dispatch}/>
+          <AuthButton />
         </div>
       </div>
     )
   }
 }
 
-const mapState = (state) => {
-  const connected = state.auth.connected
-  return ({connected})
-}
-
-export default connect(mapState)(Navbar);
+export default Navbar
