@@ -10,27 +10,22 @@ import Cart from './cart/Cart'
 import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
-import auth from './Auth/auth';
+import {renewSession} from './Auth/auth'
 
 class App extends Component {
-  logout() {
-    const {auth, dispatch} = this.props
-    auth.logout(dispatch)
-  }
   componentDidMount() {
-    const {renewSession} = auth
     if(localStorage.getItem('isLoggedIn') === 'true') renewSession(this.props.dispatch)
   }
   render() {
     return (
       <div className="App" onClick={this.props.addItem}>
-        <Navbar auth={auth} />
-        <div className='bodyContainer' auth={auth}>
-          <Route exact path='/'             render={props=><Home       auth={auth} {...props}/>} />
-          <Route exact path='/cart'         render={props=><Cart       auth={auth} {...props}/>} />
-          <Route exact path='/checkout'     render={props=><Checkout   auth={auth} {...props}/>} />
-          <Route exact path='/learntowheel' render={props=><LearnHowTo auth={auth} {...props}/>} />
-          <Route exact path='/callback'     render={props=><Callback   auth={auth} />} />
+        <Navbar />
+        <div className='bodyContainer'>
+          <Route exact path='/'             render={props=><Home       {...props}/>} />
+          <Route exact path='/cart'         render={props=><Cart       {...props}/>} />
+          <Route exact path='/checkout'     render={props=><Checkout   {...props}/>} />
+          <Route exact path='/learntowheel' render={props=><LearnHowTo {...props}/>} />
+          <Route exact path='/callback'     render={props=><Callback />} />
         </div>
         <Footer />
       </div>

@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {handleAuthentication as HA} from './Auth/auth'
 
-const handleAuthentication = async function(auth, hash, history, store)  {
+const handleAuthentication = async function(hash, history, dispatch)  {
   if(/access_token|id_token|error/.test(hash)) {
-    await auth.handleAuthentication(store)
+    await HA(dispatch)
     history.replace('/')
   }
 }
 
-
 class Callback extends Component {
   componentDidMount() {
-    const {auth, location, history, dispatch} = this.props
-    handleAuthentication(auth, location.hash, history, dispatch)
+    const {location, history, dispatch} = this.props
+    handleAuthentication(location.hash, history, dispatch)
   }
   render() {
     return <div>...loading...{this.props.test}</div>
