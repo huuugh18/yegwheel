@@ -10,13 +10,20 @@ export const authInstance = new auth0.WebAuth({
   scope: 'openid profile'
 });
 
+const getDisplayName = (nickname, given_name) => {
+  if(!given_name) return nickname
+  if(!nickname) return given_name
+  return nickname.length < given_name.length ? nickname : given_name
+}
+
 export const setSessionThunk = authResult => dispatch => {
   localStorage.setItem('isLoggedIn', true)
   const {expiresIn, accessToken, idToken} = authResult
-  const {sub:uid, nickname} = jwt_decode(authResult.idToken)
+  console.log('token cantains', jwt_decode(authResult.idToken))
+  const {sub:uid, nickname, given_name} = jwt_decode(authResult.idToken)
   let expiresAt = (expiresIn * 1000) + new Date().getTime()
   dispatch({type: 'SET_CONNECTED', payload: {
-      accessToken, idToken, expiresAt, uid, nickname,
+      accessToken, idToken, expiresAt, uid, nickname:getDisplayName(nickname, given_name),
       value: true
   }})
 }
