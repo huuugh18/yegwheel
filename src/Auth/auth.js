@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import jwt_decode from 'jwt-decode'
 import {clientID, domain, redirectUri}  from './authvars'
 
 export const authInstance = new auth0.WebAuth({
@@ -6,16 +7,16 @@ export const authInstance = new auth0.WebAuth({
   clientID,
   redirectUri,
   responseType: 'token id_token',
-  scope: 'openid'
+  scope: 'openid profile'
 });
 
 export const setSessionThunk = authResult => dispatch => {
-  console.log('using setSessionThunk')
   localStorage.setItem('isLoggedIn', true)
   const {expiresIn, accessToken, idToken} = authResult
+  const {sub:uid, nickname} = jwt_decode(authResult.idToken)
   let expiresAt = (expiresIn * 1000) + new Date().getTime()
   dispatch({type: 'SET_CONNECTED', payload: {
-      accessToken, idToken, expiresAt,
+      accessToken, idToken, expiresAt, uid, nickname,
       value: true
   }})
 }
@@ -24,7 +25,9 @@ export const handleAuthenticationThunk = (hash, history) => dispatch => {
   const hasToken = /access_token|id_token|error/.test(hash)
   if(!hasToken) return
   authInstance.parseHash((err, authResult)=> {
-    if(authResult && authResult.accessToken && authResult.idToken) dispatch(setSessionThunk(authResult))
+    if(authResult && authResult.accessToken && authResult.idToken) {
+      dispatch(setSessionThunk(authResult))
+    }
     else if(err) {
       console.log(err)
       alert('check console for error details')

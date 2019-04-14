@@ -2,17 +2,24 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {authInstance, logout} from '../Auth/auth'
 
-const AuthButton = (props) => {
-    const {connected, disconnect} = props
-    const text = connected ? "Logout" : "Login"
-    const clickHandler = () => {
-      if(!connected) authInstance.authorize()
-      else disconnect()
-    }
-    return <div onClick={() => clickHandler()}>{text}</div>
+const LoginButton = () => {
+  const clickHandler = () => authInstance.authorize()
+  return <div onClick={() => clickHandler()}>Login</div>
 }
 
-const mapState =    state    => ({ connected: state.auth.connected })
+const AuthButton = (props) => {
+    const {connected, disconnect} = props
+    if(!connected) return <LoginButton />
+    return <div onClick={() => disconnect()}>Logout {props.nickname}</div>
+}
+
+const mapState =    state    => {
+  const connected = state.auth.connected
+  if(!connected) return {connected}
+  const {uid, nickname} = state.auth
+  console.log(uid, nickname)
+  return ({ connected, uid, nickname })
+}
 const mapDispatch = dispatch => ({ disconnect: () => dispatch(logout()) })
 
 export default connect(mapState, mapDispatch)(AuthButton)

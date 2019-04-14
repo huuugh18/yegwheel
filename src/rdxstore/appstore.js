@@ -93,11 +93,13 @@ const setPostalCode = (draft, payload) => {
 }
 
 const setConnected = (draft, payload)  => {
-  const {value, accessToken, idToken, expiresAt} = payload
+  const {value, accessToken, idToken, expiresAt, uid, nickname} = payload
   draft.auth.connected = value
   draft.auth.accessToken =   accessToken
   draft.auth.idToken =   idToken
   draft.auth.expiresAt =  expiresAt
+  draft.auth.uid = uid
+  draft.auth.nickname = nickname
 }
 
 const reducer = (state=defaultState, action) =>  {
