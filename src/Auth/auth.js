@@ -19,7 +19,6 @@ const getDisplayName = (nickname, given_name) => {
 export const setSessionThunk = authResult => dispatch => {
   localStorage.setItem('isLoggedIn', true)
   const {expiresIn, accessToken, idToken} = authResult
-  console.log('token cantains', jwt_decode(authResult.idToken))
   const {sub:uid, nickname, given_name} = jwt_decode(authResult.idToken)
   let expiresAt = (expiresIn * 1000) + new Date().getTime()
   dispatch({type: 'SET_CONNECTED', payload: {

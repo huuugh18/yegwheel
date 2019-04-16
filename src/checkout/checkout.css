@@ -49,6 +49,13 @@
   float:right;
 }
 
+.shipping-form-container {
+  border: transparent 10px solid;
+  display:flex;
+  justify-content: center;
+  background-color: #efefef;
+}
+
 .cart {
   padding: 10px;
   margin: 20px;

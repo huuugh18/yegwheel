@@ -17,7 +17,6 @@ const mapState =    state    => {
   const connected = state.auth.connected
   if(!connected) return {connected}
   const {uid, nickname} = state.auth
-  console.log(uid, nickname)
   return ({ connected, uid, nickname })
 }
 const mapDispatch = dispatch => ({ disconnect: () => dispatch(logout()) })
