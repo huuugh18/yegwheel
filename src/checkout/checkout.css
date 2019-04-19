@@ -51,7 +51,7 @@
 }
 
 .shipping-form-container {
-  border: transparent 10px solid;
+  border-bottom: transparent 10px solid;
   display:flex;
   justify-content: center;
   /*background-color: #efefef;*/

@@ -5,14 +5,12 @@ import { withStyles } from '@material-ui/core/styles';
 import {injectStripe} from 'react-stripe-elements'
 import {Button} from '@material-ui/core'
 
-
 const styles = theme => ({
     button: {
       marginTop: '24px',
       marginLeft: '8px',
     },
 });
-  
 
 const StripeSubmitButton = ({submitOrder,classes}) => {
     console.log(submitOrder)
