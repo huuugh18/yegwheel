@@ -25,7 +25,7 @@ const NextButton = ({getNextPage, classes}) => <Button className={classes.button
 
 const PaymentInfo = ({getNextPage,getPrevPage,stripe,classes}) => {
   return <div>
-    <div className='checkout-subheader'>Payment Information</div>
+    <div className='checkout-subheader'>Payment Method</div>
     <div className='shipping-form-container'>
         <Elements>
           <StripeForm stripe={stripe}/>
@@ -41,11 +41,11 @@ const PaymentInfo = ({getNextPage,getPrevPage,stripe,classes}) => {
 const mapDispatch = (dispatch,{history}) => {
   return {
     getNextPage: () => {
-      history.push('/checkout/review')
+      history.push('/checkout/confirmation')
       dispatch({type:'SET_CHECKOUT_STEP',payload:{step:2}})
     },
     getPrevPage: () => {
-      history.push('/checkout/shipping')
+      history.push('/checkout/billing')
       dispatch({type:'SET_CHECKOUT_STEP',payload:{step:0}})
     },
   }

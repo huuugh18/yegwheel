@@ -6,8 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import './checkout.css'
 import { toCatalogItem } from '../functions'
 import { Elements} from 'react-stripe-elements'
-import {Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core'
-import { catalog } from '../data/catalog';
+import { Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core'
 
 import StripeSubmitOrder from './StripeSubmitOrderButton'
 
@@ -17,7 +16,6 @@ const styles = theme => ({
     marginLeft: '8px',
   },
 });
-  
 
 const SimpleRow = ({cells}) => <TableRow>
   <TableCell>{cells[0]}</TableCell>
@@ -26,23 +24,23 @@ const SimpleRow = ({cells}) => <TableRow>
   <TableCell>{cells[3]}</TableCell>
 </TableRow>
 
-const ToCartCells = (productCode, quantity) => {
-  const {name, price} = toCatalogItem(productCode, catalog)
+const ToCartCells = (productCode, quantity, state) => {
+  const {name, price} = toCatalogItem(productCode, state.catalog)
   return [name, quantity, `$${price}`, `$${price*quantity}`]
 }
 
 const columnHeadings = ["Product","Quantity", "Price", "Subtotal"]
 
-const CartItem = ({productCode, quantity}) => <SimpleRow cells={ToCartCells(productCode, quantity)} /> 
+const CartItem = ({productCode, quantity, state}) => <SimpleRow cells={ToCartCells(productCode, quantity, state)} /> 
 const SubmitButton = ({token, total}) => <Elements><StripeSubmitOrder {...{token, total}} /></Elements>
 const BackButton = ({classes, getPrevPage}) => <Button className={classes.button} disabled={false} onClick={getPrevPage}>Back</Button>
 const HeaderSection = () => <TableHead><SimpleRow cells={columnHeadings} /></TableHead>
 const FormContainer = ({children}) => <div className='shipping-form-container'>{children}</div>
 const ButtonsContainer = ({children}) => <div className='checkout-button-container'>{children}</div>
-const TitleLine = () => <div className='checkout-subheader'>Review Order</div>
+const TitleLine = () => <div className='checkout-subheader'>Confirmation</div>
 const TotalRow = ({total}) => <SimpleRow cells={['','',"Total:",`$${total}`]} />
 
-const ReviewOrder = ({getPrevPage,items,total,token,classes}) => (
+const ReviewOrder = ({getPrevPage,items,total,token,classes,state}) => (
   <div>
     <TitleLine />
     <FormContainer>
@@ -50,7 +48,7 @@ const ReviewOrder = ({getPrevPage,items,total,token,classes}) => (
         <HeaderSection />                    
         <TableBody>
           {
-            items.map( (item,i) => <CartItem key={'k'+i} {...item} />)
+            items.map( (item,i) => <CartItem key={'k'+i} {...item} state={state} />)
           }
           <TotalRow {...{total}} />
         </TableBody>
@@ -64,14 +62,14 @@ const ReviewOrder = ({getPrevPage,items,total,token,classes}) => (
 )
 
 const mapState = state => {
-  const {cart:{items},checkout:{token}} = state
+  const {catalog, cart:{items},checkout:{token}} = state
   const total = items.reduce((accum, item) => {
     const {productCode, quantity} = item
     const {price} = toCatalogItem(productCode, catalog)
     const amount = price * quantity
     return accum + amount
   }, 0)
-  return {items,total,token}
+  return {items,total,token, state}
 }
 
 const mapDispatch = (dispatch,{history}) => ({

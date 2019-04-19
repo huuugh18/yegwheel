@@ -11,9 +11,6 @@ import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
 import {renewSessionThunk} from './Auth/auth'
-import ShippingInfo from './checkout/ShippingInfo'
-import PaymentInfo from './checkout/PaymentInfo'
-import ReviewInfo from './checkout/ReviewInfo'
 
 class App extends Component {
   componentDidMount() {
@@ -26,13 +23,10 @@ class App extends Component {
         <Navbar />
         <div className='bodyContainer'>
           <Route exact path='/'             render={props=><Home       {...props}/>} />
-          <Route exact path='/cart'         render={props=><Cart       {...props}/>} />
-          <Route exact path='/checkout'     render={props=><Checkout   {...props}/>} />
           <Route exact path='/learntowheel' render={props=><LearnHowTo {...props}/>} />
           <Route exact path='/callback'     render={props=><Callback />} />
-          <Route exact path='/checkout/shipping'     render={()=><ShippingInfo/>} />
-          <Route exact path='/checkout/payment'     render={()=><PaymentInfo/>} />
-          <Route exact path='/checkout/review'     render={()=><ReviewInfo/>} />
+          <Route exact path='/cart'         render={props=><Cart       {...props}/>} />
+          <Route       path='/checkout'     render={()=><Checkout/>} />
         </div>
         <Footer />
       </div>

@@ -4,27 +4,25 @@ import {connect} from 'react-redux'
 import './checkout.css'
 
 import {Paper, Stepper, Step, StepLabel} from '@material-ui/core'
-import ShippingInfo from './ShippingInfo'
-import PaymentInfo from './PaymentInfo'
-import ReviewInfo from './ReviewInfo'
+import BillingInfo from './ShippingInfo'
+import PaymentMethod from './PaymentMethod'
+import Confirmation from './Confirmation'
 
 const Checkout = ({activeStep}) => {
-    return <div className='checkout-container'>
-        <Paper elevation={3} className='checkout-stepper'>
-            <div className='checkoutHeader'>Checkout</div>
-            <Stepper activeStep={activeStep}>
-                <Step><StepLabel>Shipping Information</StepLabel></Step>
-                <Step><StepLabel>Payment Information</StepLabel></Step>
-                <Step><StepLabel>Review Order</StepLabel></Step>
-            </Stepper>
-            <Route path={'/checkout/shipping'} exact component={ShippingInfo}/>
-            <Route path={'/checkout/payment'} exact component={PaymentInfo}/>
-            <Route path={'/checkout/review'} exact component={ReviewInfo}/>
-        </Paper>
-    </div>
-    
+  return <div className='checkout-container'>
+    <Paper elevation={3} className='checkout-stepper'>
+      <div className='checkoutHeader'>Checkout</div>
+      <Stepper activeStep={activeStep}>
+        <Step><StepLabel>Billing Information</StepLabel></Step>
+        <Step><StepLabel>Payment Method</StepLabel></Step>
+        <Step><StepLabel>Confirmation</StepLabel></Step>
+      </Stepper>
+      <Route path={'/checkout/billing'} exact component={BillingInfo}/>
+      <Route path={'/checkout/payment'} exact component={PaymentMethod}/>
+      <Route path={'/checkout/confirmation'} exact component={Confirmation}/>
+    </Paper>
+  </div>
 }
-
 
 const mapState = state => {
     const activeStep = state.checkout.activeStep

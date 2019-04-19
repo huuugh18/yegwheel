@@ -6,7 +6,6 @@
   grid-template-columns: 1fr 800px 1fr;
   background-color: var(--theme-bg-color);
   margin-top: 48px;
-
 }
 
 @media(min-width: 975px){
@@ -41,6 +40,8 @@
   line-height: 1.6;
   letter-spacing: 0.0075em;
   margin-bottom: 0.35em;
+  color:darkblue;
+  text-align:center;
 }
 .checkout-field{
   margin: 10px !important;
@@ -53,7 +54,7 @@
   border: transparent 10px solid;
   display:flex;
   justify-content: center;
-  background-color: #efefef;
+  /*background-color: #efefef;*/
 }
 
 .cart {
@@ -144,4 +145,9 @@
   justify-content: space-around;
   margin-top: 50px;
   background-color: var(--theme-bg-color);
+}
+
+.wide-text-field {
+  width: 382px;
+  border: orange 2px solid;
 }

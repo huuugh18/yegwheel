@@ -5,26 +5,27 @@ import './checkout.css'
 
 import { TextField, Button } from '@material-ui/core';
 
-const FirstNameField = ({setFirstName, firstName})   => <TextField className='checkout-field' required id='firstName' name='firstName' label='First Name'  autoComplete='fname' onChange={setFirstName} value={firstName} />
-const LastNameField  = ({setLastName, lastName})     => <TextField className='checkout-field' required id='lastName' name='lastName' label='Last Name'  autoComplete='lname' onChange={setLastName} value={lastName}  />                   
+const WF1 = props => <TextField className='checkout-field wide-text-field' required {...props} />
+
+const FullNameField  = ({setFullName, fullName})     => <WF1 id='fullName' name='fullName' label='Full Name'  autoComplete='fname' onChange={setFullName} value={fullName} />
+const AddressField   = ({setAddress, address})       => <WF1 id='address1' name='address1' label='Address'  autoComplete='billing address-line1' onChange={setAddress} value={address}/>
+
 const CityField      = ({setCity, city})             => <TextField className='checkout-field' required id='city' name='city' label='City' autoComplete='billing address-level2' onChange={setCity} value={city}/>
 const ProvField      = ({setProvince, province})     => <TextField className='checkout-field' required id='province' name='province' label='Province'  onChange={setProvince} value={province}/>
 const EmailField     = ({setEmail, email})           => <TextField className='checkout-field' required id='email' type='email' name='email' label='Email' autoComplete='email' onChange={setEmail} value={email}/>
 const PhoneField     = ({setPhone, phone})           => <TextField className='checkout-field' required id='phone' name='phone' label='Phone Number' onChange={setPhone} value={phone}/>
-const AddressField   = ({setAddress, address})       => <TextField className='checkout-field' required id='address1' name='address1' label='Address'  autoComplete='billing address-line1' onChange={setAddress} value={address}/>
 const PostalField    = ({setPostalCode, postalCode}) => <TextField className='checkout-field' required id='postalCode' name='postalCode' label='PostalCode'  onChange={setPostalCode} value={postalCode}/>
 const CountryField   = ({setCountry, country})       => <TextField className='checkout-field' required id='country' name='country' label='Country'  onChange={setCountry} value={country}/>
-const CommentField   = ({setComments, comments})     => <TextField className='checkout-field' id='comments' name='comments' label='Comments' multiline={true} rows={5} onChange={setComments} value={comments}/>
+//const CommentField   = ({setComments, comments})     => <WF1 id='comments' name='comments' label='Comments' multiline={true} rows={5} onChange={setComments} value={comments}/>
 const NextButton     = ({getNextPage})               => <Button className={'checkout-nav-btn'} variant='contained' disabled={false} onClick={getNextPage}>Next</Button>
 
 
-const ShippingForm = ({getNextPage,setFirstName ,setLastName ,setAddress ,setPhone , setEmail, setCity ,setProvince ,setPostalCode ,setCountry,setComments, firstName,lastName,email,phone,address,city,province,country,postalCode,comments}) => (
+const ShippingForm = ({getNextPage, setFullName ,setAddress ,setPhone , setEmail, setCity ,setProvince ,setPostalCode ,setCountry,setComments, fullName, email, phone,address,city,province,country,postalCode,comments}) => (
   <div>
-    <div className='checkout-subheader'>Shipping Information</div>
+    <div className='checkout-subheader'>Billing Information</div>
     <div className='shipping-form-container'>
         <div>
-        <FirstNameField {...{setFirstName, firstName}} />
-        <LastNameField  {...{setLastName, lastName}} />
+        <FullNameField {...{setFullName, fullName}} />
         <br/>
         <EmailField {...{setEmail, email}} />
         <PhoneField {...{setPhone, phone}} />
@@ -36,8 +37,6 @@ const ShippingForm = ({getNextPage,setFirstName ,setLastName ,setAddress ,setPho
         <br/>
         <PostalField {...{setPostalCode, postalCode}} />
         <CountryField {...{setCountry, country}} />
-        <br/>
-        <CommentField {...{setComments,comments}} />
       </div>
     </div>
     <div className='checkout-button-container'>
@@ -53,8 +52,7 @@ const mapDispatch = (dispatch,{history}) => ({
     dispatch({type:'SET_CHECKOUT_STEP',payload:{step:1}})
     history.push('/checkout/payment')
   },
-  setFirstName:  event => dispatch({type:'SET_FIRST_NAME',  payload:{value:event.target.value}}),
-  setLastName:   event => dispatch({type:'SET_LAST_NAME',   payload:{value:event.target.value}}),
+  setFullName:   event => dispatch({type:'SET_FULL_NAME',   payload:{value:event.target.value}}),
   setAddress:    event => dispatch({type:'SET_ADDRESS',     payload:{value:event.target.value}}),
   setEmail:      event => dispatch({type:'SET_EMAIL',       payload:{value:event.target.value}}),
   setPhone:      event => dispatch({type:'SET_PHONE',       payload:{value:event.target.value}}),

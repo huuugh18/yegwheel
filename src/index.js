@@ -6,10 +6,10 @@ import { StripeProvider} from 'react-stripe-elements';
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
-import appstore from './rdxstore/appstore'
+import rdxstore from './rdxstore/rdxstore'
 import './index.css';
 
-ReactDOM.render(<Provider store={appstore}>
+ReactDOM.render(<Provider store={rdxstore}>
   <StripeProvider apiKey='pk_test_E504MzzvtPpryBrd0nAReUv500WRtY4eAf'>
     <Router>
       <App />

@@ -1,48 +1,44 @@
 import React from 'react';
+import { TableRow, TableCell, TextField } from '@material-ui/core'
+import {toCatalogItem} from '../functions'
 import {connect} from 'react-redux'
-import {catalog} from '../data/catalog'
-import {toCatalogItem, withCommas} from '../functions'
 
-const CommaCell = ({value}) => <td align='right'>{withCommas(value)}</td>
+const QuantityCell = ({quantity, go}) => <TableCell>
+  <TextField type="number" value={quantity} style={{width:60}} onChange={e=>go(e.target.value)} />
+</TableCell>
 
-const CartItem = ({productCode, quantity, fnDelete, fnMore, fnLess}) => {
-  const catalogItem = toCatalogItem(productCode, catalog)
-  const {name, price} = catalogItem
-  return <tr className='cart-item'>
-    <td>{name}</td>
-    <td>
-      <div className='quantity'>
-        <div>{quantity}</div>
-        <div className='plusminus'>
-          <div onClick={fnMore}>+</div>
-          <div onClick={fnLess}>-</div>
-        </div>
-      </div>
-    </td>
-    <CommaCell value={price} />
-    <CommaCell value={price*quantity} />
-    <td onClick={fnDelete}>x</td>
-  </tr>
+const CartItem = ({name, quantity, price, rowTotal, go}) => {
+  return <TableRow>
+    <TableCell>{name}</TableCell>
+    <QuantityCell {...{quantity, go}} />
+    <TableCell>${price.toFixed(2)}</TableCell>
+    <TableCell>${rowTotal.toFixed(2)}</TableCell>
+  </TableRow> 
 }
 
-const mapState = () => ({})
+const mapState = (state, props) => {
+  const {productCode, quantity} = props
+  const {name, price} = toCatalogItem(productCode, state.catalog)
+  const rowTotal = price*quantity
+  return {
+    name, quantity, price, rowTotal    
+  }
+}
 
 const mapDispatch = (dispatch, props) => {
-  const {productCode} = props
-  return ({
-    fnDelete: () => {
-      const action = {type: 'DELETE_ITEM', payload:{productCode}}
-      dispatch(action)
-    },
-    fnMore: () => {
-      const action = {type: 'ADJUST_QUANTITY', payload:{productCode, delta: 1}}
-      dispatch(action)
-    },
-    fnLess: () => {
-      const action = {type: 'ADJUST_QUANTITY', payload:{productCode, delta: -1}}
-      dispatch(action)
-    }
-  })
+  const {productCode, quantity} = props
+  const go = (newQuantity) => {
+    const delta = newQuantity - quantity
+    const action = {type: 'ADJUST_QUANTITY', payload:{productCode, delta}}
+    dispatch(action)
+  }
+  return {go}
 }
 
 export default connect(mapState, mapDispatch)(CartItem)
+
+
+
+
+
+

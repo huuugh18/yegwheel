@@ -8,16 +8,8 @@ import wheel18 from '../graphics/ks18xl.png'
 import largeBanner from '../graphics/Montage.png'
 import mobileBanner from '../graphics/IntoTheLight01.jpg'
 import LearnCard from './LearnCard'
-import PurchaseCard from './PurchaseCard'
 import {introDescription, beginnerDescription, advancedDescription} from './learnDescriptions';
-import {catalog} from '../data/catalog'
-import {toCatalogItem} from '../functions'
-
-const ItemCard = ({productCode, img}) => {
-  const item = toCatalogItem(productCode, catalog)
-  const {name, description, price} = item
-  return <PurchaseCard {...{name, productCode, price, description}} img={img} />
-}
+import ItemCard from './ItemCard'
 
 export const Home = (props) => {
   return (
