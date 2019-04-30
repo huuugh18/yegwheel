@@ -3,14 +3,13 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core'
-import { Elements } from 'react-stripe-elements'
 
 import '../checkout.css'
 import Address from './Address'
 import * as SELECT from '../../rdxstore/selectors'
 import * as FUN from '../../functions'
 
-import StripeSubmitOrder from '../StripeSubmitOrderButton'
+import FinalizeOrder from './FinalizeOrderButton'
 
 const styles = theme => ({
   button: {
@@ -41,7 +40,7 @@ const ButtonsContainer = ({children}) => <div className='checkout-button-contain
 const TitleLine        = () => <div className='checkout-subheader'>Confirmation</div>
 const TotalRow         = ({itemTotals}) => <SimpleRow cells={['','',"Total:",`$${itemTotals.amt}`]} />
 
-const SubmitButton     = ({token, total}) =>  <Elements><StripeSubmitOrder {...{token, total}} /></Elements>
+const SubmitButton     = ({token, total}) =>  <FinalizeOrder {...{token, total}} />
 
 const ReviewOrder = ({ getPrevPage, items, token, classes, state, itemTotals}) => (
   <div>
