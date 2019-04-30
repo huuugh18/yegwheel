@@ -31,7 +31,3 @@ export function* handle_REQUEST_STRIPE_TOKEN() {
 
 
 
-/*
-
-
-*/

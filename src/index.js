@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
-import { BrowserRouter as Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 import { StripeProvider} from 'react-stripe-elements';
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import rdxstore from './rdxstore/rdxstore'
 import './index.css';
+import history from './history'
 
 ReactDOM.render(<Provider store={rdxstore}>
   <StripeProvider apiKey='pk_test_E504MzzvtPpryBrd0nAReUv500WRtY4eAf'>
-    <Router>
+    <Router history={history}>
       <App />
     </Router>
   </StripeProvider>

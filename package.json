@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.6.1",
     "auth0-js": "^9.10.1",
+    "connected-react-router": "^6.4.0",
     "immer": "^2.1.4",
     "jwt-decode": "^2.2.0",
     "react": "^16.8.4",

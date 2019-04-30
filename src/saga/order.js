@@ -1,4 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects'
+import history from '../history'
 
 //const addSaleUri = "https://yeg.azurewebsites.net/api/sale"
 const addSaleUri = "http://localhost:7071/api/sale"
@@ -31,6 +32,7 @@ function* finishOrderSaga(action){
   const fetchOptions = buildOrderOptions(bodyValues) 
   yield call(fetch, addSaleUri, fetchOptions)
   yield put({type: "SET_ORDER_COMPLETE"})
+  yield call(history.push, '/')
 }
 
 export function* handle_SET_ORDER() {
