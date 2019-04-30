@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import './checkout.css'
 import {CardElement, injectStripe } from 'react-stripe-elements';
-
 import { Button } from '@material-ui/core';
 
 const createOptions = (fontSize, padding) => {
@@ -25,25 +24,25 @@ const createOptions = (fontSize, padding) => {
   };
 };
 
-const StripeForm = ({submitStripe}) => {
-  return <div style={{width: '75%',padding:'50px'}}>
-    <form onSubmit={submitStripe} style={{backgroundColor:'white', padding:'20px'}}>
-      <div style={{marginBottom:10}}>Credit or debit card</div>
-      <CardElement {...createOptions('16px', '20px')} />
-      <br/>
-      <br/>
-      <Button type='submit' variant='contained'>Submit Payment</Button>
-    </form>
-  </div>
-}
+const StripeForm = ({submitStripe}) => <div style={{width: '75%',padding:'10px 50px'}}>
+  <form onSubmit={submitStripe} style={{backgroundColor:'white', padding:'20px'}}>
+    <div style={{marginBottom:10}}>Credit or debit card</div>
+    <CardElement {...createOptions('16px', '20px')} />
+    <br/>
+    <br/>
+    {/* <Button type='submit' variant='contained'>Submit Payment</Button> */}
+    <Button onClick={submitStripe} variant='contained'>Submit Payment</Button>
+  </form>
+</div>
 
 const mapDispatch = (dispatch,{stripe}) => {
   return {
     submitStripe: async function (ev) {
       ev.preventDefault();
-      stripe.createToken({name: "Doug"}).then(result => {
-        dispatch({type:'SET_STRIPE_TOKEN',payload:{token:result.token}})
-      });
+      let createTokenResult = await stripe.createToken({name:"Doug"})
+      let {token} = createTokenResult
+      let {id} = token
+      dispatch({type:'SET_STRIPE_TOKEN',payload:{token:id}})
     }
   }
 }

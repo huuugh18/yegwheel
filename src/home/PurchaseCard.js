@@ -36,9 +36,9 @@ export const PurchaseCard = ({productCode, name, price, description, img, addIte
 
 const mapState = () => ({})
 const mapDispatch = (dispatch, props) => {
-  const {productCode} = props
+  const {productCode, price} = props
   return ({
-    addItem: () => dispatch({type:'ADD_ITEM', payload:{productCode, quantity: 1}})
+    addItem: () => dispatch({type:'ADD_ITEM', payload:{productCode, quantity: 1, price}})
   })
 }
 

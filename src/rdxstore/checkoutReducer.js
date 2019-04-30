@@ -1,21 +1,37 @@
 import produce from 'immer'
 
-const testState = {
+// const defaultState = {
+//   activeStep:0,
+//   token: null,
+//   orderComplete: false,
+//   fullName: 'Sarah Hoffman',
+//   email: 'sarah@gov.ab.ca',
+//   phone: '780-555-1212',
+//   address: '10123 Jasper Ave',
+//   city: 'Edmonton',
+//   province: 'Alberta',
+//   country:'Canada',
+//   postalCode: 'T5T 3T1',
+//   comments: 'Some comments',
+// }
+
+// next up... wire the purchase in
+
+const defaultState = {
   activeStep:0,
   token: null,
   orderComplete: false,
-  fullName: 'Yegwheel Inc',
-  email: 'somewhere@yegwheel.com',
-  phone: '1234567891',
+  fullName: '',
+  email: '',
+  phone: '',
   address: '',
-  city: '',
-  province: '',
-  country:'',
+  city: 'Edmonton',
+  province: 'Alberta',
+  country:'Canada',
   postalCode: '',
-  comments: 'Hello there',
+  comments: ''
 }
 
-const defaultState = testState
 
 const SET_FULL_NAME = 'SET_FULL_NAME'
 const SET_ADDRESS = 'SET_ADDRESS'
@@ -82,7 +98,9 @@ const reducer = (state=defaultState, action) =>  {
       case SET_PROVINCE: setProvince(draft,payload); break;
       case SET_COUNTRY: setCountry(draft,payload); break;
       case SET_POSTAL_CODE: setPostalCode(draft,payload); break;
+
       case SET_CHECKOUT_STEP: setCheckoutStep(draft, payload); break;
+
       case SET_STRIPE_TOKEN: setStripeToken(draft, payload); break;
       case SET_ORDER_COMPLETE: setOrderComplete(draft); break;
       case SET_ORDER_ERROR: setOrderError(draft,payload); break;

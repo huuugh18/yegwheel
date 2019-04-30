@@ -8,15 +8,22 @@ const getCheckout = state => state.checkout
 export const getAddress = createSelector(
   getCheckout,
   (checkout) => {
-    console.log('checkout is ', checkout)
     const {address, city, province, country, postalCode} = checkout
     return ({address, city, province, country, postalCode})
   }
 )
+export const getName = createSelector(getCheckout,checkout => checkout.fullName)
+export const getEmail = createSelector(getCheckout, checkout => checkout.email)
+export const getPhone = createSelector(getCheckout, checkout => checkout.phone)
 
-export const getName = createSelector(
-  getCheckout,
-  checkout => checkout.fullName
+export const getBillingValid = createSelector(
+  [getName, getEmail, getPhone],
+  (name, email, phone) => name && email && phone
+)
+
+export const getCanConfirm = createSelector(
+  [getBillingValid],
+  (getBillingValid) => getBillingValid
 )
 
 export const getItemTotals = createSelector(

@@ -1,21 +1,13 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {handleAuthenticationThunk} from './Auth/auth'
+import React from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { handleAuthenticationCallback } from './rdxstore/authReducer'
 
-class Callback extends Component {
-  componentDidMount() {
-    const {location, history, handleAuth} = this.props
-    handleAuth(location.hash, history)
-  }
-  render() {
-    return <div>...loading...{this.props.test}</div>
-  }
+let Callback = ({dispatch, user}) => {
+  if(user) return <Redirect to='/' />
+  dispatch(handleAuthenticationCallback())
+  return <div>Loading user profile</div>
 }
 
-const mapState = state => ({})
-const mapDispatch = dispatch => ({
-  handleAuth: (hash, history) => dispatch(handleAuthenticationThunk(hash, history))
-})
-export default withRouter(connect(mapState, mapDispatch)(Callback))
-
+const mapState = state => ({ user: state.auth.user })
+export default connect(mapState)(Callback)

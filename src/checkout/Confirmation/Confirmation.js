@@ -34,13 +34,14 @@ const ToCartCells = (productCode, quantity, state) => {
 const columnHeadings = ["Product","Quantity", "Price", "Subtotal"]
 
 const CartItem         = ({productCode, quantity, state}) => <SimpleRow cells={ToCartCells(productCode, quantity, state)} /> 
-const SubmitButton     = ({token, total}) =>  <Elements><StripeSubmitOrder {...{token, total}} /></Elements>
 const BackButton       = ({classes, getPrevPage}) => <Button className={classes.button} disabled={false} onClick={getPrevPage}>Back</Button>
 const HeaderSection    = () => <TableHead><SimpleRow cells={columnHeadings} /></TableHead>
 const FormContainer    = ({children}) => <div className='shipping-form-container'>{children}</div>
 const ButtonsContainer = ({children}) => <div className='checkout-button-container'>{children}</div>
 const TitleLine        = () => <div className='checkout-subheader'>Confirmation</div>
 const TotalRow         = ({itemTotals}) => <SimpleRow cells={['','',"Total:",`$${itemTotals.amt}`]} />
+
+const SubmitButton     = ({token, total}) =>  <Elements><StripeSubmitOrder {...{token, total}} /></Elements>
 
 const ReviewOrder = ({ getPrevPage, items, token, classes, state, itemTotals}) => (
   <div>
@@ -59,16 +60,20 @@ const ReviewOrder = ({ getPrevPage, items, token, classes, state, itemTotals}) =
     </FormContainer>
     <ButtonsContainer>
       <BackButton {...{classes, getPrevPage}} />
-      <SubmitButton {...{token, total: itemTotals.amt}}/>
+      <SubmitButton {...{token, items, itemTotals}}/>
     </ButtonsContainer>
   </div>
 )
 
 const mapState = state => {
-  const {cart:{items},checkout:{token}} = state
+  const {
+    cart:{items},
+    checkout:{token, fullName, email, phone, comments}
+  } = state
   return {
     items, token, state, 
-    itemTotals:SELECT.getItemTotals(state)
+    itemTotals:SELECT.getItemTotals(state),
+    name:fullName, email, phone, comments
   }
 }
 

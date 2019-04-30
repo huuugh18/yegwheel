@@ -1,41 +1,42 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { injectStripe } from 'react-stripe-elements'
 import { withStyles } from '@material-ui/core/styles';
-
-import {injectStripe} from 'react-stripe-elements'
-import {Button} from '@material-ui/core'
+import { Button } from '@material-ui/core'
+import * as SELECT from '../rdxstore/selectors'
 
 const styles = theme => ({
-    button: {
-      marginTop: '24px',
-      marginLeft: '8px',
-    },
+  button: {
+    marginTop: '24px',
+    marginLeft: '8px',
+  }
 });
 
-const StripeSubmitButton = ({submitOrder,classes}) => {
-    console.log(submitOrder)
-    return <Button className={classes.button} color='primary' variant='contained' disabled={false} onClick={submitOrder}> Order </Button>
+const StripeSubmitButton = (props) => {
+  console.log(props)
+  const {items, itemTotals, checkout, submitOrder, classes, canConfirm} = props
+  return <Button className={classes.button} color='primary' variant='contained' disabled={!canConfirm} onClick={() => submitOrder(items, checkout, itemTotals)}> Order </Button>
 }
 
-const mapDispatch = (dispatch,{stripe,token,total}) => {
-    return {
-        submitOrder: async function () {
-            console.log(token,stripe)
-            
-            if(!token || !total) {
-                console.log('error, no token or total provided')
-                return 
-            }
-            //https://stripe.com/docs/recipes/elements-react - handle server charge call
-            let response = await fetch("https://yegwheel2019as.azurewebsites.net/api/purchase", {
-                method: "POST",
-                headers: {"Content-Type": "text/plain"},
-                body: {token,total}
-            });
-            response.ok ?  dispatch({type:'SET_ORDER_COMPLETE'}) : dispatch({type:'SET_ORDER_ERROR',payload:{error:response.error}})
-
-        }
-    }
+const mapState = state => {
+  const {checkout} = state
+  return ({ 
+    checkout,
+    items: state.cart.items,
+    itemTotals:SELECT.getItemTotals(state),
+    canConfirm: SELECT.getCanConfirm(state) 
+  })
 }
 
-export default injectStripe(connect(null,mapDispatch)(withStyles(styles)(StripeSubmitButton)))
+const mapDispatch = (dispatch) => {
+  return {
+    submitOrder: (items, checkout, itemTotals) => dispatch({type:'SET_ORDER', items, checkout, itemTotals})    
+  }
+}
+
+//  const {name, email, phone, items, total, comments, stripeToken} = action.payload
+
+
+export default injectStripe(connect(mapState,mapDispatch)(withStyles(styles)(StripeSubmitButton)))
+
+// almost done with checkout

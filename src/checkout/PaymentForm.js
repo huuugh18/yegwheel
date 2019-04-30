@@ -10,7 +10,7 @@ import StripeForm from './StripeForm'
 
 const styles = theme => ({
   button: {
-    marginTop: '24px',
+    marginTop: '0px',
     marginLeft: '8px',
   },
 });
@@ -27,9 +27,9 @@ const PaymentInfo = ({getNextPage,getPrevPage,stripe,classes}) => {
   return <div>
     <div className='checkout-subheader'>Payment Method</div>
     <div className='shipping-form-container'>
-        <Elements>
-          <StripeForm stripe={stripe}/>
-        </Elements>
+      <Elements>
+        <StripeForm stripe={stripe}/>
+      </Elements>
     </div>
     <div className='checkout-button-container'>
       <BackButton {...{classes, getPrevPage}} />

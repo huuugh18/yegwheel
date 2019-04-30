@@ -10,12 +10,13 @@ import Cart from './cart/Cart'
 import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import {LearnHowTo} from './learnTo/LearnTo'
-import {renewSessionThunk} from './Auth/auth'
+//import {renewSessionThunk} from './Auth/auth'
 
 class App extends Component {
   componentDidMount() {
-    const {renewSession} = this.props
-    if(localStorage.getItem('isLoggedIn') === 'true') renewSession()
+    const {/*renewSession, */loadProducts} = this.props
+    //if(localStorage.getItem('isLoggedIn') === 'true') renewSession()
+    loadProducts()
   }
   render() {
     return (
@@ -36,7 +37,8 @@ class App extends Component {
 
 const mapState = state => ({})
 const mapDispatch = dispatch => ({
-  renewSession: ()=>dispatch(renewSessionThunk())
+  //renewSession: ()=>dispatch(renewSessionThunk()),
+  loadProducts: () => dispatch({type:'GET_PRODUCTLIST'})
 })
 
 export default withRouter(connect(mapState, mapDispatch)(App))

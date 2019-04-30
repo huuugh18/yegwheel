@@ -4,9 +4,9 @@ import {connect} from 'react-redux'
 import './checkout.css'
 
 import {Paper, Stepper, Step, StepLabel} from '@material-ui/core'
-import BillingInfo from './BillingInfo'
-import PaymentMethod from './PaymentMethod'
-import Confirmation from './conf/Confirmation'
+import BillingForm from './BillingForm'
+import PaymentForm from './PaymentForm'
+import Confirmation from './Confirmation/Confirmation'
 
 const Checkout = ({activeStep}) => {
   return <div className='checkout-container'>
@@ -17,8 +17,8 @@ const Checkout = ({activeStep}) => {
         <Step><StepLabel>Payment Method</StepLabel></Step>
         <Step><StepLabel>Confirmation</StepLabel></Step>
       </Stepper>
-      <Route path={'/checkout/billing'} exact component={BillingInfo}/>
-      <Route path={'/checkout/payment'} exact component={PaymentMethod}/>
+      <Route path={'/checkout/billing'} exact component={BillingForm}/>
+      <Route path={'/checkout/payment'} exact component={PaymentForm}/>
       <Route path={'/checkout/confirmation'} exact component={Confirmation}/>
     </Paper>
   </div>
