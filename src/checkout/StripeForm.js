@@ -30,19 +30,15 @@ const StripeForm = ({submitStripe}) => <div style={{width: '75%',padding:'10px 5
     <CardElement {...createOptions('16px', '20px')} />
     <br/>
     <br/>
-    {/* <Button type='submit' variant='contained'>Submit Payment</Button> */}
     <Button onClick={submitStripe} variant='contained'>Submit Payment</Button>
   </form>
 </div>
 
 const mapDispatch = (dispatch,{stripe}) => {
   return {
-    submitStripe: async function (ev) {
-      ev.preventDefault();
-      let createTokenResult = await stripe.createToken({name:"Doug"})
-      let {token} = createTokenResult
-      let {id} = token
-      dispatch({type:'SET_STRIPE_TOKEN',payload:{token:id}})
+    submitStripe: e => {
+      e.preventDefault();
+      dispatch({type:'REQUEST_STRIPE_TOKEN',payload:{stripe, name:'Henry Ford'}})
     }
   }
 }

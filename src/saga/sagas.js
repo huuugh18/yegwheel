@@ -1,6 +1,7 @@
 import { all } from 'redux-saga/effects'
 import { handle_GET_PRODUCTLIST } from './productList'
 import { handle_SET_ORDER } from './order'
+import { handle_REQUEST_STRIPE_TOKEN } from './stripe'
 import { handleAuthenticationCallback } from './auth'
 
 
@@ -8,6 +9,7 @@ export default function* rootSaga() {
   yield all([
     handle_GET_PRODUCTLIST(),
     handle_SET_ORDER(),
+    handle_REQUEST_STRIPE_TOKEN(),
     handleAuthenticationCallback()
   ])
 }
