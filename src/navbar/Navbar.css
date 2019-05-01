@@ -15,8 +15,6 @@
     grid-area: logo;
     width: 75px;
     height: 80%;
-    margin-top: 20px;
-    margin-bottom: 20px;
     padding: 10px;
 }
 #nav-title{
@@ -99,7 +97,7 @@
         display: none;
     }
     #nav-logo{
-        margin-left: px;
+        margin-left: 0px;
     }
     .nav-link-active{
         font-weight: 800;
