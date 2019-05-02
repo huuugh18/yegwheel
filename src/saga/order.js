@@ -1,8 +1,7 @@
 import {call, put, takeLatest} from 'redux-saga/effects'
 import history from '../history'
+import {addSaleUri} from '../constants'
 
-//const addSaleUri = "https://yeg.azurewebsites.net/api/sale"
-const addSaleUri = "http://localhost:7071/api/sale"
 
 const buildBody = (action) => {
   const {checkout, items} = action
