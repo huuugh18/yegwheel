@@ -9,11 +9,14 @@ import App from './App';
 import rdxstore from './rdxstore/rdxstore'
 import './index.css';
 import history from './history'
+import ScrollToTop from './ScrollToTop'
 
 ReactDOM.render(<Provider store={rdxstore}>
   <StripeProvider apiKey='pk_test_E504MzzvtPpryBrd0nAReUv500WRtY4eAf'>
     <Router history={history}>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>      
     </Router>
   </StripeProvider>
 </Provider>, document.getElementById('root'));

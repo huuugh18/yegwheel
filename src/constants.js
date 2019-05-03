@@ -1,9 +1,15 @@
 // production settings
-export const addSaleUri = "https://yeg.azurewebsites.net/api/sale"
-export const redirectUri = "https://yegwheel.com/callback"
-export const logoutUri = "https://yegwheel.com"
+let addSaleUri,redirectUri,logoutUri
 
-// localhost settings
-//export const addSaleUri = "https://localhost:7071/api/sale"
-// export const redirectUri = 'http://localhost:3000/callback'
-// export const logoutUri = 'http://localhost:3000'
+if(process.env.NODE_ENV === 'production') {
+  addSaleUri = "https://yeg.azurewebsites.net/api/sale"
+  redirectUri = "https://yegwheel.com/callback"
+  logoutUri = "https://yegwheel.com"
+}
+else  {
+  addSaleUri = "https://localhost:7071/api/sale"
+  redirectUri = 'http://localhost:3000/callback'
+  logoutUri = 'http://localhost:3000'
+}
+
+export {addSaleUri, redirectUri, logoutUri}

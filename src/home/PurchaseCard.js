@@ -38,7 +38,7 @@ const mapState = () => ({})
 const mapDispatch = (dispatch, props) => {
   const {productCode, price} = props
   return ({
-    addItem: () => dispatch({type:'ADD_ITEM', payload:{productCode, quantity: 1, price}})
+    addItem: () => dispatch({type:'ADD_TO_CART', payload:{productCode, quantity: 1, price}})
   })
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import './checkout.css'
-import {CardElement, injectStripe } from 'react-stripe-elements';
+import { CardElement, injectStripe } from 'react-stripe-elements';
 import { Button } from '@material-ui/core';
 
 const createOptions = (fontSize, padding) => {
@@ -30,7 +30,7 @@ const StripeForm = ({submitStripe}) => <div style={{width: '75%',padding:'10px 5
     <CardElement {...createOptions('16px', '20px')} />
     <br/>
     <br/>
-    <Button onClick={submitStripe} variant='contained'>Submit Payment</Button>
+    <Button onClick={submitStripe} variant='contained'>Review/Confirmation</Button>
   </form>
 </div>
 

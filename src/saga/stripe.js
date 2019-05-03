@@ -6,7 +6,8 @@
     2. Send the card data to stripe, await result
     3. Create and submit an action that adds the received stripe token to the checkout data
 */
-import {put, takeLatest} from 'redux-saga/effects'
+import {call, put, takeLatest} from 'redux-saga/effects'
+import history from '../history'
 
 function* requestStripeTokenSaga(action){
   console.log('using the requestStripeTokenSaga')
@@ -18,6 +19,8 @@ function* requestStripeTokenSaga(action){
   
     yield put ({type:'SET_STRIPE_TOKEN',payload:{token:id}})
     yield put({type: "REQUEST_STRIPETOKEN_END"})
+    yield call(history.push, '/checkout/confirmation')
+    put({type:'SET_CHECKOUT_STEP',payload:{step:2}})
   }
   catch(err) {
     console.log('err in requestStripeTokenSaga, is ', err)
