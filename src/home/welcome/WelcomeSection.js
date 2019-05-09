@@ -9,7 +9,7 @@ import HowToRegIcon  from '@material-ui/icons/HowToReg'
 import { withStyles } from '@material-ui/core/styles';
 
 const Title = () => <div id='bojsm'>Welcome to Yegwheel</div>
-const Body = () => <div id='bojsn'>Yegwheel is near the Bay Area and San Francisco in northern California and is home to some of the top talent in the skydiving world and is a premier member of the United States Parachutist Association. All of our instructors have gone through the most rigorous training available and are held to the highest standards set forth by the globally recognized USPA.</div>
+const Body = () => <div id='bojsn'>Yegwheel is Edmonton's first and only training center for electric unicycles. Our have been riding since 2016 in this very young sport and have logged thousands of kilometers over different terrain, weather conditions, and with many different types of wheels. Whether you just want to try it out recreationally, or want to use it for commuting every day to work or school, we have the tools and experience to help you get into this awesome, eco-friendly new sport.</div>
 
 const styles = theme => ({
   root: {
