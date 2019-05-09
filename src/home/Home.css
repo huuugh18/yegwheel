@@ -1,20 +1,63 @@
 .home-container{
-    width: 100%;
-    display:grid;
-    grid-template-areas:
-        "titleImage titleImage titleImage"
-        ". learnTitle ."
-        "learn learn learn"
-        ". purchaseTitle ."
-        "purchase purchase purchase"
-        "about about about";
-    background-color: var(--theme-bg-color);
+  width: 100%;
+  display:grid;
+  grid-template-areas:
+      "titleImage titleImage titleImage"
+      ". welcome ."
+      ". learnTitle ."
+      "learn learn learn"
+      ". purchaseTitle ."
+      "purchase purchase purchase"
+      "about about about";
+  background-color: var(--theme-bg-color);
 }
+
+@keyframes fadeIn {
+  0% {opacity: 0; }
+  100% {opacity: 1;}
+}
+
+
+.fade-in {
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
+}
+
+
+.main-text {
+  font-size: 56px;
+  font-weight: 900;
+  font-family: 'Open Sans',Arial, Helvetica, sans-serif;
+}
+
+.sub-main-text {
+  font-size: 30px;
+  font-style: italic;
+}
+
+.feature {
+  grid-area: titleImage;
+  position:relative;
+  text-align: center;
+  color: white;
+  text-decoration: solid;
+}
+
+.some-text {
+  position: absolute;
+  top:22%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
 .home-title-image{
-    grid-area: titleImage;
     height: auto;
     top: 0;
     bottom: 0;
+    width:100%;
 }
 #home-title-image-large{
     margin: auto;
@@ -23,7 +66,6 @@
 #home-title-image-mobile{
     width: 100%;
 }
-
 
 
 .home-header{
@@ -37,16 +79,17 @@
     font-size: 4em;
     justify-self: center;
     text-align: center;
+    font-size: 40px;
+    font-weight: 600;
 }
 
-#home-learn-title{
-    grid-area: learnTitle;
+#bojrw { 
+  grid-area: learnTitle; 
+  background-color:transparent;
+  font-weight: 600;
+  font-size:40px;
 }
-
-#home-learn-container{
-    grid-area: learn;
-    
-}
+#home-learn-container{ grid-area: learn; }
 
 #home-purchase-title{
     grid-area: purchaseTitle;
