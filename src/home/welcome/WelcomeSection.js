@@ -9,7 +9,7 @@ import HowToRegIcon  from '@material-ui/icons/HowToReg'
 import { withStyles } from '@material-ui/core/styles';
 
 const Title = () => <div id='bojsm'>Welcome to Yegwheel</div>
-const Body = () => <div id='bojsn'>Yegwheel is Edmonton's first and only training center for electric unicycles. Our have been riding since 2016 in this very young sport and have logged thousands of kilometers over different terrain, weather conditions, and with many different types of wheels. Whether you just want to try it out recreationally, or want to use it for commuting every day to work or school, we have the tools and experience to help you get into this awesome, eco-friendly new sport.</div>
+const Body = () => <div id='bojsn'>Yegwheel is Edmonton's first and only training center for electric unicycles. We have been riding since 2016 in this very young sport and have logged thousands of kilometers over different terrain, weather conditions, and with many different types of wheels. Whether you just want to try it out recreationally, or want to use it for commuting every day to work or school, we have the tools and experience to help you get into this awesome, eco-friendly new way to get around.</div>
 
 const styles = theme => ({
   root: {
