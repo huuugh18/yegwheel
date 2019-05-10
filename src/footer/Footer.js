@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import ForumIcon from '@material-ui/icons/Forum';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
 import './Footer.css'
@@ -33,11 +32,18 @@ function YoutubeIcon(props) {
   );
 }
 
+const Address = () => <div className='bonka'>
+  <div className='bonkb'> Yegwheel Electric Unicycles</div>
+  <div>Suite 1457, 10665 Jasper Avenue</div>
+  <div>Edmonton, Alberta T5J 3S9</div>
+</div>
+
 
 export class Footer extends Component {
   render(){
     return (
       <div id="home-footer">
+        <Address />
         <FooterLinks>
           Follow Us: 
           <FacebookLink />

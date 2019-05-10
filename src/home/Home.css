@@ -71,7 +71,7 @@
 .home-header{
     justify-self: center;
     font-family: 'Courier New', Courier, monospace;
-    text-align: center;
+    text-align: left;
 }
 
 .home-section-header{
@@ -97,12 +97,6 @@
 #home-purchase-container{
     grid-area: purchase;
 }
-.home-section-content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-top: 25px;
-}
 #purchase-title{
     grid-area: purchaseTitle;
 }
@@ -113,11 +107,12 @@
 }
 
 #home-about-container{
-    grid-area: about;
-    background-color: var(--theme-bg-color);
-    justify-self: center;
-    align-self: center;   
-    display: grid;
+  grid-area: about;
+  background-color: var(--theme-bg-color);
+  justify-self: center;
+  align-self: center;   
+  display: grid;
+  padding-top: 150px;
 }
 
 

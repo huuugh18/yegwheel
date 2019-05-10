@@ -5,9 +5,9 @@
   width: 100%;
   display: grid;
   grid-template-areas:
-    "links"
-    "copyright";
-  height: 60px;
+    "address links"
+    "copyright copyright";
+  height: auto;
 }
 #footer-links{
   grid-area: links;
@@ -15,10 +15,11 @@
   justify-content: center;  
   align-items: center;
   color:black;
+  font-size: 18px;
 }
 #footer-copyright{
   grid-area: copyright;
-  background-color: black;
+  background-color: gray;
   color:white;
   display:flex;
   flex-direction: row-reverse;
@@ -32,4 +33,14 @@
   padding:10px;
   display:flex;
   align-items: center;
+  font-weight: 500;
+}
+
+.bonka {
+  padding:30px;
+  grid-area:  address;
+}
+
+.bonkb {
+  font-weight: 600;
 }

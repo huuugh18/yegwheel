@@ -10,7 +10,7 @@ import WelcomeSection from './welcome/WelcomeSection'
 import {courses} from './learnDescriptions'
 import {HomeSectionContent} from '../shared/shared'
 
-const Subtitle = ({id,children}) => <Typography component="h1" variant="h3" gutterBottom color="textPrimary" className="home-header" id={id}>{children}</Typography>
+const Subtitle = ({id,children}) => <Typography component="h1" variant="h3" gutterBottom color="textPrimary" className="home-header" id={id} style={{fontWeight:600, fontSize:40}}>{children}</Typography>
 const SubContent = ({id,children}) => <Typography  id={id} className='home-about-content'  variant='h6'  color='textSecondary' paragraph>{children}</Typography>
 
 const AboutUsTitle = () =>        <Subtitle id="home-about-main-header">About Us</Subtitle>
@@ -23,7 +23,6 @@ const AboutUsContent = () => <SubContent id='home-about-us-content'>
   Check out some of our trips below.
 </SubContent>
 
-const AboutUs = ({children}) => <div className="home-about-container" id="home-about-us">{children}</div>
 
 const UpcomingEventsBody = () => <SubContent id='home-schedule-content'>
   Sunday Morning Meetup at Ritchie Arena.<br/>
@@ -33,12 +32,6 @@ const UpcomingEventsBody = () => <SubContent id='home-schedule-content'>
   <a href="https://goo.gl/maps/4xBd2gERt8P2" target="_blank" rel="noopener noreferrer">7727 98 St NW, Edmonton, AB T6E 5C9</a>
 </SubContent>
 
-const UpcomingEvents = () => <div className="home-about-container" id="home-schedule">
-  <UpcomingEventsTitle />
-  <UpcomingEventsBody />
-</div>
-
-const HomeAbout = ({children}) =>       <div id="home-about-container">{children}</div>
 
 const HomeSectionHeader = ({id, children}) => <div id={id} className='home-section-header'>{children}</div>
 
@@ -65,6 +58,10 @@ const TitleArea = () => <div className='feature'>
 </div>
 
 
+const HomeAbout = ({children}) => <div id="home-about-container">{children}</div>
+const AboutUs        = ({children}) => <div id="home-about-us">{children}</div>
+const UpcomingEvents = ({children}) => <div id="home-schedule">{children}</div>
+
 export const Home = () => <div className="home-container">
   <TitleArea />
   <WelcomeSection />
@@ -75,7 +72,10 @@ export const Home = () => <div className="home-container">
       <AboutUsTitle />
       <AboutUsContent />
     </AboutUs>
-    <UpcomingEvents />
+    <UpcomingEvents>
+      <UpcomingEventsTitle />
+      <UpcomingEventsBody />
+    </UpcomingEvents>
   </HomeAbout>
 {/*
   <MobileTitleImage />      
