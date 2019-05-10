@@ -13,13 +13,16 @@
   grid-area: links;
   display:flex;
   justify-content: center;  
+  align-items: center;
+  color:black;
 }
 #footer-copyright{
   grid-area: copyright;
   background-color: black;
   color:white;
   display:flex;
-  justify-content: center;
+  flex-direction: row-reverse;
+  padding-right: 20px;
 }
 
 .footer-link{
@@ -27,4 +30,6 @@
   /* color: var(--logo-text-color); */
   color: rgba(0, 0, 0, 0.54);
   padding:10px;
+  display:flex;
+  align-items: center;
 }
