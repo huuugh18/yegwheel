@@ -11,6 +11,7 @@ import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import LearnHowTo from './learnTo/LearnTo'
 import Shop from './shop/Shop'
+import Calendar from './calendar/Calendar'
 //import {renewSessionThunk} from './Auth/auth'
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path='/shop'         render={props=><Shop       {...props}/>} />
           <Route exact path='/callback'     render={props=><Callback />} />
           <Route exact path='/cart'         render={props=><Cart       {...props}/>} />
+          <Route exact path='/calendar'     render={props=><Calendar   {...props}/>} />
           <Route       path='/checkout'     render={()=><Checkout/>} />
         </div>
         <Footer />

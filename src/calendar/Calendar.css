@@ -1,0 +1,13 @@
+.redborder {
+  border: red 10px solid;
+}
+
+
+.borxx {
+  border: beige 0px solid;
+  display:flex;
+  width:100%;
+  height: 500px;
+  justify-content: space-around;
+  padding: 20px 0px;
+}
