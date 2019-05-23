@@ -4,23 +4,33 @@ import logo from '../graphics/yegwheel_logo.svg'
 import AuthButton from './AuthButton'
 import './Navbar.css'
 
+const Nav1 = (props) => <NavLink className="nav-link" activeClassName="nav-link-active" {...props}>{props.children}</NavLink>
+const HomeLink =     () => <Nav1 to='/' exact>Home</Nav1>
+const LearnLink =    () => <Nav1 to='/learntowheel'>Learn</Nav1>
+const CalendarLink = () => <Nav1 to='/calendar'>Calendar</Nav1>
+const ShopLink =     () => <Nav1 to='/shop'>Shop</Nav1>
+const CartLink =     () => <Nav1 to='/cart'>Cart</Nav1>
+
+const NavLinkContainer = ({children}) => <div id="nav-link-container">{children}</div>
+const Title = () => <div id="nav-title">yegwheel</div>
+const NavLogo = () => <img src={logo} id="nav-logo" alt="logo" />
+const NavbarContainer = ({children}) => <div className="navbar-container">{children}</div>
+
 class Navbar extends Component {
   render(){
     return (
-      <div className="navbar-container">
-        <img src={logo} id="nav-logo" alt="logo" />
-        {/* <img src={logoText} id="nav-title" alt="yegwheel"/> */}
-        <div id="nav-title">yegwheel</div>
-        <div id="nav-link-container">
-          <NavLink to='/' exact className="nav-link" activeClassName="nav-link-active">Home</NavLink>
-          <NavLink to='/learntowheel' className="nav-link" activeClassName="nav-link-active">Learn</NavLink>
-          <NavLink to='/calendar' className="nav-link" activeClassName="nav-link-active">Calendar</NavLink>
-          <NavLink to='/shop' className="nav-link" activeClassName="nav-link-active">Shop</NavLink>
-          <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">Forum</a>
-          <NavLink to='/cart' className="nav-link" activeClassName="nav-link-active">Cart</NavLink>
+      <NavbarContainer>
+        <NavLogo />
+        <Title />
+        <NavLinkContainer>
+          <HomeLink />
+          <LearnLink />
+          <CalendarLink />
+          <ShopLink />          
+          <CartLink />          
           <AuthButton />
-        </div>
-      </div>
+        </NavLinkContainer>
+      </NavbarContainer>
     )
   }
 }

@@ -8,6 +8,7 @@
       "learn learn learn"
       ". purchaseTitle ."
       "purchase purchase purchase"
+      "events events events"
       "about about about";
   background-color: var(--theme-bg-color);
 }
@@ -16,7 +17,6 @@
   0% {opacity: 0; }
   100% {opacity: 1;}
 }
-
 
 .fade-in {
   animation: fadeIn ease 5s;
@@ -106,27 +106,24 @@
     align-self: center;
 }
 
-#home-about-container{
+#events-container{
+  grid-area: events;
+  background-color: var(--theme-bg-color);
+  align-self: center;   
+  display: grid;
+  padding: 150px;
+  background-color: #efefef;
+}
+
+#aboutus-container {
   grid-area: about;
   background-color: var(--theme-bg-color);
   justify-self: center;
   align-self: center;   
   display: grid;
-  padding-top: 150px;
+  padding: 150px;
 }
 
-
-#home-about-us{
-    grid-area: aboutMain;
-}
-
-#home-schedule{
-    grid-area: aboutSchedule;
-}
-
-.home-about-container{
-    padding: 25px;
-}
 .home-dialog-form-field{
     margin: 5px !important;
     width: 50%;

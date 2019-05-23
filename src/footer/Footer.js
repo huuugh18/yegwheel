@@ -38,6 +38,7 @@ const Address = () => <div className='bonka'>
   <div>Edmonton, Alberta T5J 3S9</div>
 </div>
 
+const ForumLink =    () => <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">Discussion</a>
 
 export class Footer extends Component {
   render(){
@@ -48,6 +49,7 @@ export class Footer extends Component {
           Follow Us: 
           <FacebookLink />
           <YoutubeLink />
+          <ForumLink />
         </FooterLinks>
         <CopyrightContainer><Copyright /></CopyrightContainer>
       </div>

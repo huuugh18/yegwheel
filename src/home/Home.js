@@ -17,18 +17,18 @@ const AboutUsTitle = () =>        <Subtitle id="home-about-main-header">About Us
 const UpcomingEventsTitle = () => <Subtitle id="home-about-schedule-header" >Upcoming Events</Subtitle>
 
 const AboutUsContent = () => <SubContent id='home-about-us-content'>
-  We're all about Electric Unicyling in Edmonton. <br/>
-  We meet once a week or two to chat about things and work on skills.<br/>
-  We do demos for anyone new who is interested in learning and usually finish up with a short trip somewhere around the city on our wheels.<br/>
-  Check out some of our trips below.
+  We've been riding Electric Unicycles since 2017, and between us we have more than 11,000 kms of wheel time over a great variety of wheels.<br/>
+  We love this way of getting around, and we're pretty sure you'll love it too.<br/>
+  You can buy a wheel online if you like, that's where most of us picked up our wheels.
+  If you want to buy locally, well we can help with that as well.<br />
+  No matter how you get out there, we look forward to seeing you out on the paths of Edmonton!<br />
 </SubContent>
 
 
 const UpcomingEventsBody = () => <SubContent id='home-schedule-content'>
   Sunday Morning Meetup at Ritchie Arena.<br/>
-  Introduction for new users.<br/>
-  Practice and skill development for current users.<br/>
-  10:45 Departure for road trip around city<br/>
+  11a Demos and Test Rides, Practice time<br/>
+  12p Departure for road trip around city<br/>
   <a href="https://goo.gl/maps/4xBd2gERt8P2" target="_blank" rel="noopener noreferrer">7727 98 St NW, Edmonton, AB T6E 5C9</a>
 </SubContent>
 
@@ -58,25 +58,23 @@ const TitleArea = () => <div className='feature'>
 </div>
 
 
-const HomeAbout = ({children}) => <div id="home-about-container">{children}</div>
-const AboutUs        = ({children}) => <div id="home-about-us">{children}</div>
-const UpcomingEvents = ({children}) => <div id="home-schedule">{children}</div>
+
+const AboutUsContainer = ({children}) => <div id="aboutus-container">{children}</div>
+const EventsContainer = ({children}) => <div id="events-container">{children}</div>
 
 export const Home = () => <div className="home-container">
   <TitleArea />
   <WelcomeSection />
   <LearnTitle />
   <LearnItems />
-  <HomeAbout>
-    <AboutUs>
-      <AboutUsTitle />
-      <AboutUsContent />
-    </AboutUs>
-    <UpcomingEvents>
-      <UpcomingEventsTitle />
-      <UpcomingEventsBody />
-    </UpcomingEvents>
-  </HomeAbout>
+  <EventsContainer>
+    <UpcomingEventsTitle />
+    <UpcomingEventsBody />
+  </EventsContainer>
+  <AboutUsContainer>
+    <AboutUsTitle />
+    <AboutUsContent />
+  </AboutUsContainer>
 {/*
   <MobileTitleImage />      
 */}
