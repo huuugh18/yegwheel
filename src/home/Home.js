@@ -3,7 +3,8 @@ import Typography from '@material-ui/core/Typography'
 import './Home.css'
 import './DisplayCard.css'
 //import largeBanner from '../graphics/Montage.png'
-import largeBanner from '../graphics/feature/Walterdale1400x665.jpg'
+//import largeBanner from '../graphics/feature/Walterdale1400x665.jpg'
+import largeBanner from '../graphics/training/AdamRamp.png'
 //import mobileBanner from '../graphics/IntoTheLight01.jpg'
 import LearnCard from './LearnCard'
 import WelcomeSection from './welcome/WelcomeSection'
@@ -56,8 +57,6 @@ const TitleArea = () => <div className='feature'>
   <Sometext />
   <LargeTitleImage />
 </div>
-
-
 
 const AboutUsContainer = ({children}) => <div id="aboutus-container">{children}</div>
 const EventsContainer = ({children}) => <div id="events-container">{children}</div>

@@ -4,39 +4,69 @@ import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import './Calendar.css'
 
+const WithDuration = (start, title, desc, minutes) => toEvent(title, start, moment(start).add(minutes,'minutes'), desc )
+
+const NinetyMinutes = (title, start, desc) => WithDuration(title, start,  90, desc)
+const ThreeHours    = (title, start, desc) => WithDuration(title, start, 180, desc)
+
+const T11AM = (date) => moment(date).add(11, 'hours')
+const TwoHours = (start) => ({start:moment(start), end:moment(start).add(2,'hours')})
+
 const localizer = BigCalendar.momentLocalizer(moment) // or globalizeLocalizer
 
-// var myEventsList = [ {
-//   title: 'Demo',
-//   start: '2019-05-12 11:00',
-//   end: '2019-05-12 12:00',
-//   // allDay?: boolean
-//   // resource?: any,
-// }]
+const toEvent = (title, start, end, desc) => ({title, start, end, desc})
+const toOnehourEvent = (title, start, desc) => toEvent(title, start, )
 
 
 const ToEvent = (title, date) => {
-  var start = moment(`${date}T11:01`)
-  var end = moment(`${date}T14:02`)
-  return {
-    title: title,
-    start: start,
-    end:  end,
-    desc: 'Wheel demonstrations and test rides'
-  }
+  const {start, end} = TwoHours(T11AM(date))
+  const desc = ""
+  return toEvent(title, start, end, desc)
 }
 
+
+const ToWeekendEvent = (title, desc, date) => {
+  var start = moment(`${date}`)
+  var end = moment(start).add(2, "days")
+  return {title, start, end, desc, allDay:true }
+}
+
+const demoday = (date) => {
+  let tod = moment(date+'T11:00')
+  let tod1 = moment(date+'T12:30')
+  const result = [
+    NinetyMinutes(tod, 'Demo Session','Demonstrations, test rides, training'),
+    ThreeHours(tod1, 'Group ride','Ride out into the city, river valley etc.')
+  ]  
+  console.log(result)
+  return result
+}
+
+const e23 = ToEvent('Demo Day #23','2019-05-19')
+console.log(e23)
+
+
 var myEventsList = [
-  ToEvent('Demo Day #20','2019-03-28'),
-  ToEvent('Demo Day #21','2019-05-05'),
-  ToEvent('Demo Day #22','2019-05-12'),
-  ToEvent('Demo Day #23','2019-05-19'),
-  ToEvent('Demo Day #24','2019-05-26'),
-  ToEvent('Demo Day #25','2019-06-02'),
-  ToEvent('Demo Day #26','2019-06-09'),
-  ToEvent('Demo Day #27','2019-06-16'),
-  ToEvent('Demo Day #28','2019-06-23'),
+  ...demoday('2019-05-05'),
+  ...demoday('2019-05-12'),
+  ...demoday('2019-05-19'),
+  ...demoday('2019-05-26'),
+  ...demoday('2019-06-02'),
+  ...demoday('2019-06-09'),
+  ...demoday('2019-06-16'),
+  ToWeekendEvent('Drumheller Field Trip', 'Day trip to Drumheller to run the 48km Dinosaur soop' ,'2019-06-22'),
+  ...demoday('2019-06-30'),
+  ...demoday('2019-07-07'),
+  ...demoday('2019-07-14'),
+  ...demoday('2019-07-21'),
+  ...demoday('2019-07-28'),
+  ...demoday('2019-08-04'),
+  ...demoday('2019-08-11'),
+  ...demoday('2019-08-18'),
+  ...demoday('2019-08-25')
 ]
+
+console.log(myEventsList)
 
 const PageComponent = () => {
   const [asof, setAsof] = useState(new Date())
