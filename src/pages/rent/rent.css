@@ -1,0 +1,40 @@
+#rental-container {
+  color:black;
+}
+
+#bukza {
+  /* Container....*/
+  border:beige 0px solid;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:50px;
+}
+#bukyx {
+  font-size: 3vw;
+  margin-bottom: 1.5vw;
+}
+
+#bukyz {
+  margin: 20px;
+}
+
+#bukzh {
+  /* We can help! */
+  background-color: white;
+  font-size: 2vw;
+  margin-bottom: 1.5vw;
+}
+
+#bukzi {
+  background-color:white;  
+  margin-bottom: 3vh;
+}
+
+#bulaq {
+  font-size: 1.25vw;
+}
+
+li {
+  color:purple;
+}

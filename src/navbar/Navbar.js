@@ -8,6 +8,7 @@ const Nav1 = (props) => <NavLink className="nav-link" activeClassName="nav-link-
 const HomeLink =     () => <Nav1 to='/' exact>Home</Nav1>
 const LearnLink =    () => <Nav1 to='/learntowheel'>Learn</Nav1>
 const CalendarLink = () => <Nav1 to='/calendar'>Calendar</Nav1>
+const RentalLink =   () => <Nav1 to='/rent'>Rentals</Nav1>
 const ShopLink =     () => <Nav1 to='/shop'>Shop</Nav1>
 const CartLink =     () => <Nav1 to='/cart'>Cart</Nav1>
 
@@ -27,6 +28,7 @@ class Navbar extends Component {
           <LearnLink />
           <CalendarLink />
           <ShopLink />          
+          <RentalLink />
           <CartLink />          
           <AuthButton />
         </NavLinkContainer>

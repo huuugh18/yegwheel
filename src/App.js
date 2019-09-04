@@ -7,6 +7,7 @@ import Navbar from './navbar/Navbar'
 import {Footer} from './footer/Footer'
 import {Home} from './home/Home'
 import Cart from './cart/Cart'
+import Rent from './pages/rent/rent'
 import Callback from './Callback'
 import Checkout from './checkout/Checkout'
 import LearnHowTo from './learnTo/LearnTo'
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path='/learntowheel' render={props=><LearnHowTo {...props}/>} />
           <Route exact path='/shop'         render={props=><Shop       {...props}/>} />
           <Route exact path='/callback'     render={props=><Callback />} />
+          <Route exact path='/rent'         render={props=><Rent       {...props}/>} />
           <Route exact path='/cart'         render={props=><Cart       {...props}/>} />
           <Route exact path='/calendar'     render={props=><Calendar   {...props}/>} />
           <Route       path='/checkout'     render={()=><Checkout/>} />
