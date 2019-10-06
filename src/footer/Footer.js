@@ -36,6 +36,8 @@ const Address = () => <div className='bonka'>
   <div className='bonkb'> Yegwheel Electric Unicycles</div>
   <div>Suite 1457, 10665 Jasper Avenue</div>
   <div>Edmonton, Alberta T5J 3S9</div>
+  <div>Email: <a href='mailto:info@yegwheel.net'>info@yegwheel.net</a></div>
+  <div>Phone: 780-328-3867</div>
 </div>
 
 const ForumLink =    () => <a href="https://forum.yegwheel.com/" className="nav-link" target="_blank" rel="noopener noreferrer">Discussion</a>
